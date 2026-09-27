@@ -1,0 +1,7 @@
+import {catalogFrom,parseStatus} from './domain.mjs';
+const input=document.querySelector('#status-input'),result=document.querySelector('#check-result');let catalog;
+function message(text){result.textContent=text;}
+function check(){if(!catalog)return;const state=parseStatus(input.value,catalog);result.replaceChildren();const title=document.createElement('h2');title.textContent=state.errors.length?'수정이 필요합니다':'형식 검사 정상';result.append(title);for(const error of state.errors){const p=document.createElement('p');p.className='warning';p.textContent=`${error.line?`${error.line}행`:'기준 시각'}: ${error.message}`;result.append(p);}if(!state.errors.length){const p=document.createElement('p');p.textContent=`기준 시각: ${state.asOf.replace('T',' ').replace(':00+09:00','')} (한국시간). 파일을 GitHub에 저장한 뒤 배포 완료와 선생님 화면을 확인하세요.`;result.append(p);}}
+async function load(){try{const response=await fetch(`./status.txt?_=${Date.now()}-${Math.random()}`,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!response.ok)throw Error();input.value=await response.text();check();}catch{message('게시된 상태 파일을 불러오지 못했습니다. 직접 붙여 넣어 검사할 수 있습니다.');}}
+document.querySelector('#check').addEventListener('click',check);document.querySelector('#load').addEventListener('click',load);
+try{const response=await fetch('./data/national-youth-facilities-2027.json');if(!response.ok)throw Error();catalog=catalogFrom(await response.json());await load();}catch{message('기본 일정 파일을 읽지 못했습니다. data 폴더 업로드 여부를 확인하세요.');}
