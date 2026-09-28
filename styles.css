@@ -1,6 +1,6 @@
 /* Original Youth TTF is hosted locally and kept unmodified. */
 @font-face{font-family:"Youth";src:url("./assets/fonts/Youth.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
-:root{color-scheme:light;--ink:#262629;--muted:#62626B;--action:#29292D;--line:#DFDFE5;--paper:#F4F4F5;--white:#FFFFFF;--brand:#ED174F;font-family:"Youth","Malgun Gothic","Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;color:var(--ink);background:var(--paper)}
+:root{color-scheme:light;--ink:#262629;--muted:#62626B;--action:#29292D;--line:#DFDFE5;--paper:#F4F4F5;--white:#FFFFFF;--brand:#ED174F;--brand-ink:#B70B39;font-family:"Youth","Malgun Gothic","Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;color:var(--ink);background:var(--paper)}
 *{box-sizing:border-box}
 body{margin:0}
 button,input,select,textarea{font:inherit}
@@ -36,7 +36,7 @@ img{max-width:100%}
 .brand-service{min-width:0;text-align:right;font-size:17px;line-height:1.6;font-weight:700}
 .brand-service b{color:#B70B39}
 .brand-service small{display:block;margin-top:4px;color:var(--muted);font-size:12px;font-weight:400}
-.intro{display:grid;grid-template-columns:minmax(0,1fr) 240px;align-items:center;gap:34px;padding:20px 6px 30px}
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,440px);align-items:center;gap:34px;padding:20px 6px 30px}
 .intro-copy{min-width:0;max-width:780px}
 .intro .eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--ink);margin-bottom:15px}
 .intro .eyebrow::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--brand)}
@@ -44,8 +44,19 @@ img{max-width:100%}
 .mobile-break{display:none}
 .recruitment-period{font-size:13px;color:#54545D;margin:0}
 .recruitment-period span{display:inline-block;color:var(--ink);padding-right:9px;font-weight:700}
-.intro-art{margin:0;display:flex;align-items:center;justify-content:center;background:#FFFFFF;border:1px solid #E9E9ED;border-radius:24px;padding:20px}
-.intro-art img{display:block;width:215px;height:auto;max-height:215px;object-fit:contain}
+.purpose-panel{padding:23px 25px 17px;background:#FFFFFF;border:1px solid #D8D8E0;border-top:4px solid var(--brand);border-radius:18px;box-shadow:0 6px 22px #18181B04;min-width:0}
+.purpose-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:15px}
+.purpose-top h2{display:flex;align-items:center;gap:7px;margin:0;color:#B70B39;font-size:15px;letter-spacing:0}
+.purpose-top>span{padding:4px 8px;border-radius:5px;background:#F2F2F5;color:var(--muted);font-size:11px;white-space:nowrap}
+.purpose-description{font-size:17px;line-height:1.75;margin:0 0 13px;word-break:keep-all;overflow-wrap:break-word}
+.purpose-description strong{font-weight:700}
+.purpose-callout{margin:0;font-size:19px;line-height:1.8;word-break:keep-all;overflow-wrap:break-word}
+.purpose-callout strong{color:#B70B39;font-weight:700}
+.purpose-mobile-break{display:none}
+.purpose-bottom{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:15px;padding-top:12px;border-top:1px solid #E8E8ED}
+.purpose-bottom p{font-size:12px;color:var(--muted);line-height:1.7;margin:0}
+.intro-art{margin:0;display:flex;align-items:center;justify-content:center;flex:none;width:98px;padding:0}
+.intro-art img{display:block;width:90px;height:60px;object-fit:contain}
 .update-panel{padding:22px 24px;background:#FFFFFF;border:1px solid var(--line);border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 4px 20px #18181B03}
 .update-panel>div{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .update-label{padding:6px 9px;background:#F1F1F4;border-radius:6px;color:#5A5A63;font-size:12px}
@@ -54,10 +65,18 @@ img{max-width:100%}
 .text-button{background:transparent;font-size:13px;min-height:38px;padding:7px 10px;border-color:#D4D4DB}
 .phone-notice{width:100%;margin:0;padding-top:15px;border-top:1px solid #E8E8ED;font-weight:700;font-size:15px;line-height:1.75}
 .phone-notice span{display:block;color:var(--muted);font-weight:400;font-size:13px;margin-top:5px}
-.tabs{display:flex;border-bottom:1px solid #DCDCE3;gap:32px;margin:27px 0 28px}
-.tabs button{border:0;border-radius:0;background:transparent;padding:17px 2px;color:var(--muted);font-size:17px;border-bottom:3px solid transparent}
-.tabs button:hover:not(:disabled){background:transparent;color:var(--ink);border-color:transparent}
-.tabs button[aria-current],.tabs button[aria-current]:hover:not(:disabled){border-bottom-color:var(--ink);color:var(--ink)}
+/* Navigation uses one agency accent; facility colors belong to schedule content. */
+.tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:27px 0 28px;padding:6px;border:1px solid #DEDEE3;border-radius:16px;background:#EDEDEF}
+.tabs button{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;min-width:0;min-height:64px;padding:14px 16px;border:1px solid transparent;border-radius:11px;background:transparent;color:var(--muted);font-size:17px;box-shadow:none}
+.tabs button::after{content:'';position:absolute;bottom:0;left:calc(50% - 16px);width:32px;height:3px;border-radius:3px 3px 0 0;background:transparent}
+.tabs button:hover:not(:disabled){background:#F8F8FA;border-color:transparent;color:var(--ink)}
+.tabs button[aria-current],.tabs button[aria-current]:hover:not(:disabled){background:var(--white);border-color:#DCDCE1;color:var(--brand-ink);box-shadow:0 2px 5px #18181B08}
+.tabs button[aria-current]::after{background:var(--brand)}
+.tabs button[aria-current] .tab-name .icon{color:var(--brand)}
+.tabs button:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.tab-name{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:0}
+.tab-state{visibility:hidden;flex:none;font-size:11px;font-weight:400;color:var(--brand-ink);padding:3px 0;line-height:1.6;white-space:nowrap}
+.tabs button[aria-current] .tab-state{visibility:visible}
 
 /* Date cells keep seven solid tracks in fixed positions; no labels, patterns or pictograms. */
 .finder{padding:24px;background:#FFFFFF;border:1px solid var(--line);border-radius:18px;margin-bottom:28px}
@@ -115,6 +134,22 @@ textarea{resize:vertical;line-height:1.8}
 /* Same color footprint for every facility; darker same-hue inks protect readable text. */
 .slot-card{background:#FFFFFF;border:1px solid var(--line);border-left:4px solid var(--facility);border-radius:16px;padding:22px;box-shadow:0 4px 18px #18181B03}
 .card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:17px}
+.card-identity{display:flex;align-items:center;gap:9px;min-width:0;flex-wrap:wrap}
+.favorite-marker{display:inline-flex;align-items:center;gap:6px;flex:none;color:#C51C46;line-height:1.5;vertical-align:middle}
+.favorite-marker .icon{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2}
+.favorite-marker.is-saved .icon{fill:currentColor;stroke:currentColor}
+.save-heart{display:inline-flex;align-items:center;justify-content:center;color:#C51C46}
+.save-heart .icon{fill:none;stroke:currentColor;stroke-width:2}
+.save-heart.is-saved .icon,#save-slot.is-saved .save-heart .icon{fill:currentColor}
+.favorite-label{font-size:12px;font-weight:400;color:#A31337}
+.dialog-header .favorite-marker{margin-bottom:8px}
+.save-guidance,.save-feedback,.day-visit-note{font-size:13px;line-height:1.85;word-break:keep-all;overflow-wrap:break-word}
+.save-guidance{padding:13px 15px;background:#FFF5F8;border:1px solid #EAC0D1;border-radius:9px;color:#713547;margin:16px 0 0}
+.save-feedback{padding:12px 15px;background:#FFF0F5;border-left:3px solid #C51C46;border-radius:6px;color:#9F1539;margin:12px 0 0}
+.save-feedback:empty{display:none}
+.saved-shortcut{display:inline-flex;align-items:center;justify-content:center;gap:7px;margin-top:12px;font-size:13px;border-color:#EAC0D1;color:#A31337;background:#FFFFFF}
+.saved-shortcut:hover:not(:disabled){border-color:#C51C46;background:#FFF0F5;color:#A31337}
+.day-visit-note{color:var(--muted);margin:12px 0 0}
 .facility-tag{font-size:14px;color:var(--ink);font-weight:700}
 .facility-tag::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--facility,var(--action));box-shadow:inset 0 0 0 1px #0003;margin-right:7px}
 .facility-tag span{font-weight:400;font-size:12px;margin-left:8px;color:var(--muted)}
@@ -261,6 +296,7 @@ dialog::backdrop{background:#18181B66;backdrop-filter:blur(3px)}
 .dialog-body{padding:28px}
 .dialog-body>h3{font-size:25px;margin:16px 0 14px}
 .dialog-body>p{font-size:15px}
+.dialog-body>.save-guidance,.dialog-body>.save-feedback{font-size:13px}
 .dialog-body .period-label{font-size:13px;margin-top:0}
 .dialog-body>.period-label+h3{margin-top:6px}
 .dialog-actions{display:flex;gap:12px;align-items:stretch;margin-top:24px}
@@ -282,7 +318,7 @@ dialog::backdrop{background:#18181B66;backdrop-filter:blur(3px)}
 /* Shared line icons are intentionally absent from calendar cells. */
 .icon{display:inline-block;width:20px;height:20px;flex:none;vertical-align:middle;pointer-events:none}
 [data-icon]{display:inline-flex;align-items:center;justify-content:center;flex:none}
-.with-icon,.tabs button{display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.with-icon{display:inline-flex;align-items:center;justify-content:center;gap:8px}
 .heading-with-icon{display:flex;align-items:center;gap:10px}
 .heading-with-icon>span:last-child{min-width:0}
 .heading-with-icon>.icon{width:24px;height:24px}
@@ -294,19 +330,20 @@ dialog::backdrop{background:#18181B66;backdrop-filter:blur(3px)}
 .empty>span .icon{width:34px;height:34px}
 
 @media(max-width:1050px){
-.shell{padding:28px 24px}.header-inner{padding:18px 24px}.intro{grid-template-columns:minmax(0,1fr) 190px;gap:25px}.intro-art{padding:16px}.intro-art img{width:164px}
+.shell{padding:28px 24px}.header-inner{padding:18px 24px}.intro{grid-template-columns:minmax(0,1fr) minmax(320px,380px);gap:25px}.purpose-panel{padding:21px 22px 16px}.purpose-description{font-size:16px}.purpose-callout{font-size:18px}.tabs button{gap:8px;padding:14px 12px;font-size:16px}
 .schedule-layout{gap:18px;grid-template-columns:minmax(0,1.4fr) minmax(290px,1fr)}.calendar-panel{padding:22px 16px}.month-controls{gap:4px}.month-controls select{width:134px;padding-left:8px}.month-controls button{padding:8px;min-width:34px}.calendar-title h2{font-size:30px}
 .compare-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{gap:13px}.mode-switch button{padding:10px 16px}
 .facility-hero{padding:29px 28px 23px;grid-template-columns:minmax(0,1fr) 210px;gap:24px}.facility-hero-art img{width:168px;height:180px}.program-layout{grid-template-columns:minmax(0,1fr) 248px;gap:22px}.program-accordion>summary{gap:13px;padding:21px 19px}.program-guide{padding:22px}.program-list-heading p{width:100%}
 }
 @media(min-width:760px) and (max-width:920px){
+.intro{grid-template-columns:minmax(0,1fr) minmax(290px,340px);gap:20px}.intro h1{font-size:30px}.purpose-panel{padding:20px 18px 15px}.purpose-callout{font-size:17px}.tabs button{gap:6px;padding:14px 9px;font-size:15px}.tab-name{gap:6px}.tab-state{font-size:10px;padding:3px 0}
 .calendar-title{align-items:flex-start;flex-direction:column}.month-controls{width:100%}.month-controls select{flex:1}.program-layout{grid-template-columns:minmax(0,1fr)}.program-aside{display:grid;grid-template-columns:1fr 1fr;align-items:start}.timetable-group-list{grid-template-columns:minmax(0,1fr)}
 }
 @media(max-width:759px){
 .header-inner{padding:15px 20px;gap:10px;align-items:flex-start;flex-direction:column}.brand{padding:3px 0}.brand-logo{width:245px}.brand-service{font-size:15px;text-align:left}.brand-service small{font-size:12px;margin-top:3px}
-.shell{padding:22px 16px}.intro{position:relative;display:block;padding:13px 2px 26px}.intro h1{font-size:29px;line-height:1.45;margin-bottom:16px}.intro .eyebrow{font-size:12px;margin-bottom:14px}.intro-description{font-size:14px;padding-right:100px;min-height:50px;margin-bottom:14px}.mobile-break{display:block}.recruitment-period{font-size:12px;line-height:1.9}.intro-art{position:absolute;right:0;top:90px;width:88px;padding:9px;border-radius:15px}.intro-art img{width:68px;max-height:95px}
+.shell{padding:22px 16px}.intro{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;padding:13px 2px 26px}.intro h1{font-size:29px;line-height:1.45;margin-bottom:16px}.intro .eyebrow{font-size:12px;margin-bottom:14px}.intro-description{font-size:14px;margin-bottom:14px}.mobile-break{display:block}.recruitment-period{font-size:12px;line-height:1.9}.purpose-panel{padding:19px 19px 14px;border-radius:15px}.purpose-top{margin-bottom:13px}.purpose-top h2{font-size:14px}.purpose-description{font-size:16px;margin-bottom:11px}.purpose-callout{font-size:18px}.purpose-bottom{margin-top:12px;padding-top:9px}.intro-art{width:84px}.intro-art img{width:78px;height:52px}
 .update-panel{padding:19px 17px;gap:14px}.update-panel>div{gap:9px 11px}#asof{font-size:20px}#freshness{width:100%;line-height:1.75}.phone-notice{font-size:14px;padding-top:14px}.phone-notice span{font-size:12px}
-.tabs{gap:22px;margin:20px 0 24px}.tabs button{font-size:14px;padding:15px 0;white-space:nowrap;gap:6px}.tabs .icon{width:18px;height:18px}
+.tabs{gap:4px;padding:5px;margin:22px 0 26px;border-radius:14px}.tabs button{flex-direction:column;gap:5px;min-height:76px;font-size:14px;padding:12px 4px;white-space:nowrap;border-radius:9px}.tab-name{gap:5px}.tabs .icon{width:18px;height:18px}.tab-state{font-size:10px;padding:2px 0;line-height:1.5}
 .finder{padding:20px 17px;margin-bottom:22px}.section-kicker{font-size:17px;margin-bottom:17px}.mode-switch{display:flex;margin-bottom:22px}.mode-switch button{flex:1;font-size:13px;padding:10px 6px}.filters{grid-template-columns:1fr 1fr;gap:18px 12px}.filters select,.filters input,.section-heading select,.date-picker input{font-size:16px}.all-hint{font-size:14px;margin-bottom:3px}.filter-summary{font-size:13px;padding:13px}
 .schedule-layout{grid-template-columns:1fr;gap:26px}.calendar-panel{padding:22px 14px}.calendar-title{align-items:center}.calendar-title h2{font-size:30px}.calendar-title .eyebrow{font-size:12px}.month-controls{gap:4px}.month-controls select{width:144px;padding:10px 6px;font-size:13px}.month-controls button{padding:8px;min-width:34px}.month-message{font-size:12px}.legend{gap:4px 10px}.legend button{font-size:12px;min-height:34px}.day{min-height:104px}.day-heading{padding:5px 2px 11px}.day-list{display:grid;grid-template-columns:1fr}
 .slot-card{padding:21px}.card-actions{flex-direction:row}.card-actions>*{flex:1;min-width:0}.card-actions button{padding:11px 8px;gap:5px}.card-actions .phone{font-size:15px;padding:11px 8px}.card-actions .phone-label{display:none}.card-actions .icon{width:17px;height:17px}
@@ -321,13 +358,13 @@ dialog::backdrop{background:#18181B66;backdrop-filter:blur(3px)}
 .dialog-header{padding:18px}.dialog-header h2{font-size:20px}.dialog-quick-phone{font-size:13px}.dialog-body{padding:22px 18px}.dialog-body>h3{font-size:23px}.dialog-actions{flex-direction:column}.dialog-actions .phone{font-size:18px}.date-picker{padding:18px 13px}.heading-with-icon{gap:8px}.calendar-title h2>.icon{width:22px;height:22px}.facility-title>.icon{width:25px;height:25px}footer{margin-top:46px;font-size:12px}
 }
 @media(max-width:420px){
-.header-inner{padding:13px 16px;gap:9px}.brand-logo{width:240px}.brand-service{font-size:14px}.brand-service small{font-size:12px}.intro h1{font-size:28px}.intro-art{top:124px}
-.tabs{justify-content:space-between;gap:0}.tabs button{font-size:13px;gap:4px}.tabs .icon{width:16px;height:16px}.card-actions{flex-direction:column}.card-actions .phone{font-size:17px}.card-actions .phone-label{display:inline}
+.header-inner{padding:13px 16px;gap:9px}.brand-logo{width:240px}.brand-service{font-size:14px}.brand-service small{font-size:12px}.intro h1{font-size:28px}.purpose-panel{padding:18px 17px 13px}.purpose-callout{font-size:17px}
+.tabs{gap:3px}.tabs button{font-size:13px;gap:5px}.tab-name{flex-direction:column;gap:6px}.tabs .icon{width:18px;height:18px}.card-actions{flex-direction:column}.card-actions .phone{font-size:17px}.card-actions .phone-label{display:inline}
 .facility-hero{padding:22px 18px 19px;gap:20px 12px}.facility-logo-panel{padding:25px 14px}.facility-hero-description{font-size:17px}.facility-contact{padding:17px}.facility-contact .phone{font-size:16px}
 }
 @media(max-width:359px){
-.header-inner{padding:11px 14px;gap:9px}.brand-logo{width:230px}.brand-service{font-size:13px}.shell{padding:20px 13px}.intro h1{font-size:26px}.intro-description{font-size:13px;padding-right:0}.intro-art{display:none}.recruitment-period{max-width:262px}
-.tabs button{font-size:12px;gap:4px}.tabs .icon{width:15px;height:15px}.finder{padding:18px 14px}.mode-switch button{font-size:12px}.calendar-title{align-items:flex-start;flex-direction:column;gap:12px}.month-controls{align-self:stretch;justify-content:space-between}.month-controls select{flex:1}.calendar-panel{padding-left:10px;padding-right:10px}.day{padding-left:2px;padding-right:2px}.day.selected{padding-left:1px;padding-right:1px}
+.header-inner{padding:11px 14px;gap:9px}.brand-logo{width:230px}.brand-service{font-size:13px}.shell{padding:20px 13px}.intro h1{font-size:26px}.intro-description{font-size:13px}.recruitment-period{max-width:262px}.purpose-panel{padding:17px 15px 12px}.purpose-description{font-size:15px}.purpose-callout{font-size:16px}.purpose-mobile-break{display:block}
+.tabs button{font-size:12px;padding:12px 4px}.tabs .icon{width:17px;height:17px}.finder{padding:18px 14px}.mode-switch button{font-size:12px}.calendar-title{align-items:flex-start;flex-direction:column;gap:12px}.month-controls{align-self:stretch;justify-content:space-between}.month-controls select{flex:1}.calendar-panel{padding-left:10px;padding-right:10px}.day{padding-left:2px;padding-right:2px}.day.selected{padding-left:1px;padding-right:1px}
 .facility-hero{padding:21px 15px 18px;gap:20px 10px}.facility-logo-panel{padding:25px 12px}.facility-overline{gap:7px}.facility-contact .phone{font-size:15px;gap:5px}.program-page-heading h2{font-size:22px}.saved-card{padding:20px}.saved-card dl{grid-template-columns:77px 1fr}.timetable th,.timetable td{padding-left:5px;padding-right:5px}.timetable td:first-child{width:84px}.dialog-header .facility-title{font-size:18px}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
