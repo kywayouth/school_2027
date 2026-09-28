@@ -1,0 +1,470 @@
+{
+  "description": "Selected official KYWA assets, proportion/color/pose unchanged; source manuals excluded.",
+  "format": "lossless WebP on original white ground",
+  "assets": [
+    {
+      "file": "logos/agency.webp",
+      "source": "전사 CI 이미지 매뉴얼/1_한국청소년활동진흥원/한국청소년활동진흥원(CI).ai",
+      "source_sha256": "09e4d1caca0179182d7a6a941f9db055802a76077e35b3912e8265eb37a19ab4",
+      "page": 1,
+      "variant": "국문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        350,
+        475,
+        775,
+        559
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        78,
+        109,
+        1572,
+        240
+      ],
+      "white_padding_px": 29,
+      "width": 1258,
+      "height": 163,
+      "bytes": 28926,
+      "sha256": "49d1f92a52bb6c0343e24c4c56ceb95ef32d32665733111ef62637578a2c6f77"
+    },
+    {
+      "file": "logos/central.webp",
+      "source": "전사 CI 이미지 매뉴얼/2_중앙수련원/KYWA-중앙수련원.ai",
+      "source_sha256": "f8574e0c11a1d492c8d36807a8c32246ce7b1a9fe4c3570b5a7ed9b667873c9c",
+      "page": 1,
+      "variant": "시설명·영문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        230,
+        600,
+        600,
+        680
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        77,
+        81,
+        1370,
+        218
+      ],
+      "white_padding_px": 36,
+      "width": 1272,
+      "height": 199,
+      "bytes": 44374,
+      "sha256": "654b3a71091126d38e4b9ff3031305e95d0e15d8db585f614f521bcaeb7d0916"
+    },
+    {
+      "file": "logos/pyeongchang.webp",
+      "source": "전사 CI 이미지 매뉴얼/3_평창수련원/KYWA-평창수련원.ai",
+      "source_sha256": "9345339fe7b735c17549ea5a80f58cd0ae9fc8063c43b8b870de8fa089309910",
+      "page": 1,
+      "variant": "시설명·영문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        250,
+        600,
+        620,
+        680
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        82,
+        93,
+        1372,
+        233
+      ],
+      "white_padding_px": 36,
+      "width": 1272,
+      "height": 202,
+      "bytes": 45998,
+      "sha256": "eb1b78200952989115a65640813f29890667793689b0a1905c55eced37624068"
+    },
+    {
+      "file": "logos/space.webp",
+      "source": "전사 CI 이미지 매뉴얼/4_우주센터/KYWA-우주센터.ai",
+      "source_sha256": "b463e46e23ed4514fa6483b29973366d0642ebb2fcee63ef7422d5bbb9a6d5d3",
+      "page": 1,
+      "variant": "시설명·영문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        250,
+        585,
+        600,
+        660
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        100,
+        77,
+        1298,
+        220
+      ],
+      "white_padding_px": 40,
+      "width": 1278,
+      "height": 223,
+      "bytes": 9858,
+      "sha256": "d4c11a6bf610c912b57418860e07c2bc2eb387f828e5486ecb5591687ab1050e"
+    },
+    {
+      "file": "logos/bio.webp",
+      "source": "전사 CI 이미지 매뉴얼/9_국립청소년바이오생명센터/KYWA-국립청소년바이오생명센터.ai",
+      "source_sha256": "deadccf2e02b8f1bdea7427603c5d7a832508ea76607a7b74075a897fedd4fea",
+      "page": 1,
+      "variant": "시설명·영문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        195,
+        475,
+        600,
+        548
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        74,
+        70,
+        1506,
+        209
+      ],
+      "white_padding_px": 32,
+      "width": 1264,
+      "height": 180,
+      "bytes": 39280,
+      "sha256": "b1c64cc1329cfcdb4cd79ad17f2d509888c39dbc5797b8a4761d0e6ffaa9fdbb"
+    },
+    {
+      "file": "logos/marine.webp",
+      "source": "전사 CI 이미지 매뉴얼/6_해양센터/KYWA-해양센터.ai",
+      "source_sha256": "9d3b3112df7d394da16a95d45e4501c9d3c11854ae234aeac9287c3020d01a27",
+      "page": 1,
+      "variant": "시설명·영문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        250,
+        610,
+        600,
+        690
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        97,
+        85,
+        1307,
+        220
+      ],
+      "white_padding_px": 38,
+      "width": 1276,
+      "height": 210,
+      "bytes": 44218,
+      "sha256": "81a9ec96e643e131f5f37fa2b927328b005e8afd9b3a1ca799ae0aa9b0c0863b"
+    },
+    {
+      "file": "logos/future.webp",
+      "source": "전사 CI 이미지 매뉴얼/7_미래환경센터/KYWA-미래환경센터.ai",
+      "source_sha256": "a257bc08d35970cb1e56cfd491b2e92030120cc835b3f611910d32da7e300055",
+      "page": 1,
+      "variant": "시설명·영문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        245,
+        630,
+        635,
+        710
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        85,
+        102,
+        1442,
+        234
+      ],
+      "white_padding_px": 33,
+      "width": 1266,
+      "height": 183,
+      "bytes": 42378,
+      "sha256": "2a9e4be2cc83fbb1980061e00dcee21aa6afd13cf7d45b5cf10a7bb6572e2d6e"
+    },
+    {
+      "file": "logos/ecology.webp",
+      "source": "전사 CI 이미지 매뉴얼/8_생태센터/KYWA-생태센터.ai",
+      "source_sha256": "789af36d128d84542fe136bfb2af70dd5342d8f543289e20d06166d974c11366",
+      "page": 1,
+      "variant": "시설명·영문 가로형",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        245,
+        550,
+        595,
+        630
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        90,
+        89,
+        1301,
+        234
+      ],
+      "white_padding_px": 40,
+      "width": 1280,
+      "height": 224,
+      "bytes": 43956,
+      "sha256": "d0f8ef6c5908a1091611ff9dbe1ecd5a6d8d08cce8b10114289f83cf0f5033fe"
+    },
+    {
+      "file": "characters/hero.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 3,
+      "variant": "기본형 2인",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        175,
+        445,
+        690,
+        802
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        81,
+        95,
+        1977,
+        1344
+      ],
+      "white_padding_px": 24,
+      "width": 768,
+      "height": 522,
+      "bytes": 88444,
+      "sha256": "ea1a44de602a60d1c37280435200a30b372ec18583e15ef60e179a50c3bf376b"
+    },
+    {
+      "file": "characters/central.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 8,
+      "variant": "모둠북",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        118,
+        285,
+        375,
+        480
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        35,
+        77,
+        959,
+        738
+      ],
+      "white_padding_px": 23,
+      "width": 686,
+      "height": 504,
+      "bytes": 102938,
+      "sha256": "5d78fea61364f35553bb4c717d84679e5883c46987bc069763e8d8c4371ac643"
+    },
+    {
+      "file": "characters/pyeongchang.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 9,
+      "variant": "짚라인",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        118,
+        265,
+        417,
+        499
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        0,
+        44,
+        1052,
+        892
+      ],
+      "white_padding_px": 26,
+      "width": 692,
+      "height": 568,
+      "bytes": 94026,
+      "sha256": "64fbe1f54bcb130da3bcfbbb98884d1462ddea68a7a750829d58ccab49768678"
+    },
+    {
+      "file": "characters/space.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 10,
+      "variant": "로켓",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        150,
+        253,
+        352,
+        499
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        64,
+        41,
+        687,
+        935
+      ],
+      "white_padding_px": 45,
+      "width": 713,
+      "height": 984,
+      "bytes": 35174,
+      "sha256": "15e12b52b4e7bf37a05ba7e681a23d60ac53b16b87ca855e06308598f1e61f8d"
+    },
+    {
+      "file": "characters/bio.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 10,
+      "variant": "현미경관찰",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        440,
+        564,
+        718,
+        778
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        78,
+        62,
+        1029,
+        782
+      ],
+      "white_padding_px": 24,
+      "width": 688,
+      "height": 533,
+      "bytes": 67208,
+      "sha256": "e97840eeaa27d4b4b8386fb7a3546b6164acc4b12a833a6ece22e68570232b04"
+    },
+    {
+      "file": "characters/marine.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 11,
+      "variant": "항해",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        108,
+        278,
+        396,
+        492
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        75,
+        130,
+        1053,
+        856
+      ],
+      "white_padding_px": 24,
+      "width": 688,
+      "height": 523,
+      "bytes": 103638,
+      "sha256": "cf4bb5d41bbaa31f10abe9c4cf52335f0acecb02e8a7d4acd2c631ca756874da"
+    },
+    {
+      "file": "characters/future.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 11,
+      "variant": "지구사랑",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        115,
+        890,
+        389,
+        1106
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        84,
+        92,
+        999,
+        810
+      ],
+      "white_padding_px": 25,
+      "width": 690,
+      "height": 552,
+      "bytes": 70314,
+      "sha256": "35269639b5013dca2eb9dca033118bda5fda03bdf89269cda768d8f92c6246aa"
+    },
+    {
+      "file": "characters/ecology.webp",
+      "source": "2024 KYWA CI 캐릭터 가이드라인/2024 KYWA 캐릭터 메뉴얼 가이드라인.ai",
+      "source_sha256": "1d3bb499e13c8735510a5462a165f849acb21b92bf8eda171bea17d800e221c0",
+      "page": 12,
+      "variant": "을숙도철새",
+      "inspection_reference_size": [
+        849,
+        1200
+      ],
+      "inspection_crop_xyxy": [
+        438,
+        563,
+        732,
+        793
+      ],
+      "source_render_long_edge_px": 4800,
+      "trimmed_ink_box_in_crop": [
+        26,
+        0,
+        1104,
+        837
+      ],
+      "white_padding_px": 25,
+      "width": 690,
+      "height": 547,
+      "bytes": 118528,
+      "sha256": "63b7d78923d3b24ebc58aa85316fc1d193e16b6a7e2701e0c8922e273ad80198"
+    }
+  ]
+}

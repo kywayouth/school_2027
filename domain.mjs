@@ -1,14 +1,15 @@
 // Shared, browser-independent interpretation of the immutable source and daily status.
 export const FACILITY_STYLE = {
-  // Facility-inspired hues. Fixed track positions and names supplement color.
-  // Base colors identify facilities; darker ink and pale surfaces keep text readable.
-  central:{prefix:'C',short:'중앙',color:'#D64751',ink:'#A52D38',tint:'#FDF3F4',soft:'#FAE5E7',border:'#EAC0C5'},
-  pyeongchang:{prefix:'P',short:'평창',color:'#2E7D32',ink:'#256529',tint:'#F2F8F2',soft:'#E5F1E5',border:'#BDDBBF'},
-  space:{prefix:'S',short:'우주',color:'#7B4CC0',ink:'#63369F',tint:'#F7F3FC',soft:'#EEE5F8',border:'#D5C2EA'},
-  bio:{prefix:'B',short:'바이오생명',color:'#D4B000',ink:'#755D00',tint:'#FDF9E9',soft:'#F8EFC7',border:'#E4D386'},
-  marine:{prefix:'M',short:'해양',color:'#1476C8',ink:'#105C9B',tint:'#F0F7FD',soft:'#E1EFFB',border:'#B9D7F0'},
-  future:{prefix:'F',short:'미래환경',color:'#009688',ink:'#006A60',tint:'#EEF9F7',soft:'#DCF1EC',border:'#AFDCD4'},
-  ecology:{prefix:'E',short:'생태',color:'#B66828',ink:'#8B4B18',tint:'#FCF5EE',soft:'#F7E9D9',border:'#E4C5A6'}
+  // KYWA CI palette assigned for this service, not official facility color assignments.
+  // Space purple is provisional: the guide's swatch and printed code disagree.
+  // Fixed track positions/names supplement hue; darker inks are accessible UI derivatives.
+  central:{prefix:'C',short:'중앙',color:'#EF5091',ink:'#A72258',tint:'#FFF6FA',soft:'#FDE8F1',border:'#F3C2D7'},
+  pyeongchang:{prefix:'P',short:'평창',color:'#00853F',ink:'#006731',tint:'#F3FAF5',soft:'#E4F2E8',border:'#BEDFC9'},
+  space:{prefix:'S',short:'우주',color:'#65124D',ink:'#65124D',tint:'#FBF5F9',soft:'#F2E7EF',border:'#DCC0D2'},
+  bio:{prefix:'B',short:'바이오생명',color:'#FDBB30',ink:'#765600',tint:'#FFFBF0',soft:'#FFF2CD',border:'#EEDCA2'},
+  marine:{prefix:'M',short:'해양',color:'#005DAA',ink:'#004C8A',tint:'#F3F8FD',soft:'#E4EFF9',border:'#BDD4EA'},
+  future:{prefix:'F',short:'미래환경',color:'#13B5EA',ink:'#006987',tint:'#F2FAFE',soft:'#DFF3FC',border:'#B5DDED'},
+  ecology:{prefix:'E',short:'생태',color:'#F47D30',ink:'#934711',tint:'#FFF7F1',soft:'#FDEADC',border:'#EFCDB5'}
 };
 export const GRADES={elementary:'초등학교',middle:'중학교',high:'고등학교'};
 export const STAY_DAYS={'2박3일':3,'1박2일':2,'당일형':1};
