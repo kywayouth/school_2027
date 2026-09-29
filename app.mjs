@@ -1,7 +1,7 @@
 import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs';
 import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs';
 import {icon,FACILITY_ICONS} from './icons.mjs';
-import {timetableCellMarkup} from './timetable.mjs';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs';
 import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs';
 import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs';
 
@@ -115,12 +115,16 @@ function chooseFacility(value){
   draftFilters.facility=value;filterError='';filterMessage='';tab='search';render();
   $('#facility').value=value;updateDraftFeedback();$('.finder').scrollIntoView({block:'start'});$('#facility').focus({preventScroll:true});
 }
+function monthOptionLabel(value,months){
+  const availability=!statusOK?'확인 필요':!searchReady()?'조건 입력 필요':months.includes(value)?'예약 가능':'예약 마감';
+  return `${value}월 · ${availability}`;
+}
 function monthFeedback(months){
   if(!statusOK)return '<p class="month-message">현재 일정 정보를 확인할 수 없습니다. 최신 정보 확인을 눌러 주세요.</p>';
-  if(!searchReady())return '<p class="month-message">참가 인원을 적용하면 일정이 있는 달을 표시합니다.</p>';
+  if(!searchReady())return '<p class="month-message">참가 인원을 적용하면 조건에 맞는 예약 가능 여부를 표시합니다.</p>';
   if(!months.length)return '<p class="month-message">조건에 맞는 운영 기간이 없습니다. 조건을 바꾸거나 전체 일정 보기를 선택한 뒤 ‘조건 적용’을 눌러 주세요.</p>';
   if(!months.includes(month)){const nearest=nearestMonth(months,month);return `<p class="month-message">${month}월에는 조건에 맞는 일정이 없습니다. <button class="text-button" data-jump-month="${nearest}">가까운 ${nearest}월 보기 →</button></p>`;}
-  return `<p class="month-message">${monthMessage||'월 선택에서 ‘일정 있음’이 표시된 달을 살펴보세요.'}</p>`;
+  return `<p class="month-message">${monthMessage||'월 선택에서 ‘예약 가능’이 표시된 달을 살펴보세요. 적용한 검색 조건과 게시된 접수현황 기준입니다.'}</p>`;
 }
 function searchMarkup(){
   const list=matchingSlots(),runs=new Map(list.map(s=>[s.code,searchRuns(s,status,filters.stay)]));
@@ -133,7 +137,7 @@ function searchMarkup(){
   <div class="filter-actions"><p id="day-visit-search-note" class="day-visit-note">${DAY_VISIT_NOTICE}</p><button id="apply-filters" type="submit" class="with-icon">${icon('search')}<span>조건 적용</span></button></div>
   <p id="draft-status" class="draft-status ${hasDraftChanges()?'is-pending':''} ${filterError?'is-error':''}" role="status" aria-live="polite">${esc(draftStatusText())}</p></form>
   <div class="feedback-area" aria-live="polite" aria-atomic="true"><p id="filter-summary" class="filter-summary"><span class="applied-label">적용된 조건</span><strong>${filterSummary()}</strong></p>${filters.mode==='match'&&filters.people<100&&filters.people>0?'<p class="small-note">평창은 100명 미만 학교의 경우 제시된 날짜 외에도 협의할 수 있습니다. <a href="tel:033-330-0965">033-330-0965</a></p>':''}</div></section>
-  <div class="schedule-layout"><section class="calendar-panel" aria-label="운영 가능 날짜 달력"><div class="calendar-title"><div><span class="eyebrow">2027년 운영 일정</span><h2 class="heading-with-icon">${icon('calendar')}<span class="month-title-text">${month}월</span></h2></div><div class="month-controls"><button data-month="-1" aria-label="이전 달" ${month===1?'disabled':''}>${icon('arrow-left')}</button><select id="month" aria-label="달 선택">${Array.from({length:12},(_,i)=>option(String(i+1),`${i+1}월${months.includes(i+1)?' · 일정 있음':''}`,String(month))).join('')}</select><button data-month="1" aria-label="다음 달" ${month===12?'disabled':''}>${icon('arrow-right')}</button></div></div>
+  <div class="schedule-layout"><section class="calendar-panel" aria-label="운영 가능 날짜 달력"><div class="calendar-title"><div><span class="eyebrow">2027년 운영 일정</span><h2 class="heading-with-icon">${icon('calendar')}<span class="month-title-text">${month}월</span></h2></div><div class="month-controls"><button data-month="-1" aria-label="이전 달" ${month===1?'disabled':''}>${icon('arrow-left')}</button><select id="month" aria-label="달 선택">${Array.from({length:12},(_,i)=>option(String(i+1),monthOptionLabel(i+1,months),String(month))).join('')}</select><button data-month="1" aria-label="다음 달" ${month===12?'disabled':''}>${icon('arrow-right')}</button></div></div>
   <div class="month-feedback" role="status" aria-live="polite">${monthFeedback(months)}</div>
   <div class="legend" aria-label="시설 범례">${catalog.facilities.filter(f=>!filters.facility||f.id===filters.facility).map(f=>`<button data-legend="${f.id}" aria-label="${f.short} 시설 검색 조건으로 선택"><i style="--facility:${f.color}" aria-hidden="true"></i>${f.short}</button>`).join('')}${filters.facility?'<button data-legend="all">전체 시설 선택</button>':''}</div>
   <div class="weekdays" aria-hidden="true">${['일','월','화','수','목','금','토'].map(d=>`<span>${d}</span>`).join('')}</div><div class="calendar">${calendarCells(list,runs)}</div>
@@ -156,14 +160,16 @@ function courseOverviewMarkup(p){
 function programMarkup(p){
   const cap=p.capacity.maxExclusive?`${p.capacity.maxExclusive}명 미만`:`${p.capacity.interpretation==='reference'?'참고 규모':'최대'} ${p.capacity.value}명`;
   return `<article class="program-detail"><span class="eyebrow">${GRADES[p.schoolLevel]} · 2박3일 기준</span><h3>${esc(p.name)}</h3>${courseOverviewMarkup(p)}<p class="course-duration-note">2박3일 기준 구성입니다. 1박2일은 활동 내용과 시간표를 시설과 조정합니다.</p><div class="program-meta"><span>과정 안내 인원 <strong>${cap}</strong></span><span>인증번호 <strong>${esc(p.certificationNumber||'원문 별도 표기 없음')}</strong></span></div>${p.advanceReportNumbers?.length?`<p class="small-note">사전신고 번호: ${p.advanceReportNumbers.map(esc).join(', ')}</p>`:''}<p class="small-note">과정 안내 인원은 참고 정보이며, 일정 검색은 각 일정의 운영 가능 규모를 기준으로 합니다.</p>
-  <details class="timetable" data-disclosure="timetable"><summary>2박3일 세부 일정표 펼치기</summary><div class="timetable-days">${p.timetable.map(d=>`<section><h4>${d.day}일차</h4><table><thead><tr><th scope="col">시간</th><th scope="col">활동</th></tr></thead><tbody>${d.events.map(e=>`<tr><td>${esc(e.time.label)}</td><td>${timetableCellMarkup(e,p.activities)}</td></tr>`).join('')}</tbody></table></section>`).join('')}</div></details>
+  <details class="timetable" data-disclosure="timetable"><summary>2박3일 세부 일정표 펼치기</summary><p class="timetable-duration-note">소요시간은 표시된 시간 구간 기준입니다. 구간이 불명확하면 안내문에 명시된 시간을 표시하며, 확인할 수 없는 항목은 ‘—’로 표시합니다.</p><div class="timetable-days">${p.timetable.map(d=>`<section><h4>${d.day}일차</h4><table><caption class="sr-only">${esc(p.name)} ${d.day}일차 시간·소요시간·활동</caption><thead><tr><th scope="col" class="time-column">시간</th><th scope="col" class="duration-column">소요시간</th><th scope="col">활동</th></tr></thead><tbody>${d.events.map(e=>`<tr><td class="time-column">${esc(e.time.label)}</td><td class="duration-column">${esc(timetableDurationLabel(e))}</td><td>${timetableCellMarkup(e,p.activities,p.id)}</td></tr>`).join('')}</tbody></table></section>`).join('')}</div></details>
   <details class="activity-details" data-disclosure="activities"><summary>단위 프로그램 살펴보기</summary><div class="activities">${p.activities.map(a=>`<div><strong>${esc(a.name)}</strong><p>${esc(a.description)}</p></div>`).join('')}</div></details>${p.notes.map(n=>`<p class="small-note">${esc(n)}</p>`).join('')}</article>`;
 }
 function courseAccordion(p){return `<details class="program-accordion"><summary><span class="course-grade">${GRADES[p.schoolLevel]}</span><span class="course-heading"><strong>${esc(p.name)}</strong><span>2박3일 기준 프로그램</span></span><span class="course-chevron" aria-hidden="true">${icon('arrow-right')}</span></summary>${programMarkup(p)}</details>`;}
 function programsMarkup(){
   const f=catalog.facilities.find(f=>f.id===programFacility),brand=FACILITY_BRAND[f.id];
   return `<section class="programs facility-theme" data-facility="${f.id}" style="${themeStyle(f)}">
-    <div class="section-heading program-page-heading"><div><p class="eyebrow">경험이 배움이 되는 곳</p><h2 class="heading-with-icon">${icon('book')}<span>시설별 프로그램 안내</span></h2></div><label>살펴볼 시설<select id="program-facility" aria-label="시설 선택">${catalog.facilities.map(f=>option(f.id,f.short,programFacility)).join('')}</select></label></div>
+    <div class="section-heading program-page-heading"><div><p class="eyebrow">경험이 배움이 되는 곳</p><h2 class="heading-with-icon">${icon('book')}<span>시설별 프로그램 안내</span></h2></div></div>
+    <section class="program-facility-picker" aria-labelledby="program-picker-title"><div class="program-picker-heading"><h3 id="program-picker-title">살펴볼 시설</h3><p>시설을 누르면 아래 프로그램이 바뀝니다.</p></div><div class="program-facility-options" role="group" aria-label="프로그램을 살펴볼 시설">${catalog.facilities.map(item=>`<button data-program-facility="${item.id}" aria-pressed="${item.id===programFacility}" aria-controls="program-facility-content"><span class="picker-name">${icon(FACILITY_ICONS[item.id])}<span>${esc(item.short)}</span></span><small>${esc(item.location)}</small></button>`).join('')}</div></section>
+    <div id="program-facility-content">
     <div class="facility-hero">
       <div class="facility-hero-copy"><div class="facility-overline"><span class="location-pill">${f.location}</span><span>2027 학교단체 수련활동</span></div><h3 class="facility-logo-panel"><img class="facility-logo" src="${brand.logo}" alt="${esc(f.name)}" decoding="async"></h3><p class="facility-hero-description">${esc(brand.description)}</p></div>
       <div class="facility-hero-art" aria-hidden="true"><img src="${brand.character}" alt="" loading="lazy" decoding="async"></div>
@@ -172,8 +178,12 @@ function programsMarkup(){
     <div class="program-layout">
       <div class="program-content"><div class="program-list-heading"><h3>교급별 프로그램</h3><p>과정을 펼쳐 목적과 흐름, 주요 활동과 시간표를 확인하세요.</p></div>${f.programs.map(courseAccordion).join('')}</div>
       <aside class="program-aside" aria-label="프로그램 이용 안내"><div class="program-guide">${mealMarkup(f)}</div><div class="adaptation-note"><span class="guide-label">숙박 형태에 따른 운영 안내</span><p>${esc(catalog.notice)}</p></div></aside>
-    </div>
+    </div></div>
   </section>`;
+}
+function changeProgramFacility(id){
+  if(id===programFacility||!catalog.facilities.some(f=>f.id===id))return;
+  programFacility=id;render();$(`[data-program-facility="${id}"]`)?.focus({preventScroll:true});
 }
 function savedMarkup(){return `<section class="saved"><div class="section-heading"><div><p class="eyebrow">전화하기 전, 한눈에 비교</p><h2 class="heading-with-icon">${icon('heart')}<span>관심 일정</span></h2></div><button class="with-icon" data-back>${icon('search')}<span>일정 더 찾아보기</span></button></div><p class="muted">학년별 후보를 담고 메모해 두세요. 이 기기·브라우저에만 저장되며, 브라우저 데이터를 지우면 삭제됩니다.</p><div class="compare-grid">${saved.map(v=>{
   const s=catalog.byCode.get(v.code);if(!s)return `<article class="saved-card"><h3>원본 일정을 찾을 수 없습니다</h3><button data-remove="${esc(v.key)}">관심 일정 삭제</button></article>`;
@@ -234,6 +244,7 @@ document.addEventListener('click',e=>{
   if(b.hasAttribute('data-back')){tab='search';render();}
   if(b.hasAttribute('data-open-saved')){$('#detail').close();tab='saved';render();$('#main').scrollIntoView({block:'start'});$('#main').focus({preventScroll:true});}
   if(b.dataset.findFacility)chooseFacility(b.dataset.findFacility);
+  if(b.dataset.programFacility)changeProgramFacility(b.dataset.programFacility);
   if(b.dataset.mode)updateDraft('mode',b.dataset.mode);
   if(b.dataset.month){month+=Number(b.dataset.month);selected=firstMatchingDate(month);alignCalendar(false);render();$(`[data-month="${b.dataset.month}"]`)?.focus();}
   if(b.dataset.jumpMonth){month=Number(b.dataset.jumpMonth);selected=firstMatchingDate(month);alignCalendar(false);render();$('#month').focus();}
@@ -251,7 +262,6 @@ document.addEventListener('change',e=>{
   const el=e.target;
   if(['grade','facility','stay'].includes(el.id))updateDraft(el.id,el.value);
   if(el.id==='month'){month=Number(el.value);selected=firstMatchingDate(month);alignCalendar(false);render();$('#month').focus();}
-  if(el.id==='program-facility'){programFacility=el.value;render();$('#program-facility').focus();}
   if(el.id==='pick-stay'||el.id==='pick-date')updatePick();
 });
 document.addEventListener('submit',e=>{if(e.target.id==='search-form'){e.preventDefault();if(applyFilters())$('#people')?.blur();}});

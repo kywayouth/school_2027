@@ -436,18 +436,18 @@
               "events": [
                 {
                   "time": {
-                    "label": "14:00~15:00",
-                    "start": "14:00",
-                    "end": "15:00"
+                    "label": "~14:00",
+                    "start": null,
+                    "end": "14:00"
                   },
                   "category": "입소",
                   "detail": "도착 및 숙소배정"
                 },
                 {
                   "time": {
-                    "label": "15:00~16:30",
-                    "start": "15:00",
-                    "end": "16:30"
+                    "label": "14:00~15:30",
+                    "start": "14:00",
+                    "end": "15:30"
                   },
                   "category": "만남의시간",
                   "detail": "지도자소개, 일정안내, 생활안내(안전교육)",
@@ -455,13 +455,13 @@
                 },
                 {
                   "time": {
-                    "label": "16:30~17:00",
-                    "start": "16:30",
+                    "label": "15:30~17:00",
+                    "start": "15:30",
                     "end": "17:00"
                   },
                   "category": "활동1",
                   "detail": "우화이야기 | 리터러시 보드게임 | 소통골든벨",
-                  "durationMinutes": 30
+                  "durationMinutes": 90
                 },
                 {
                   "time": {
