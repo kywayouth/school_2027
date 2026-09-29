@@ -2,9 +2,9 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){window.dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-Q23XQQBPNM');
+gtag('config', 'G-RHR274VHKR');
 
 const script = document.createElement('script');
 script.async = true;
-script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Q23XQQBPNM';
+script.src = 'https://www.googletagmanager.com/gtag/js?id=G-RHR274VHKR';
 document.head.append(script);
