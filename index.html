@@ -6,14 +6,28 @@
 <title>2027 학교단체 수련활동 · 국립청소년시설</title><link rel="icon" href="./favicon.svg"><link rel="preload" href="./assets/fonts/Youth.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="./styles.css">
 </head><body>
 <a href="#main" class="skip">본문으로 건너뛰기</a>
-<header class="header"><div class="header-inner"><a class="brand" href="./" aria-label="한국청소년활동진흥원 · 일정 찾기 첫 화면"><img class="brand-logo" src="./assets/brand/logos/agency.webp" alt="한국청소년활동진흥원 KYWA"></a><div class="brand-service"><span><b>2027</b> 학교단체 수련활동</span><small>국립청소년시설 일정·프로그램 안내</small></div></div></header>
+<header class="header"><div class="header-inner"><a class="brand" href="./" aria-label="한국청소년활동진흥원 · 일정 찾기 첫 화면"><img class="brand-logo" src="./assets/brand/logos/agency.webp" alt="한국청소년활동진흥원 KYWA"></a><div class="brand-service"><span><b>2027년도</b> 학교단체 예약안내 페이지</span></div></div></header>
 <div class="shell">
-<section class="intro"><div class="intro-copy"><p class="eyebrow">함께 배우고, 더 넓게 자라는 시간</p><h1>우리 학교의 다음 경험,<br>국립청소년시설에서.</h1><p class="intro-description">일정을 찾고, 프로그램을 비교하고,<br class="mobile-break"> 시설에 전화로 신청하세요.</p><p class="recruitment-period"><span>집중모집</span> 2026. 10. 1.(목) 10:00 – 10. 16.(금) 18:00</p></div><aside class="purpose-panel" aria-labelledby="purpose-heading"><div class="purpose-top"><h2 id="purpose-heading"><span data-icon="info" aria-hidden="true"></span>이용 안내</h2><span>검색·비교 전용</span></div><p class="purpose-description">본 페이지는 <strong>참여 가능한 일정을 검색</strong>하는 용도입니다.</p><p class="purpose-callout">신청 및 예약 문의는<br><strong>각 국립청소년시설에<br class="purpose-mobile-break"> 직접 전화해 주세요.</strong></p><div class="purpose-bottom"><p>관심 일정 담기는<br>예약 신청이 아닙니다.</p><div class="intro-art" aria-hidden="true"><img src="./assets/brand/characters/hero.webp" alt="" width="360" height="240" fetchpriority="high" decoding="async"></div></div></aside></section>
-<section class="update-panel" aria-label="정보 기준과 신청 안내"><div><span class="update-label">일정 정보 기준</span><strong id="asof">정보를 불러오는 중입니다</strong><span id="freshness"></span></div><button id="refresh" class="text-button with-icon"><span data-icon="refresh" aria-hidden="true"></span><span>최신 정보 확인</span></button><p class="phone-notice">마감된 일정이 있을 수 있으니 신청 전 시설에 전화로 확인해 주세요<span>실시간 접수가 아닌, 하루 한 번 갱신되는 안내입니다. 신청은 시설별 전화 선착순으로 진행됩니다.</span></p></section>
+<section class="intro">
+  <div class="intro-copy">
+    <h1>우리 학교에 맞는<br>국립청소년시설 수련활동을 찾아보세요.</h1>
+    <div class="recruitment-period"><span class="recruitment-label">집중모집</span><p><span class="recruitment-year">2026년 </span><time datetime="2026-10-01T10:00:00+09:00">10.1.(목) 10:00</time><span class="date-separator"> – </span><time datetime="2026-10-16T18:00:00+09:00">10.16.(금) 18:00</time></p></div>
+  </div>
+  <aside class="purpose-panel" aria-labelledby="purpose-heading">
+    <h2 id="purpose-heading"><span data-icon="phone" aria-hidden="true"></span>신청·예약 안내</h2>
+    <p class="purpose-callout">예약신청은 <strong>국립시설별 전화 선착순</strong>입니다.</p>
+    <p class="phone-notice">마감된 일정이 있을 수 있으니 신청 전 시설에 전화로 확인해 주세요</p>
+    <div class="purpose-bottom"><p>이 페이지는 <strong>일정 검색·비교용</strong>입니다.<br>관심 일정 담기는 <strong>예약이 아닙니다.</strong></p><div class="intro-art" aria-hidden="true"><img src="./assets/brand/characters/hero.webp" alt="" width="360" height="240" fetchpriority="high" decoding="async"></div></div>
+  </aside>
+</section>
+<section class="update-panel" aria-label="일정 정보 기준">
+  <div class="update-meta"><span class="update-label">정보 기준</span><strong id="asof">정보를 불러오는 중입니다</strong><span id="freshness"></span></div>
+  <div class="update-actions"><p>하루 한 번 갱신</p><button id="refresh" class="text-button with-icon"><span data-icon="refresh" aria-hidden="true"></span><span>최신 정보 확인</span></button></div>
+</section>
 <div id="notice" role="status" aria-live="polite"></div>
-<nav class="tabs" aria-label="주요 메뉴"><button data-tab="search" aria-current="page"><span class="tab-name"><span data-icon="calendar" aria-hidden="true"></span><span>일정 찾기</span></span><span class="tab-state" aria-hidden="true">선택됨</span></button><button data-tab="programs"><span class="tab-name"><span data-icon="book" aria-hidden="true"></span><span>프로그램 안내</span></span><span class="tab-state" aria-hidden="true">선택됨</span></button><button data-tab="saved"><span class="tab-name"><span data-icon="heart" aria-hidden="true"></span><span>관심 일정·비교</span></span><span class="tab-state" aria-hidden="true">선택됨</span></button></nav>
+<nav class="tabs" aria-label="주요 메뉴"><button data-tab="search" aria-current="page"><span class="tab-name"><span data-icon="calendar" aria-hidden="true"></span><span>일정 찾기</span></span></button><button data-tab="programs"><span class="tab-name"><span data-icon="book" aria-hidden="true"></span><span>프로그램 안내</span></span></button><button data-tab="saved"><span class="tab-name"><span data-icon="heart" aria-hidden="true"></span><span>관심 일정·비교</span></span></button></nav>
 <main id="main" tabindex="-1"><p class="loading">일정을 준비하고 있습니다.</p></main>
-<footer><strong>국립청소년시설 학교단체 수련활동</strong><p>모든 일정은 2027년이며, 인원에는 인솔자가 포함됩니다. 관심 일정과 메모는 이 브라우저에만 저장됩니다.</p><p>관심 일정 담기는 예약이 아닙니다. 개인정보는 메모에 입력하지 마세요.</p></footer>
+<footer><strong>국립청소년시설 학교단체 수련활동</strong><p>모든 일정은 2027년이며, 인원에는 인솔자가 포함됩니다. 관심 일정과 메모는 이 브라우저에만 저장됩니다.</p><p>개인정보는 메모에 입력하지 마세요.</p></footer>
 </div><dialog id="detail" aria-labelledby="dialog-title"></dialog><div id="toast" role="status" aria-live="polite"></div>
 <noscript><p>이 페이지는 JavaScript가 필요합니다. 브라우저 설정에서 JavaScript를 허용해 주세요.</p></noscript>
 <script type="module" src="./app.mjs"></script></body></html>
