@@ -1,8 +1,10 @@
-// Service copy comes from the existing program catalogue. Character poses are
-// illustrative official artwork, not promises that an activity is offered.
+// Service copy comes from the existing program catalogue. Official logo/legacy
+// character assets remain unchanged. Campaign artwork is decorative and does
+// not promise that a particular activity is offered.
 export const BRAND_ASSETS = {
   agency: './assets/brand/logos/agency.webp',
-  hero: './assets/brand/characters/hero.webp'
+  hero: './assets/brand/characters/hero.webp',
+  campaignHero: './assets/campaign/hero.png'
 };
 export const FACILITY_BRAND = {
   central: {description:'소통과 협동, 도전의 경험으로 함께 성장하는 시간'},
@@ -16,6 +18,7 @@ export const FACILITY_BRAND = {
 for (const [id, value] of Object.entries(FACILITY_BRAND)) {
   value.logo = `./assets/brand/logos/${id}.webp`;
   value.character = `./assets/brand/characters/${id}.webp`;
+  value.illustration = `./assets/campaign/${id}.png`;
   Object.freeze(value);
 }
 Object.freeze(FACILITY_BRAND);

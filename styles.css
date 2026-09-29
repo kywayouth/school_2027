@@ -38,7 +38,12 @@ img{max-width:100%}
 .brand-service small{display:block;margin-top:4px;color:var(--muted);font-size:12px;font-weight:400}
 .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,460px);align-items:center;gap:38px;padding:4px 2px 22px}
 .intro-copy{min-width:0;max-width:780px}
+.intro-heading{display:grid;grid-template-columns:minmax(0,1fr) 154px;align-items:center;gap:12px;margin-bottom:18px}
 .intro h1{font-size:clamp(28px,2.6vw,36px);line-height:1.45;margin:0 0 21px;word-break:keep-all}
+.intro-heading h1{margin:0}
+.campaign-hero{display:flex;align-items:center;justify-content:center;min-width:0;pointer-events:none}
+.campaign-hero picture,.facility-hero-art picture,.picker-name picture{display:block}
+.campaign-hero img{display:block;width:154px;height:164px;object-fit:contain;filter:drop-shadow(0 6px 8px #29292D0D)}
 .recruitment-period{display:flex;align-items:baseline;gap:4px 9px;flex-wrap:wrap;font-size:13px;font-weight:700;color:var(--ink)}
 .recruitment-label{display:inline-block;flex:none;font-size:12px;font-weight:700;color:var(--brand-ink)}
 .recruitment-period p{margin:0;line-height:1.7;white-space:nowrap}
@@ -53,8 +58,6 @@ img{max-width:100%}
 .purpose-bottom{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:12px;padding:12px 13px;background:#FFF3F6;border:1px solid #F0CAD4;border-radius:9px}
 .purpose-bottom p{font-size:14px;color:var(--ink);line-height:1.75;margin:0;word-break:keep-all}
 .purpose-bottom strong{font-weight:700;color:var(--brand-ink)}
-.intro-art{margin:0;display:flex;align-items:center;justify-content:center;flex:none;width:73px;padding:0}
-.intro-art img{display:block;width:72px;height:48px;object-fit:contain}
 .update-panel{padding:12px 16px;background:#EEEEF1;border:1px solid #DFDFE5;border-radius:11px;display:flex;align-items:center;justify-content:space-between;gap:10px 20px;flex-wrap:wrap}
 .update-meta,.update-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;min-width:0}
 .update-label{color:var(--muted);font-size:12px;white-space:nowrap}
@@ -193,7 +196,7 @@ textarea{resize:vertical;line-height:1.8}
 .section-heading h2{margin-bottom:0}
 .section-heading select{min-width:160px}
 
-/* Original official logo and illustration each have a white artwork panel. */
+/* Official logos retain white clear space; campaign artwork keeps its original colors. */
 .facility-theme{--muted:#62626B}
 .programs.facility-theme{padding:0;border:0;background:transparent}
 .program-page-heading{margin-bottom:24px;align-items:flex-end}
@@ -205,9 +208,9 @@ textarea{resize:vertical;line-height:1.8}
 .program-picker-heading h3{font-size:18px;margin:0;color:var(--ink)}
 .program-picker-heading p{font-size:13px;margin:0;color:var(--muted)}
 .program-facility-options{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
-.program-facility-options button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:78px;padding:12px 6px;background:#FAFAFC;border:1px solid var(--line);border-radius:10px;color:var(--muted)}
-.program-facility-options .picker-name{display:flex;align-items:center;justify-content:center;gap:6px;font-size:14px;white-space:nowrap}
-.program-facility-options .picker-name .icon{width:19px;height:19px}
+.program-facility-options button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;min-width:0;min-height:132px;padding:12px 6px;background:#FAFAFC;border:1px solid var(--line);border-radius:12px;color:var(--muted)}
+.program-facility-options .picker-name{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;font-size:14px;white-space:nowrap}
+.picker-illustration{display:block;width:60px;height:60px;object-fit:contain;pointer-events:none}
 .program-facility-options small{font-size:11px;font-weight:400}
 .program-facility-options button[aria-pressed=true]{background:var(--facility-tint);border-color:var(--facility-ink);box-shadow:inset 0 -3px 0 var(--facility-ink);color:var(--facility-ink)}
 .program-facility-options button:hover{background:var(--facility-tint);border-color:var(--facility-border);color:var(--facility-ink)}
@@ -218,8 +221,9 @@ textarea{resize:vertical;line-height:1.8}
 .facility-logo-panel{display:flex;align-items:center;max-width:100%;min-height:106px;background:#FFFFFF;padding:26px 28px;border:1px solid #E8E8EC;border-radius:13px}
 .facility-logo{display:block;width:510px;max-width:100%;height:auto;max-height:86px;object-fit:contain;object-position:left center}
 .facility-hero-description{max-width:620px;color:var(--facility-ink);font-size:19px;font-weight:700;line-height:1.75;margin:20px 0 0;word-break:keep-all;overflow-wrap:break-word}
-.facility-hero-art{display:flex;align-items:center;justify-content:center;min-width:0;margin:0;padding:20px;background:#FFFFFF;border:1px solid #E8E8EC;border-radius:22px}
-.facility-hero-art img{display:block;width:206px;height:194px;object-fit:contain}
+.facility-hero-art{position:relative;display:flex;align-items:center;justify-content:center;min-width:0;margin:0;padding:12px;isolation:isolate}
+.facility-hero-art::before{content:'';position:absolute;inset:12% 6%;border-radius:50%;background:#FFFFFF85;z-index:-1}
+.facility-hero-art img{display:block;width:216px;height:216px;object-fit:contain;filter:drop-shadow(0 8px 9px #29292D10)}
 .facility-contact{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:24px;min-width:0;padding:20px 22px;background:#FFFFFF;border:1px solid var(--facility-border);border-radius:13px}
 .facility-contact>div{min-width:0}
 .contact-label{display:block;color:var(--facility-ink);font-weight:700;font-size:14px;margin-bottom:9px}
@@ -421,6 +425,7 @@ dialog::backdrop{background:#18181B66;backdrop-filter:blur(3px)}
 .empty>span .icon{width:34px;height:34px}
 
 @media(max-width:1050px){
+.intro-heading{grid-template-columns:minmax(0,1fr) 110px;gap:10px}.campaign-hero img{width:110px;height:140px}
 .shell{padding:26px 24px}.header-inner{padding:18px 24px}.intro{grid-template-columns:minmax(0,1fr) minmax(320px,390px);gap:25px}.purpose-panel{padding:18px 20px 13px}.purpose-callout{font-size:18px}.tabs button{gap:8px;padding:14px 12px;font-size:16px}
 .schedule-layout{gap:18px;grid-template-columns:minmax(0,1.4fr) minmax(290px,1fr)}.calendar-panel{padding:22px 16px}.month-controls{gap:4px}.month-controls select{width:134px;padding-left:8px}.month-controls button{padding:8px;min-width:34px}.calendar-title h2{font-size:30px}
 .compare-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{gap:13px}.mode-switch button{padding:10px 16px}
@@ -435,17 +440,18 @@ dialog::backdrop{background:#18181B66;backdrop-filter:blur(3px)}
 .detail-layout{grid-template-columns:minmax(0,1fr);gap:22px}.detail-aside{width:100%}.practical-body{padding:18px}.date-picker .filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.practical-body #save-slot{max-width:360px}.practical-body>.saved-shortcut{width:auto}.practical-body .meal-info{margin-top:19px}.course-flow{gap:9px}.course-flow>li{padding:13px}
 }
 @media(max-width:759px){
+.intro-heading{grid-template-columns:minmax(0,1fr) 90px;gap:10px;margin-bottom:14px;align-items:center}.intro-heading h1{margin-bottom:0}.campaign-hero img{width:90px;height:112px}
 .header-inner{padding:15px 20px;gap:10px;align-items:flex-start;flex-direction:column}.brand{padding:3px 0}.brand-logo{width:245px}.brand-service{font-size:15px;text-align:left}.brand-service small{font-size:12px;margin-top:3px}
-.shell{padding:22px 16px}.intro{grid-template-columns:minmax(0,1fr);gap:18px;padding:0 0 16px}.intro h1{font-size:28px;margin-bottom:14px}.recruitment-period{font-size:12px}.purpose-panel{padding:16px 18px 12px;border-radius:13px}.purpose-panel h2{margin-bottom:8px}.purpose-callout{font-size:18px}.purpose-bottom{margin-top:10px;padding:11px 12px}.purpose-bottom p{font-size:13px}.intro-art{width:54px}.intro-art img{width:54px;height:36px}
+.shell{padding:22px 16px}.intro{grid-template-columns:minmax(0,1fr);gap:18px;padding:0 0 16px}.intro h1{font-size:28px;margin-bottom:0}.recruitment-period{font-size:12px}.purpose-panel{padding:16px 18px 12px;border-radius:13px}.purpose-panel h2{margin-bottom:8px}.purpose-callout{font-size:18px}.purpose-bottom{margin-top:10px;padding:11px 12px}.purpose-bottom p{font-size:13px}
 .update-panel{padding:12px 14px;gap:8px}.update-meta{gap:7px 9px;width:100%}.update-actions{width:100%;justify-content:space-between;gap:6px}#asof{font-size:18px}.update-actions p{font-size:11px}.update-actions #refresh{font-size:12px;padding:6px 8px}.phone-notice{font-size:13px}
 .tabs{gap:4px;padding:5px;margin:16px 0 20px;border-radius:14px}.tabs button{flex-direction:column;gap:5px;min-height:64px;font-size:14px;padding:12px 4px;white-space:nowrap;border-radius:9px}.tab-name{gap:5px}.tabs .icon{width:18px;height:18px}
 .finder{padding:20px 17px;margin-bottom:22px}.finder-heading{align-items:flex-start;flex-direction:column;gap:6px;margin-bottom:16px}.finder-heading .section-kicker{font-size:19px}.finder-heading p{font-size:12px}.section-kicker{font-size:17px;margin-bottom:17px}.mode-switch{display:flex;margin-bottom:20px}.mode-switch button{flex:1;font-size:13px;padding:10px 6px}.filters,.finder .filters{grid-template-columns:1fr 1fr;gap:18px 12px}.filters select,.filters input,.section-heading select,.date-picker input{font-size:16px}.filter-actions{align-items:stretch;flex-direction:column;gap:12px;margin-top:16px}#apply-filters{width:100%;min-height:48px}.filter-summary{font-size:13px;gap:5px;align-items:flex-start;flex-direction:column}.feedback-area{margin-top:17px;padding-top:14px}.draft-status{font-size:12px}
 .schedule-layout{grid-template-columns:1fr;gap:26px}.calendar-panel{padding:22px 14px}.calendar-title{align-items:center}.calendar-title h2{font-size:30px}.calendar-title .eyebrow{font-size:12px}.month-controls{gap:4px}.month-controls select{width:144px;padding:10px 6px;font-size:13px}.month-controls button{padding:8px;min-width:34px}.month-message{font-size:12px}.legend{gap:4px 10px}.legend button{font-size:12px;min-height:34px}.day{min-height:104px}.day-heading{padding:5px 2px 11px}.day-list{display:grid;grid-template-columns:1fr}
 .slot-card{padding:21px}.card-actions{flex-direction:row}.card-actions>*{flex:1;min-width:0}.card-actions button{padding:11px 8px;gap:5px}.card-actions .phone{font-size:15px;padding:11px 8px}.card-actions .phone-label{display:none}.card-actions .icon{width:17px;height:17px}
 .section-heading{align-items:flex-start;gap:16px;flex-wrap:wrap}.section-heading h2{font-size:24px}.program-page-heading{gap:18px;margin-bottom:22px}
-.program-facility-picker{padding:15px;margin-bottom:20px}.program-picker-heading{gap:2px;margin-bottom:13px}.program-picker-heading h3{font-size:16px}.program-picker-heading p{width:100%;font-size:12px}.program-facility-options{gap:7px}.program-facility-options button{padding:10px 3px;min-height:91px;gap:4px}.program-facility-options .picker-name{flex-direction:column;gap:5px;font-size:12px}.program-facility-options small{font-size:10px}
+.program-facility-picker{padding:15px;margin-bottom:20px}.program-picker-heading{gap:2px;margin-bottom:13px}.program-picker-heading h3{font-size:16px}.program-picker-heading p{width:100%;font-size:12px}.program-facility-options{gap:7px}.program-facility-options button{padding:9px 3px;min-height:108px;gap:4px}.program-facility-options .picker-name{flex-direction:column;gap:5px;font-size:12px}.program-facility-options small{font-size:10px}.picker-illustration{width:46px;height:46px}
 .facility-hero{grid-template-columns:minmax(0,1fr) 105px;gap:20px 14px;padding:24px 20px 20px;border-radius:18px;margin-bottom:28px;align-items:start}.facility-hero-copy{grid-column:1/-1;grid-row:1}.facility-overline{gap:8px;font-size:12px;margin-bottom:17px;padding-right:90px;min-height:65px;align-content:center}.location-pill{font-size:12px}.facility-logo-panel{display:flex;min-height:100px;padding:25px 18px}.facility-logo{width:100%;max-height:80px}.facility-hero-description{margin-top:18px;font-size:17px}
-.facility-hero-art{grid-column:2;grid-row:1;justify-self:end;width:82px;margin-top:0;padding:8px;border-radius:13px;z-index:1}.facility-hero-art img{width:65px;height:60px}
+.facility-hero-art{grid-column:2;grid-row:1;justify-self:end;width:86px;margin-top:-4px;padding:3px;z-index:1}.facility-hero-art img{width:80px;height:80px}
 .facility-contact{grid-column:1/-1;flex-direction:column;align-items:stretch;gap:15px;padding:18px}.facility-contact-actions{min-width:0;gap:9px}.facility-contact p{font-size:12px}.contact-label{font-size:14px}
 .program-layout{grid-template-columns:minmax(0,1fr);gap:18px}.program-list-heading{gap:7px;margin-bottom:16px}.program-list-heading p{width:100%;font-size:12px}
 .program-accordion>summary{grid-template-columns:minmax(0,1fr) auto;gap:9px 12px;padding:22px 19px}.course-grade{grid-column:1;justify-self:start;min-width:0;min-height:29px;padding:5px 9px;font-size:12px;border-radius:6px}.course-heading{grid-column:1;grid-row:2}.course-chevron{grid-column:2;grid-row:1 / span 2;width:30px;height:30px}.program-accordion>summary strong{font-size:19px}.program-detail{padding:24px 19px}.program-detail h3{font-size:23px}.program-meta{grid-template-columns:1fr;padding:17px;gap:18px}.program-overview{padding:17px;margin-bottom:18px}.program-overview>p{font-size:14px}.course-flow{grid-template-columns:minmax(0,1fr);gap:8px;margin-top:15px}.course-flow>li{display:grid;grid-template-columns:48px minmax(0,1fr);gap:2px 9px;padding:12px 13px}.flow-day{grid-column:1;grid-row:1;align-self:center;margin:0;font-size:11px}.course-flow strong{grid-column:2;font-size:13px}.course-flow p{grid-column:2;font-size:12px;margin-top:3px}.overview-source{font-size:10px;margin-top:11px}.activity-details>.activities{padding:12px}.activities{grid-template-columns:1fr}.activities>div{padding:18px}.program-guide{padding:24px}.program-aside{gap:15px}
@@ -459,8 +465,9 @@ dialog{width:calc(100% - 20px);border-radius:15px}.dialog-header{padding:13px 16
 .facility-hero{padding:22px 18px 19px;gap:20px 12px}.facility-logo-panel{padding:25px 14px}.facility-hero-description{font-size:17px}.facility-contact{padding:17px}.facility-contact .phone{font-size:16px}
 }
 @media(max-width:359px){
+.intro-heading{grid-template-columns:minmax(0,1fr) 72px;gap:8px}.campaign-hero img{width:72px;height:102px}
 .program-facility-options{grid-template-columns:repeat(3,minmax(0,1fr))}
-.header-inner{padding:11px 14px;gap:9px}.brand-logo{width:230px}.brand-service{font-size:13px}.shell{padding:18px 13px}.intro h1{font-size:25px}.recruitment-period{font-size:12px}.date-separator{padding:0}.purpose-panel{padding:14px 14px 10px}.purpose-callout{font-size:16px}.purpose-bottom{padding:10px}.purpose-bottom p{font-size:13px}.purpose-bottom .intro-art{display:none}.update-actions p{font-size:11px}.update-actions #refresh{font-size:11px;padding:6px}.update-label{font-size:11px}#asof{font-size:17px}
+.header-inner{padding:11px 14px;gap:9px}.brand-logo{width:230px}.brand-service{font-size:13px}.shell{padding:18px 13px}.intro h1{font-size:25px}.recruitment-period{font-size:12px}.date-separator{padding:0}.purpose-panel{padding:14px 14px 10px}.purpose-callout{font-size:16px}.purpose-bottom{padding:10px}.purpose-bottom p{font-size:13px}.update-actions p{font-size:11px}.update-actions #refresh{font-size:11px;padding:6px}.update-label{font-size:11px}#asof{font-size:17px}
 .tabs button{font-size:12px;padding:12px 4px}.tabs .icon{width:17px;height:17px}.finder{padding:18px 14px}.mode-switch button{font-size:12px}.calendar-title{align-items:flex-start;flex-direction:column;gap:12px}.month-controls{align-self:stretch;justify-content:space-between}.month-controls select{flex:1}.calendar-panel{padding-left:10px;padding-right:10px}.day{padding-left:2px;padding-right:2px}.day.selected{padding-left:1px;padding-right:1px}
 .facility-hero{padding:21px 15px 18px;gap:20px 10px}.facility-logo-panel{padding:25px 12px}.facility-overline{gap:7px}.facility-contact .phone{font-size:15px;gap:5px}.program-page-heading h2{font-size:22px}.saved-card{padding:20px}.saved-card dl{grid-template-columns:77px 1fr}.timetable th,.timetable td{padding-left:5px;padding-right:5px}.timetable td:first-child{width:84px}.dialog-header .facility-title{font-size:17px}.dialog-header{padding:12px}.detail-scroll{padding:14px 12px 18px}.detail-summary{padding:12px}.detail-summary dl{gap:9px 11px}.detail-summary dd{font-size:12px}.program-overview{padding:14px}.course-flow>li{grid-template-columns:40px minmax(0,1fr);gap:2px 7px;padding:11px}.dialog-footer{padding-left:12px;padding-right:12px}.dialog-actions>.phone{font-size:13px;gap:4px}.dialog-actions>.phone>.icon{width:15px;height:15px}.dialog-actions>button{font-size:11px}.date-picker .filters{grid-template-columns:minmax(0,1fr)}
 }
