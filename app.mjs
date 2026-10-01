@@ -1,11 +1,11 @@
-import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs';
-import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs';
-import {icon,FACILITY_ICONS} from './icons.mjs';
-import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs';
-import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs';
-import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs';
-import {PROGRAM_PHOTOS,PROGRAM_PHOTO_SOURCE_NOTE} from './program-photos.mjs';
-import {setupPartnershipViewer} from './image-viewer.mjs';
+import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=dbaabd0786efb695';
+import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=dbaabd0786efb695';
+import {icon,FACILITY_ICONS} from './icons.mjs?v=dbaabd0786efb695';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=dbaabd0786efb695';
+import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=dbaabd0786efb695';
+import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=dbaabd0786efb695';
+import {PROGRAM_PHOTOS} from './program-photos.mjs?v=dbaabd0786efb695';
+import {setupPartnershipViewer} from './image-viewer.mjs?v=dbaabd0786efb695';
 
 // Static shell icons use the same embedded drawings as dynamically rendered views.
 document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
@@ -71,7 +71,7 @@ function render(){
     layout.querySelector('.month-title-text').textContent=nextLayout.querySelector('.month-title-text').textContent;
     for(const direction of ['-1','1'])layout.querySelector(`[data-month="${direction}"]`).disabled=nextLayout.querySelector(`[data-month="${direction}"]`).disabled;
     const monthSelect=layout.querySelector('#month'),nextSelect=nextLayout.querySelector('#month');
-    [...monthSelect.options].forEach((o,i)=>o.textContent=nextSelect.options[i].textContent);monthSelect.value=String(month);
+    [...monthSelect.options].forEach((o,i)=>{o.textContent=nextSelect.options[i].textContent;o.className=nextSelect.options[i].className;});monthSelect.value=String(month);monthSelect.className=nextSelect.className;
     for(const selector of ['.month-feedback','.legend','.calendar','.calendar-help','.day-heading','.day-list'])layout.querySelector(selector).innerHTML=nextLayout.querySelector(selector).innerHTML;
   }else $('#main').innerHTML=markup;
 }
@@ -119,8 +119,9 @@ function chooseFacility(value){
   draftFilters.facility=value;filterError='';filterMessage='';tab='search';render();
   $('#facility').value=value;updateDraftFeedback();$('.finder').scrollIntoView({block:'start'});$('#facility').focus({preventScroll:true});
 }
-function monthOptionLabel(value){
-  return `${value}월`;
+function monthOptionLabel(value,months=availableMonths()){
+  if(!statusOK||!searchReady())return `${value}월`;
+  return `${value}월 · ${months.includes(value)?'예약 가능':'예약 마감'}`;
 }
 function monthFeedback(months){
   if(!statusOK)return '<p class="month-message">현재 일정 정보를 확인할 수 없습니다. 최신 정보 확인을 눌러 주세요.</p>';
@@ -140,7 +141,7 @@ function searchMarkup(){
   <div class="filter-actions"><p id="day-visit-search-note" class="day-visit-note">${DAY_VISIT_NOTICE}</p><button id="apply-filters" type="submit" class="with-icon">${icon('search')}<span>조건 적용</span></button></div>
   <p id="draft-status" class="draft-status ${hasDraftChanges()?'is-pending':''} ${filterError?'is-error':''}" role="status" aria-live="polite">${esc(draftStatusText())}</p></form>
   <div class="feedback-area" aria-live="polite" aria-atomic="true"><p id="filter-summary" class="filter-summary"><span class="applied-label">적용된 조건</span><strong>${filterSummary()}</strong></p>${filters.mode==='match'&&filters.people<100&&filters.people>0?'<p class="small-note">평창은 100명 미만 학교의 경우 제시된 날짜 외에도 협의할 수 있습니다. <a href="tel:033-330-0965">033-330-0965</a></p>':''}</div></section>
-  <div class="schedule-layout"><section class="calendar-panel" aria-label="운영 가능 날짜 달력"><div class="calendar-title"><div><span class="eyebrow">2027년 운영 일정</span><h2 class="heading-with-icon">${icon('calendar')}<span class="month-title-text">${month}월</span></h2></div><div class="month-controls"><button data-month="-1" aria-label="이전 달" ${month===1?'disabled':''}>${icon('arrow-left')}</button><select id="month" aria-label="달 선택">${Array.from({length:12},(_,i)=>`<option value="${i+1}" ${i+1===month?'selected':''}>${esc(monthOptionLabel(i+1))}</option>`).join('')}</select><button data-month="1" aria-label="다음 달" ${month===12?'disabled':''}>${icon('arrow-right')}</button></div></div>
+  <div class="schedule-layout"><section class="calendar-panel" aria-label="운영 가능 날짜 달력"><div class="calendar-title"><div><span class="eyebrow">2027년 운영 일정</span><h2 class="heading-with-icon">${icon('calendar')}<span class="month-title-text">${month}월</span></h2></div><div class="month-controls"><button data-month="-1" aria-label="이전 달" ${month===1?'disabled':''}>${icon('arrow-left')}</button><select id="month" aria-label="달 선택" class="${statusOK&&ready?(months.includes(month)?'month-open':'month-closed'):''}">${Array.from({length:12},(_,i)=>`<option value="${i+1}" class="${statusOK&&ready?(months.includes(i+1)?'month-open':'month-closed'):''}" ${i+1===month?'selected':''}>${esc(monthOptionLabel(i+1,months))}</option>`).join('')}</select><button data-month="1" aria-label="다음 달" ${month===12?'disabled':''}>${icon('arrow-right')}</button></div></div>
   <div class="month-feedback" role="status" aria-live="polite">${monthFeedback(months)}</div>
   <div class="legend" aria-label="시설 범례">${catalog.facilities.filter(f=>!filters.facility||f.id===filters.facility).map(f=>`<button data-legend="${f.id}" aria-label="${f.short} 시설 검색 조건으로 선택"><i style="--facility:${f.color}" aria-hidden="true"></i>${f.short}</button>`).join('')}${filters.facility?'<button data-legend="all">전체 시설 선택</button>':''}</div>
   <div class="weekdays" aria-hidden="true">${['일','월','화','수','목','금','토'].map(d=>`<span>${d}</span>`).join('')}</div><div class="calendar">${calendarCells(list,runs)}</div>
@@ -169,7 +170,7 @@ function programMarkup(p){
 function courseAccordion(p){return `<details class="program-accordion"><summary><span class="course-grade">${GRADES[p.schoolLevel]}</span><span class="course-heading"><strong>${esc(p.name)}</strong><span>2박3일 기준 프로그램</span></span><span class="course-chevron" aria-hidden="true">${icon('arrow-right')}</span></summary>${programMarkup(p)}</details>`;}
 function programPhotos(f){
   const photos=PROGRAM_PHOTOS[f.id]||[];if(!photos.length)return '';
-  return `<section class="facility-photo-section" aria-label="${esc(f.short)} 활동·시설 사진"><div class="photo-heading"><h3>활동·시설 사진</h3><p>사진으로 미리 살펴보세요</p></div><div class="facility-photo-grid">${photos.map(photo=>`<figure><div class="photo-frame"><img src="${esc(photo.src)}" alt="${esc(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"></div><figcaption>${esc(photo.caption)}</figcaption></figure>`).join('')}</div><p class="photo-source">${esc(PROGRAM_PHOTO_SOURCE_NOTE)}</p></section>`;
+  return `<section class="facility-photo-section" aria-label="${esc(f.short)} 활동·시설 사진"><div class="facility-photo-grid">${photos.map(photo=>`<figure><div class="photo-frame"><img src="${esc(photo.src)}" alt="${esc(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"></div></figure>`).join('')}</div></section>`;
 }
 function programsMarkup(){
   const f=catalog.facilities.find(f=>f.id===programFacility),brand=FACILITY_BRAND[f.id];
@@ -180,7 +181,7 @@ function programsMarkup(){
     <div class="facility-hero">
       <div class="facility-hero-copy"><div class="facility-overline"><span class="location-pill">${f.location}</span><span>2027 학교단체 수련활동</span></div><h3 class="facility-logo-panel"><img class="facility-logo" src="${brand.logo}" alt="${esc(f.name)}" decoding="async"></h3><p class="facility-hero-description">${esc(brand.description)}</p></div>
       <div class="facility-hero-art" aria-hidden="true"><picture><source srcset="${brand.illustration.replace(/\.png$/,'.webp')}" type="image/webp"><img src="${brand.illustration}" alt="" width="240" height="240" loading="lazy" decoding="async"></picture></div>
-      <div class="facility-contact"><div><span class="contact-label">프로그램·일정 문의</span><p>학교에 맞는 활동을 시설과 함께 정해보세요.<br>신청은 전화 선착순으로 진행됩니다.</p>${f.id==='pyeongchang'?'<p class="facility-specific-note">100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 전화로 문의해 주세요.</p>':''}${f.id==='future'?'<p class="facility-specific-note">운영 가능 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 협의해 주세요.</p>':''}${f.id==='marine'?'<p class="facility-specific-note">PDF의 프로그램 문의번호와 예약 신청번호가 다릅니다. 예약은 054-730-8583으로 전화해 주세요.</p>':''}</div><div class="facility-contact-actions">${phone(f)}${programDownload(f)}<button class="with-icon" data-find-facility="${f.id}">${icon('calendar')}<span>이 시설 일정 찾기</span></button></div></div>
+      <div class="facility-contact"><div><span class="contact-label">프로그램·일정 문의</span><p>학교에 맞는 활동을 시설과 함께 정해보세요.<br>신청은 전화 선착순으로 진행됩니다.</p>${f.id==='pyeongchang'?'<p class="facility-specific-note">100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 전화로 문의해 주세요.</p>':''}${f.id==='future'?'<p class="facility-specific-note">운영 가능 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 협의해 주세요.</p>':''}</div><div class="facility-contact-actions">${phone(f)}${programDownload(f)}<button class="with-icon" data-find-facility="${f.id}">${icon('calendar')}<span>이 시설 일정 찾기</span></button></div></div>
     </div>
     ${programPhotos(f)}
     <div class="program-layout">

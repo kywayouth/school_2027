@@ -119,6 +119,8 @@ textarea{resize:vertical;line-height:1.8}
 .month-controls{display:flex;gap:6px;align-items:center}
 .month-controls button{padding:8px 10px;min-width:38px}
 .month-controls select{width:153px;font-size:13px}
+.month-controls select.month-open,.month-controls option.month-open{color:#0759A5}
+.month-controls select.month-closed,.month-controls option.month-closed{color:#C62828}
 .month-message{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 14px}
 .month-message .text-button{margin-top:6px;font-size:12px}
 .legend{display:flex;flex-wrap:wrap;gap:5px 12px;margin:15px 0 18px;color:var(--ink)}
@@ -236,22 +238,17 @@ textarea{resize:vertical;line-height:1.8}
 .detail-summary-actions .detail-consult{margin:0;flex:1 1 240px}
 .detail-summary-actions .program-download{flex:0 1 auto}
 .facility-specific-note{margin:8px 0 0!important;color:var(--facility-ink);font-size:13px!important;font-weight:700}
-.facility-photo-section{margin:0 0 32px;padding:22px;border:1px solid var(--facility-border);border-radius:16px;background:var(--facility-tint)}
-.photo-heading{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px}
-.photo-heading h3{font-size:18px;margin:0;color:var(--facility-ink)}
-.photo-heading p,.photo-source{font-size:12px;color:var(--muted);line-height:1.8;margin:0}
+.facility-photo-section{margin:0 0 32px}
 .facility-photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.facility-photo-grid figure{min-width:0;margin:0;padding:10px;border:1px solid var(--facility-border);border-radius:12px;background:#FFFFFF}
-.photo-frame{display:flex;align-items:center;justify-content:center;height:160px;background:#F4F4F6;border-radius:7px;overflow:hidden}
+.facility-photo-grid figure{min-width:0;margin:0}
+.photo-frame{display:flex;align-items:center;justify-content:center;height:160px;background:#F4F4F6;border-radius:12px;overflow:hidden}
 .photo-frame img{display:block;width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain}
-.facility-photo-grid figcaption{font-size:12px;color:var(--ink);line-height:1.7;margin-top:10px;word-break:keep-all;overflow-wrap:break-word}
-.photo-source{margin-top:15px}
 .partnership-card{padding:16px;border:1px solid var(--facility-border);border-radius:14px;background:#FFFFFF}
 .partnership-card h3{margin:0 0 12px;font-size:15px;line-height:1.6;color:var(--facility-ink)}
 .partnership-preview{display:block;width:100%;padding:0;overflow:hidden;background:#FFFFFF;border:1px solid var(--facility-border);border-radius:9px;cursor:zoom-in}
 .partnership-preview img{display:block;width:100%;height:auto}
 .partnership-preview span{display:block;padding:10px 8px;font-size:12px;line-height:1.6;background:var(--facility-tint);color:var(--facility-ink)}
-@media(max-width:650px){.facility-photo-section{padding:15px}.facility-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.facility-photo-grid figure{padding:7px}.photo-frame{height:105px}.photo-heading{gap:4px}.photo-heading h3{font-size:16px}.facility-photo-grid figcaption{font-size:11px}.detail-summary-actions .program-download{width:100%;font-size:12px}.detail-summary-actions{gap:10px}}
+@media(max-width:650px){.facility-photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo-frame{height:105px}.detail-summary-actions .program-download{width:100%;font-size:12px}.detail-summary-actions{gap:10px}}
 .facility-contact-actions>button{font-size:13px;color:var(--facility-ink);background:#FFFFFF;border-color:var(--facility-border)}
 .facility-contact-actions>button:hover{background:var(--facility-tint);border-color:var(--facility-ink)}
 .facility-theme .phone{color:#FFFFFF;background:var(--facility-ink);border-color:var(--facility-ink)}
