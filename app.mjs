@@ -1,15 +1,17 @@
-import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=dbaabd0786efb695';
-import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=dbaabd0786efb695';
-import {icon,FACILITY_ICONS} from './icons.mjs?v=dbaabd0786efb695';
-import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=dbaabd0786efb695';
-import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=dbaabd0786efb695';
-import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=dbaabd0786efb695';
-import {PROGRAM_PHOTOS} from './program-photos.mjs?v=dbaabd0786efb695';
-import {setupPartnershipViewer} from './image-viewer.mjs?v=dbaabd0786efb695';
+import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=d20cd7b5348fe5f8';
+import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=d20cd7b5348fe5f8';
+import {icon,FACILITY_ICONS} from './icons.mjs?v=d20cd7b5348fe5f8';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=d20cd7b5348fe5f8';
+import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=d20cd7b5348fe5f8';
+import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=d20cd7b5348fe5f8';
+import {PROGRAM_PHOTOS} from './program-photos.mjs?v=d20cd7b5348fe5f8';
+import {setupPartnershipViewer} from './image-viewer.mjs?v=d20cd7b5348fe5f8';
+import {setupPhotoViewer} from './photo-viewer.mjs?v=d20cd7b5348fe5f8';
 
 // Static shell icons use the same embedded drawings as dynamically rendered views.
 document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
 setupPartnershipViewer(document);
+setupPhotoViewer(document,PROGRAM_PHOTOS);
 
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const STORAGE='national-youth-2027-favorites-v1';
@@ -170,7 +172,7 @@ function programMarkup(p){
 function courseAccordion(p){return `<details class="program-accordion"><summary><span class="course-grade">${GRADES[p.schoolLevel]}</span><span class="course-heading"><strong>${esc(p.name)}</strong><span>2박3일 기준 프로그램</span></span><span class="course-chevron" aria-hidden="true">${icon('arrow-right')}</span></summary>${programMarkup(p)}</details>`;}
 function programPhotos(f){
   const photos=PROGRAM_PHOTOS[f.id]||[];if(!photos.length)return '';
-  return `<section class="facility-photo-section" aria-label="${esc(f.short)} 활동·시설 사진"><div class="facility-photo-grid">${photos.map(photo=>`<figure><div class="photo-frame"><img src="${esc(photo.src)}" alt="${esc(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"></div></figure>`).join('')}</div></section>`;
+  return `<section class="facility-photo-section" aria-label="${esc(f.short)} 활동·시설 사진"><details class="photo-disclosure"><summary><span class="with-icon">${icon('photo')}<span>활동사진 보기</span></span><span class="photo-chevron" aria-hidden="true">${icon('arrow-right')}</span></summary><div class="facility-photo-grid">${photos.map((photo,index)=>`<figure><button type="button" class="photo-frame" data-open-photo="${esc(f.id)}" data-photo-index="${index}" data-photo-facility="${esc(f.short)}" aria-label="${esc(f.short)} 활동사진 ${index+1} 크게 보기" aria-haspopup="dialog" aria-controls="activity-photo-viewer"><img src="${esc(photo.src)}" alt="${esc(photo.alt)}" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async"><span class="photo-zoom" aria-hidden="true">${icon('search')}</span></button></figure>`).join('')}</div></details></section>`;
 }
 function programsMarkup(){
   const f=catalog.facilities.find(f=>f.id===programFacility),brand=FACILITY_BRAND[f.id];
@@ -183,9 +185,8 @@ function programsMarkup(){
       <div class="facility-hero-art" aria-hidden="true"><picture><source srcset="${brand.illustration.replace(/\.png$/,'.webp')}" type="image/webp"><img src="${brand.illustration}" alt="" width="240" height="240" loading="lazy" decoding="async"></picture></div>
       <div class="facility-contact"><div><span class="contact-label">프로그램·일정 문의</span><p>학교에 맞는 활동을 시설과 함께 정해보세요.<br>신청은 전화 선착순으로 진행됩니다.</p>${f.id==='pyeongchang'?'<p class="facility-specific-note">100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 전화로 문의해 주세요.</p>':''}${f.id==='future'?'<p class="facility-specific-note">운영 가능 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 협의해 주세요.</p>':''}</div><div class="facility-contact-actions">${phone(f)}${programDownload(f)}<button class="with-icon" data-find-facility="${f.id}">${icon('calendar')}<span>이 시설 일정 찾기</span></button></div></div>
     </div>
-    ${programPhotos(f)}
     <div class="program-layout">
-      <div class="program-content"><div class="program-list-heading"><h3>교급별 프로그램</h3><p>과정을 펼쳐 목적과 흐름, 주요 활동과 시간표를 확인하세요.</p></div>${f.programs.map(courseAccordion).join('')}</div>
+      <div class="program-content"><div class="program-list-heading"><h3>교급별 프로그램</h3><p>과정을 펼쳐 목적과 흐름, 주요 활동과 시간표를 확인하세요.</p></div>${f.programs.map(courseAccordion).join('')}${programPhotos(f)}</div>
       <aside class="program-aside" aria-label="프로그램 이용 안내"><div class="program-guide">${mealMarkup(f)}</div><div class="adaptation-note"><span class="guide-label">숙박 형태에 따른 운영 안내</span><p>${esc(catalog.notice)}</p></div>${f.id==='marine'?'<section class="partnership-card" aria-label="경주월드 제휴할인 안내"><h3>경주월드 제휴할인 안내</h3><button type="button" class="partnership-preview" data-open-partnership aria-haspopup="dialog" aria-controls="partnership-viewer" aria-label="경주월드 제휴할인 안내 이미지 확대"><img src="./assets/programs/marine-gyeongju-world.png" width="592" height="673" alt="해양센터 경주월드 제휴할인 안내" loading="lazy" decoding="async"><span>이미지를 눌러 크게 보기</span></button></section>':''}</aside>
     </div></div>
   </section>`;

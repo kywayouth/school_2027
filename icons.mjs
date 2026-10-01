@@ -10,6 +10,7 @@ const PATHS=Object.freeze({
   pin:'<path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"/><circle cx="12" cy="10" r="2.5"/>',
   info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6m0-10v.2"/>',
   search:'<circle cx="10.5" cy="10.5" r="7.5"/><path d="m16 16 5 5"/>',
+  photo:'<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/>',
   refresh:'<path d="M20 9a8 8 0 0 0-14-4L3 8m0-5v5h5M4 15a8 8 0 0 0 14 4l3-3m-5 0h5v5"/>',
   'arrow-left':'<path d="M20 12H4m6-6-6 6 6 6"/>',
   'arrow-right':'<path d="M4 12h16m-6-6 6 6-6 6"/>',
