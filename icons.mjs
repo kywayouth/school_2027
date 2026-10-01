@@ -3,6 +3,7 @@
 const PATHS=Object.freeze({
   calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18M7 15h3m4 0h3m-10 3h3"/>',
   book:'<path d="M12 6v15M12 6C9 3 5 3 2 4v15c4-1 7-1 10 2 3-3 6-3 10-2V4c-3-1-7-1-10 2Z"/>',
+  download:'<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
   heart:'<path d="M12 21 3.8 13a5.5 5.5 0 0 1 7.8-7.8l.4.4.4-.4a5.5 5.5 0 0 1 7.8 7.8Z"/>',
   phone:'<path d="m8 3 2 5-3 2c1.5 3 3 4.5 6 6l2-3 5 2v4c0 1.2-1 2-2.2 2C9.8 20.5 3.5 14.2 3 6.2 3 5 3.8 4 5 4Z"/>',
   sliders:'<path d="M3 6h4m4 0h10M3 12h10m4 0h4M3 18h2m4 0h12"/><circle cx="9" cy="6" r="2"/><circle cx="15" cy="12" r="2"/><circle cx="7" cy="18" r="2"/>',
