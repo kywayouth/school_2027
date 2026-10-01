@@ -22,7 +22,7 @@ export function dateLabel(s){const d=new Date(epoch(s));return `${d.getUTCMonth(
 export const rangeLabel=(a,b)=>a===b?dateLabel(a):`${dateLabel(a)} – ${dateLabel(b)}`;
 export function catalogFrom(source){
   const facilities=source.facilities.map(f=>({...f,...FACILITY_STYLE[f.id]}));
-  const slots=facilities.flatMap(f=>f.availability.map((s,i)=>({...s,code:`${f.prefix}${String(i+1).padStart(3,'0')}`,facilityId:f.id,facility:f})));
+  const slots=facilities.flatMap(f=>f.availability.map((s,i)=>({...s,code:s.code||`${f.prefix}${String(i+1).padStart(3,'0')}`,facilityId:f.id,facility:f})));
   return {facilities,slots,byCode:new Map(slots.map(s=>[s.code,s])),byId:new Map(slots.map(s=>[s.id,s])),notice:source.businessRules.oneNightProgramDisplay.notice};
 }
 export function emptyStatus(){return {asOf:null,closed:new Set(),capacities:new Map(),blocked:new Map(),errors:[]};}

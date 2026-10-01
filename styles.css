@@ -1,5 +1,5 @@
 /* Original Youth TTF is hosted locally and kept unmodified. */
-@font-face{font-family:"Youth";src:url("./assets/fonts/Youth.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Youth";src:url("./assets/fonts/Youth.ttf") format("truetype");font-style:normal;font-weight:400;font-display:swap;unicode-range:U+0000-02FF,U+1100-11FF,U+3130-318F,U+AC00-D7AF}
 :root{color-scheme:light;--ink:#262629;--muted:#62626B;--action:#29292D;--line:#DFDFE5;--paper:#F4F4F5;--white:#FFFFFF;--brand:#ED174F;--brand-ink:#B70B39;--brand-action:#DC1248;font-family:"Youth","Malgun Gothic","Apple SD Gothic Neo",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px;color:var(--ink);background:var(--paper)}
 *{box-sizing:border-box}
 body{margin:0}
@@ -119,6 +119,11 @@ textarea{resize:vertical;line-height:1.8}
 .month-controls{display:flex;gap:6px;align-items:center}
 .month-controls button{padding:8px 10px;min-width:38px}
 .month-controls select{width:153px;font-size:13px}
+.month-controls option.month-open{color:#0751A3}
+.month-controls option.month-closed{color:#B42336}
+.month-availability{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:5px 11px;font-size:12px;font-weight:800;white-space:nowrap}
+.month-availability.is-open{color:#0751A3;background:#E8F2FF}
+.month-availability.is-closed{color:#B42336;background:#FFF0F2}
 .month-message{font-size:13px;line-height:1.8;color:var(--muted);margin:0 0 14px}
 .month-message .text-button{margin-top:6px;font-size:12px}
 .legend{display:flex;flex-wrap:wrap;gap:5px 12px;margin:15px 0 18px;color:var(--ink)}
@@ -229,6 +234,17 @@ textarea{resize:vertical;line-height:1.8}
 .contact-label{display:block;color:var(--facility-ink);font-weight:700;font-size:14px;margin-bottom:9px}
 .facility-contact p{font-size:13px;line-height:1.8;color:var(--muted);margin:0}
 .facility-contact-actions{display:flex;flex-direction:column;gap:8px;flex:none;min-width:258px}
+.facility-contact-actions>.program-download{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:10px 13px;border:1px solid var(--facility-border);border-radius:10px;background:#FFFFFF;color:var(--facility-ink);font-size:13px;font-weight:700;text-align:center;text-decoration:none}
+.facility-contact-actions>.program-download:hover{background:var(--facility-tint);border-color:var(--facility-ink)}
+.facility-contact-actions>.program-download .icon{width:18px;height:18px;flex:none}
+.facility-specific-note{margin:8px 0 0!important;color:var(--facility-ink);font-size:13px!important;font-weight:700}
+.marine-activity-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:-12px 0 28px}
+.marine-activity-gallery img{display:block;width:100%;height:132px;object-fit:cover;border-radius:12px;border:1px solid var(--facility-border)}
+.partnership-note{padding:16px;border:1px solid var(--facility-border);border-radius:14px;background:#FFFFFF;font-size:12px;line-height:1.7}
+.partnership-note summary{color:var(--facility-ink);font-size:13px;font-weight:700;cursor:pointer}
+.partnership-note p{margin:11px 0 0;line-height:1.7}
+.partnership-note strong{color:#B42336}
+@media(max-width:650px){.marine-activity-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:-10px}.marine-activity-gallery img{height:105px}}
 .facility-contact-actions>button{font-size:13px;color:var(--facility-ink);background:#FFFFFF;border-color:var(--facility-border)}
 .facility-contact-actions>button:hover{background:var(--facility-tint);border-color:var(--facility-ink)}
 .facility-theme .phone{color:#FFFFFF;background:var(--facility-ink);border-color:var(--facility-ink)}

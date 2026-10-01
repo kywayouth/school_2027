@@ -20,10 +20,8 @@ const ACTIVITY_TOPICS = new Set([
   '숙련도·탐구', '탐험·호기심', '예술·미래기술', '교양', '공감'
 ]);
 
-// The marine timetable's comma-separated pick-one rows represent the same
-// simultaneous school groups as the central facility, per the operator's
-// clarification. Scope this display interpretation to marine programs only;
-// the source JSON and other facilities' explicit choice rules stay unchanged.
+// Compatibility for older marine timetable text saved before the final PDF.
+// The current source uses pipe-separated simultaneous groups directly.
 function marineParallelItems(text, programId) {
   if (!String(programId).startsWith('marine-') || !/[（(]\s*택\s*[1１]\s*[)）]\s*$/.test(text)) return null;
   const body = text.replace(/[（(]\s*택\s*[1１]\s*[)）]\s*$/, '');

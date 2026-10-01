@@ -4,12 +4,12 @@
   "locale": "ko-KR",
   "generatedFrom": [
     {
-      "title": "2027년도 국립청소년시설 잔여 일정 안내문",
-      "role": "신청 가능 일정, 대상 교급, 운영 가능 인원, 예약 전화번호"
+      "title": "2027년도 국립청소년시설 예약가능 일정 안내(최종)",
+      "role": "일정·대상·규모·예약 전화번호"
     },
     {
-      "title": "2027년 국립청소년시설 학교단체 프로그램 안내(취합)",
-      "role": "시설별·교급별 2박3일 일정표, 세부 활동, 인증번호, 식사 기준"
+      "title": "2027년 국립청소년시설 학교단체 프로그램 안내(수정본)",
+      "role": "교급별 과정·2박3일 시간표·활동·인증·식사"
     }
   ],
   "businessRules": {
@@ -1103,7 +1103,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C001"
         },
         {
           "id": "central-2027-06-29-2027-07-01",
@@ -1135,7 +1136,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C002"
         },
         {
           "id": "central-2027-08-23-2027-08-25",
@@ -1168,7 +1170,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C003"
         },
         {
           "id": "central-2027-08-30-2027-09-01",
@@ -1201,7 +1204,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C004"
         },
         {
           "id": "central-2027-09-08-2027-09-10",
@@ -1232,7 +1236,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C005"
         },
         {
           "id": "central-2027-09-21-2027-09-23",
@@ -1263,7 +1268,42 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C006"
+        },
+        {
+          "id": "central-2027-09-22-2027-09-24",
+          "type": "fixed_round",
+          "startDate": "2027-09-22",
+          "endDate": "2027-09-24",
+          "startWeekday": "수",
+          "endWeekday": "금",
+          "sourceWeekdays": {
+            "start": "수",
+            "end": "금"
+          },
+          "weekdayMismatch": false,
+          "allowedStayTypes": [
+            "2박3일"
+          ],
+          "schoolLevels": [
+            "elementary",
+            "middle",
+            "high"
+          ],
+          "capacity": {
+            "min": 300,
+            "max": 450,
+            "includesChaperones": true,
+            "interpretation": "range"
+          },
+          "sourcePage": 1,
+          "sourceOrder": 7,
+          "reservationStatus": {
+            "state": "not_synced",
+            "updatedAt": null
+          },
+          "code": "C015"
         },
         {
           "id": "central-2027-10-06-2027-10-08",
@@ -1291,22 +1331,23 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 7,
+          "sourceOrder": 8,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C007"
         },
         {
-          "id": "central-2027-10-12-2027-10-17",
-          "type": "negotiable_period",
+          "id": "central-2027-10-12-2027-10-14",
+          "type": "fixed_round",
           "startDate": "2027-10-12",
-          "endDate": "2027-10-17",
+          "endDate": "2027-10-14",
           "startWeekday": "화",
-          "endWeekday": "일",
+          "endWeekday": "목",
           "sourceWeekdays": {
             "start": "화",
-            "end": "일"
+            "end": "목"
           },
           "weekdayMismatch": false,
           "allowedStayTypes": [
@@ -1322,12 +1363,12 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 8,
-          "dateSelection": "기간 안에서 시설과 날짜를 협의하여 운영",
+          "sourceOrder": 9,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C008"
         },
         {
           "id": "central-2027-10-26-2027-10-28",
@@ -1354,11 +1395,12 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 9,
+          "sourceOrder": 10,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C009"
         },
         {
           "id": "central-2027-11-15-2027-11-17",
@@ -1387,11 +1429,12 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 10,
+          "sourceOrder": 11,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C010"
         },
         {
           "id": "central-2027-11-17-2027-11-19",
@@ -1420,11 +1463,12 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 11,
+          "sourceOrder": 12,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C011"
         },
         {
           "id": "central-2027-11-22-2027-11-24",
@@ -1453,11 +1497,12 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 12,
+          "sourceOrder": 13,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C012"
         },
         {
           "id": "central-2027-11-24-2027-11-26",
@@ -1486,11 +1531,12 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 13,
+          "sourceOrder": 14,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C013"
         },
         {
           "id": "central-2027-11-29-2027-12-01",
@@ -1519,11 +1565,12 @@
             "interpretation": "range"
           },
           "sourcePage": 1,
-          "sourceOrder": 14,
+          "sourceOrder": 15,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "C014"
         }
       ]
     },
@@ -2393,7 +2440,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "P001"
         },
         {
           "id": "pyeongchang-2027-06-14-2027-07-07",
@@ -2453,7 +2501,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "P002"
         },
         {
           "id": "pyeongchang-2027-07-19-2027-08-13",
@@ -2513,7 +2562,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "P003"
         },
         {
           "id": "pyeongchang-2027-10-12-2027-10-13",
@@ -2573,7 +2623,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "P004"
         },
         {
           "id": "pyeongchang-2027-11-10-2027-12-31",
@@ -2633,7 +2684,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "P005"
         }
       ],
       "applicationRules": [
@@ -3471,7 +3523,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S001"
         },
         {
           "id": "space-2027-03-08-2027-03-10",
@@ -3504,7 +3557,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S002"
         },
         {
           "id": "space-2027-03-10-2027-03-12",
@@ -3537,7 +3591,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S003"
         },
         {
           "id": "space-2027-03-15-2027-03-17",
@@ -3570,7 +3625,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S004"
         },
         {
           "id": "space-2027-03-17-2027-03-19",
@@ -3603,7 +3659,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S005"
         },
         {
           "id": "space-2027-03-22-2027-03-24",
@@ -3636,7 +3693,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S006"
         },
         {
           "id": "space-2027-03-24-2027-03-26",
@@ -3669,7 +3727,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S007"
         },
         {
           "id": "space-2027-03-31-2027-04-02",
@@ -3702,7 +3761,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S008"
         },
         {
           "id": "space-2027-04-07-2027-04-09",
@@ -3735,7 +3795,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S009"
         },
         {
           "id": "space-2027-05-06-2027-05-07",
@@ -3778,7 +3839,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S010"
         },
         {
           "id": "space-2027-06-02-2027-06-03",
@@ -3821,7 +3883,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S011"
         },
         {
           "id": "space-2027-06-09-2027-06-11",
@@ -3854,7 +3917,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S012"
         },
         {
           "id": "space-2027-06-16-2027-06-18",
@@ -3887,7 +3951,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S013"
         },
         {
           "id": "space-2027-06-21-2027-06-23",
@@ -3920,7 +3985,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S014"
         },
         {
           "id": "space-2027-06-23-2027-06-25",
@@ -3953,7 +4019,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S015"
         },
         {
           "id": "space-2027-06-28-2027-06-29",
@@ -3996,7 +4063,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S016"
         },
         {
           "id": "space-2027-06-29-2027-06-30",
@@ -4039,7 +4107,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S017"
         },
         {
           "id": "space-2027-06-30-2027-07-02",
@@ -4072,7 +4141,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S018"
         },
         {
           "id": "space-2027-07-05-2027-07-07",
@@ -4105,7 +4175,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S019"
         },
         {
           "id": "space-2027-07-07-2027-07-09",
@@ -4138,7 +4209,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S020"
         },
         {
           "id": "space-2027-07-12-2027-07-14",
@@ -4171,7 +4243,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S021"
         },
         {
           "id": "space-2027-08-23-2027-08-25",
@@ -4204,7 +4277,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S022"
         },
         {
           "id": "space-2027-08-25-2027-08-27",
@@ -4237,7 +4311,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S023"
         },
         {
           "id": "space-2027-08-30-2027-09-01",
@@ -4270,7 +4345,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S024"
         },
         {
           "id": "space-2027-09-01-2027-09-02",
@@ -4313,7 +4389,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S025"
         },
         {
           "id": "space-2027-09-06-2027-09-08",
@@ -4346,7 +4423,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S026"
         },
         {
           "id": "space-2027-09-08-2027-09-10",
@@ -4379,7 +4457,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S027"
         },
         {
           "id": "space-2027-09-29-2027-10-01",
@@ -4412,7 +4491,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S028"
         },
         {
           "id": "space-2027-10-05-2027-10-06",
@@ -4455,7 +4535,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S029"
         },
         {
           "id": "space-2027-10-12-2027-10-13",
@@ -4498,7 +4579,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S030"
         },
         {
           "id": "space-2027-10-13-2027-10-14",
@@ -4541,7 +4623,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "S031"
         },
         {
           "id": "space-2027-10-25-2027-10-27",
@@ -4574,7 +4657,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S032"
         },
         {
           "id": "space-2027-11-01-2027-11-03",
@@ -4607,7 +4691,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S033"
         },
         {
           "id": "space-2027-11-08-2027-11-10",
@@ -4640,7 +4725,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S034"
         },
         {
           "id": "space-2027-11-15-2027-11-17",
@@ -4673,7 +4759,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S035"
         },
         {
           "id": "space-2027-11-22-2027-11-24",
@@ -4706,7 +4793,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S036"
         },
         {
           "id": "space-2027-11-29-2027-12-01",
@@ -4739,7 +4827,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S037"
         },
         {
           "id": "space-2027-12-01-2027-12-03",
@@ -4772,7 +4861,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S038"
         },
         {
           "id": "space-2027-12-06-2027-12-08",
@@ -4805,7 +4895,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S039"
         },
         {
           "id": "space-2027-12-08-2027-12-10",
@@ -4838,7 +4929,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S040"
         },
         {
           "id": "space-2027-12-13-2027-12-15",
@@ -4871,7 +4963,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S041"
         },
         {
           "id": "space-2027-12-15-2027-12-17",
@@ -4904,7 +4997,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "S042"
         }
       ]
     },
@@ -5893,7 +5987,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B001"
         },
         {
           "id": "bio-2027-03-10-2027-03-12",
@@ -5926,7 +6021,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B002"
         },
         {
           "id": "bio-2027-03-15-2027-03-17",
@@ -5959,7 +6055,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B003"
         },
         {
           "id": "bio-2027-03-17-2027-03-19",
@@ -5992,7 +6089,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B004"
         },
         {
           "id": "bio-2027-03-22-2027-03-24",
@@ -6025,7 +6123,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B005"
         },
         {
           "id": "bio-2027-03-24-2027-03-26",
@@ -6058,40 +6157,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
-        },
-        {
-          "id": "bio-2027-04-12-2027-04-14",
-          "type": "fixed_round",
-          "startDate": "2027-04-12",
-          "endDate": "2027-04-14",
-          "startWeekday": "월",
-          "endWeekday": "수",
-          "sourceWeekdays": {
-            "start": "월",
-            "end": "수"
           },
-          "weekdayMismatch": false,
-          "allowedStayTypes": [
-            "2박3일"
-          ],
-          "schoolLevels": [
-            "elementary",
-            "middle",
-            "high"
-          ],
-          "capacity": {
-            "min": null,
-            "max": 300,
-            "includesChaperones": true,
-            "interpretation": "maximum"
-          },
-          "sourcePage": 3,
-          "sourceOrder": 7,
-          "reservationStatus": {
-            "state": "not_synced",
-            "updatedAt": null
-          }
+          "code": "B006"
         },
         {
           "id": "bio-2027-04-14-2027-04-16",
@@ -6120,11 +6187,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 8,
+          "sourceOrder": 7,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B008"
         },
         {
           "id": "bio-2027-06-09-2027-06-11",
@@ -6153,11 +6221,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 9,
+          "sourceOrder": 8,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B009"
         },
         {
           "id": "bio-2027-06-14-2027-06-16",
@@ -6186,11 +6255,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 10,
+          "sourceOrder": 9,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B010"
         },
         {
           "id": "bio-2027-06-16-2027-06-18",
@@ -6219,11 +6289,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 11,
+          "sourceOrder": 10,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B011"
         },
         {
           "id": "bio-2027-06-21-2027-06-23",
@@ -6252,11 +6323,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 12,
+          "sourceOrder": 11,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B012"
         },
         {
           "id": "bio-2027-06-23-2027-06-25",
@@ -6285,11 +6357,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 13,
+          "sourceOrder": 12,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B013"
         },
         {
           "id": "bio-2027-06-28-2027-06-30",
@@ -6318,11 +6391,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 14,
+          "sourceOrder": 13,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B014"
         },
         {
           "id": "bio-2027-06-30-2027-07-02",
@@ -6351,11 +6425,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 15,
+          "sourceOrder": 14,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B015"
         },
         {
           "id": "bio-2027-07-05-2027-07-07",
@@ -6384,11 +6459,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 16,
+          "sourceOrder": 15,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B016"
         },
         {
           "id": "bio-2027-07-07-2027-07-09",
@@ -6417,11 +6493,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 17,
+          "sourceOrder": 16,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B017"
         },
         {
           "id": "bio-2027-07-12-2027-07-14",
@@ -6450,11 +6527,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 18,
+          "sourceOrder": 17,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B018"
         },
         {
           "id": "bio-2027-07-14-2027-07-16",
@@ -6483,11 +6561,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 19,
+          "sourceOrder": 18,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B019"
         },
         {
           "id": "bio-2027-08-30-2027-09-01",
@@ -6516,11 +6595,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 20,
+          "sourceOrder": 19,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B020"
         },
         {
           "id": "bio-2027-09-01-2027-09-03",
@@ -6549,11 +6629,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 21,
+          "sourceOrder": 20,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B021"
         },
         {
           "id": "bio-2027-09-06-2027-09-08",
@@ -6582,11 +6663,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 22,
+          "sourceOrder": 21,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B022"
         },
         {
           "id": "bio-2027-09-20-2027-09-22",
@@ -6615,11 +6697,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 23,
+          "sourceOrder": 22,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B023"
         },
         {
           "id": "bio-2027-10-18-2027-10-20",
@@ -6648,11 +6731,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 24,
+          "sourceOrder": 23,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B024"
         },
         {
           "id": "bio-2027-10-25-2027-10-26",
@@ -6681,7 +6765,7 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 25,
+          "sourceOrder": 24,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -6695,7 +6779,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "B025"
         },
         {
           "id": "bio-2027-11-01-2027-11-03",
@@ -6724,11 +6809,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 26,
+          "sourceOrder": 25,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B026"
         },
         {
           "id": "bio-2027-11-03-2027-11-05",
@@ -6757,11 +6843,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 27,
+          "sourceOrder": 26,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B027"
         },
         {
           "id": "bio-2027-11-08-2027-11-10",
@@ -6790,11 +6877,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 28,
+          "sourceOrder": 27,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B028"
         },
         {
           "id": "bio-2027-11-15-2027-11-17",
@@ -6823,11 +6911,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 29,
+          "sourceOrder": 28,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B029"
         },
         {
           "id": "bio-2027-11-17-2027-11-19",
@@ -6856,11 +6945,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 30,
+          "sourceOrder": 29,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B030"
         },
         {
           "id": "bio-2027-11-22-2027-11-24",
@@ -6889,11 +6979,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 31,
+          "sourceOrder": 30,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B031"
         },
         {
           "id": "bio-2027-11-24-2027-11-26",
@@ -6922,11 +7013,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 32,
+          "sourceOrder": 31,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B032"
         },
         {
           "id": "bio-2027-11-29-2027-12-01",
@@ -6955,11 +7047,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 33,
+          "sourceOrder": 32,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B033"
         },
         {
           "id": "bio-2027-12-01-2027-12-03",
@@ -6988,11 +7081,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 34,
+          "sourceOrder": 33,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B034"
         },
         {
           "id": "bio-2027-12-06-2027-12-08",
@@ -7021,11 +7115,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 35,
+          "sourceOrder": 34,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B035"
         },
         {
           "id": "bio-2027-12-08-2027-12-10",
@@ -7054,11 +7149,12 @@
             "interpretation": "maximum"
           },
           "sourcePage": 3,
-          "sourceOrder": 36,
+          "sourceOrder": 35,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "B036"
         }
       ]
     },
@@ -7071,13 +7167,13 @@
         "allowedMealCounts": [
           6
         ],
-        "sevenMealCondition": "7식 불가"
+        "sevenMealCondition": "첫날 점심식사를 포함한 2박3일 기준 6식, 마지막 날 점심식사 제외"
       },
       "programs": [
         {
           "id": "marine-high",
           "schoolLevel": "high",
-          "name": "즐거운 청소년해양활동",
+          "name": "해(海)다움 활동",
           "duration": {
             "nights": 2,
             "days": 3
@@ -7087,9 +7183,9 @@
             "interpretation": "max",
             "value": 270
           },
-          "certificationNumber": "12110",
+          "certificationNumber": "13983",
           "advanceReportNumbers": [
-            "영덕군-18320호"
+            "제 48017호"
           ],
           "timetable": [
             {
@@ -7097,22 +7193,30 @@
               "events": [
                 {
                   "time": {
-                    "label": "~14:00",
+                    "label": "~11:30",
                     "start": null,
-                    "end": "14:00"
+                    "end": "11:30"
                   },
                   "category": "입소",
-                  "detail": "도착 및 숙소배정"
+                  "detail": "센터 도착"
                 },
                 {
                   "time": {
-                    "label": "14:00~15:00",
-                    "start": "14:00",
-                    "end": "15:00"
+                    "label": "12:00~13:00",
+                    "start": "12:00",
+                    "end": "13:00"
+                  },
+                  "category": "중식",
+                  "detail": "점심식사 및 휴식"
+                },
+                {
+                  "time": {
+                    "label": "13:00~14:00",
+                    "start": "13:00",
+                    "end": "14:00"
                   },
                   "category": "출항식",
-                  "detail": "지도자, 활동 소개 및 안전교육",
-                  "durationMinutes": 60
+                  "detail": "지도자·활동 소개 및 안전교육"
                 },
                 {
                   "time": {
@@ -7121,8 +7225,7 @@
                     "end": "17:00"
                   },
                   "category": "활동1",
-                  "detail": "오션 와일드, D-UP, 배움항해(PLAY)(택 1)",
-                  "durationMinutes": 120
+                  "detail": "오션 와일드 | 블루로드, 추억을 담다 | 서바이벌 오션 (배움항해)"
                 },
                 {
                   "time": {
@@ -7131,8 +7234,7 @@
                     "end": "17:30"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7141,8 +7243,7 @@
                     "end": "19:00"
                   },
                   "category": "석식",
-                  "detail": "저녁식사 및 휴식",
-                  "durationMinutes": 90
+                  "detail": "저녁식사 및 휴식"
                 },
                 {
                   "time": {
@@ -7151,8 +7252,7 @@
                     "end": "20:30"
                   },
                   "category": "활동2",
-                  "detail": "별海는 밤",
-                  "durationMinutes": 90
+                  "detail": "별海는 밤"
                 },
                 {
                   "time": {
@@ -7184,8 +7284,7 @@
                     "end": "11:30"
                   },
                   "category": "활동3",
-                  "detail": "D-UP, 배움항해(PLAY), 오션 와일드(택 1)",
-                  "durationMinutes": 120
+                  "detail": "블루로드, 추억을 담다 | 서바이벌 오션 (배움항해) | 오션 와일드"
                 },
                 {
                   "time": {
@@ -7194,8 +7293,7 @@
                     "end": "12:00"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7204,8 +7302,7 @@
                     "end": "14:00"
                   },
                   "category": "중식",
-                  "detail": "점심식사 후 휴식",
-                  "durationMinutes": 120
+                  "detail": "점심식사 후 휴식"
                 },
                 {
                   "time": {
@@ -7213,9 +7310,8 @@
                     "start": "14:00",
                     "end": "15:00"
                   },
-                  "category": "활동4",
-                  "detail": "해양특강",
-                  "durationMinutes": 60
+                  "category": "해양특강",
+                  "detail": "해양특강"
                 },
                 {
                   "time": {
@@ -7224,8 +7320,7 @@
                     "end": "17:00"
                   },
                   "category": "활동5",
-                  "detail": "배움항해(PLAY), 오션 와일드, D-UP(택 1)",
-                  "durationMinutes": 120
+                  "detail": "서바이벌 오션 (배움항해) | 오션 와일드 | 블루로드, 추억을 담다"
                 },
                 {
                   "time": {
@@ -7234,8 +7329,7 @@
                     "end": "17:30"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7244,8 +7338,7 @@
                     "end": "19:00"
                   },
                   "category": "석식",
-                  "detail": "저녁식사 및 휴식",
-                  "durationMinutes": 90
+                  "detail": "저녁식사 및 휴식"
                 },
                 {
                   "time": {
@@ -7254,8 +7347,7 @@
                     "end": "20:30"
                   },
                   "category": "활동6",
-                  "detail": "레크리에이션",
-                  "durationMinutes": 90
+                  "detail": "레크리에이션"
                 },
                 {
                   "time": {
@@ -7282,18 +7374,17 @@
                 },
                 {
                   "time": {
-                    "label": "09:00~09:30",
+                    "label": "09:00~10:00",
                     "start": "09:00",
-                    "end": "09:30"
+                    "end": "10:00"
                   },
                   "category": "입항식",
-                  "detail": "지도자 인사 및 설문 작성",
-                  "durationMinutes": 30
+                  "detail": "지도자 인사 및 설문 작성"
                 },
                 {
                   "time": {
-                    "label": "09:30~",
-                    "start": "09:30",
+                    "label": "10:00~",
+                    "start": "10:00",
                     "end": null
                   },
                   "category": "퇴소",
@@ -7305,35 +7396,37 @@
           "activities": [
             {
               "name": "오션 와일드",
-              "description": "재난 상황에 대비하여 재난 발생 시 요구되는 다양한 대처 방법과 대체 식량 확보 방안 등을 조별 활동을 통해 탐색하고 해결해보는 프로그램"
+              "description": "재난 상황에 필요한 대처 방법과 대체 식량 확보 방안을 조별 활동으로 탐색하고 해결합니다."
             },
             {
-              "name": "D-UP",
-              "description": "디지털 기기를 활용한 공동체 활동을 통해 디지털 의사소통 방법을 익히고 윤리의식을 함양하는 프로그램"
+              "name": "블루로드, 추억을 담다",
+              "description": "영덕 블루로드를 걸으며 바다를 가까이 느끼고 자연 속에서 정서적 안정과 휴식을 경험합니다. 3~5월·9~11월 운영하며 기상에 따라 달라질 수 있습니다."
+            },
+            {
+              "name": "서바이벌 오션",
+              "description": "바다에서 모무보트 수상 스포츠와 생존수영을 경험하며 협업과 의사소통, 개인 생존 능력을 기릅니다. 5~10월 운영하며 기상에 따라 달라질 수 있습니다."
             },
             {
               "name": "배움항해",
-              "description": "물에 대한 적응력을 높이고, 해양사고 발생 시 대처 방법을 체득한 후 다양한 도구를 활용해 배를 제작·운용하며 배의 3요소(부양성, 적재 성, 이동성)를 이해하는 프로그램"
-            },
-            {
-              "name": "PLAY",
-              "description": "해양 쓰레기의 다양한 종류를 이해하고, 플라스틱 새활용을 통해 오 브제를 제작하며 해양환경 보존 의식을 함양하는 프로그램"
+              "description": "서바이벌 오션 대체 활동(3~5월·10~11월)입니다. 배를 만들고 운용하며 부양성·적재성·이동성을 이해합니다."
             },
             {
               "name": "별海는 밤",
-              "description": "평소 표현하지 못했거나 나누고 싶었던 이야기를 지도자가 라디오 형 식으로 진행하여 소통의 매개체가 되어주는 프로그램"
+              "description": "지도자가 라디오 형식으로 사연을 진행하며 서로의 이야기를 나눕니다."
             },
             {
               "name": "해양특강",
-              "description": "퀴즈를 통해 현재 파괴되고 있는 해양환경과 해양 보호생물에 대해 알아보는 프로그램"
+              "description": "퀴즈를 통해 해양환경과 해양 보호생물을 알아봅니다."
             },
             {
               "name": "레크리에이션",
-              "description": "참가 청소년이 함께 즐기며, 장기자랑을 통해 꿈과 끼를 발산해 보는 프 로그램"
+              "description": "참가 청소년이 함께 어울리고 장기자랑으로 끼를 나눕니다."
             }
           ],
           "notes": [
-            "기본 일정표이며 대상, 인원, 계절, 기상에 따라 단위 프로그램이 일부 조정될 수 있음"
+            "기본 일정표로 대상·인원·계절·기상에 따라 단위 프로그램이 조정될 수 있습니다.",
+            "동일 시간의 세 활동은 세 그룹으로 나누어 순환 운영합니다.",
+            "블루로드와 수상 활동은 운영 시기 및 기상에 따라 대체 활동으로 조정될 수 있습니다."
           ],
           "sourcePages": {
             "timetable": 26,
@@ -7343,7 +7436,7 @@
         {
           "id": "marine-middle",
           "schoolLevel": "middle",
-          "name": "함께보는 바다활동",
+          "name": "해(海)나눔 활동",
           "duration": {
             "nights": 2,
             "days": 3
@@ -7353,9 +7446,9 @@
             "interpretation": "max",
             "value": 270
           },
-          "certificationNumber": "11983",
+          "certificationNumber": "13982",
           "advanceReportNumbers": [
-            "영덕군-18319호"
+            "제 48016호"
           ],
           "timetable": [
             {
@@ -7363,22 +7456,30 @@
               "events": [
                 {
                   "time": {
-                    "label": "~14:00",
+                    "label": "~11:30",
                     "start": null,
-                    "end": "14:00"
+                    "end": "11:30"
                   },
                   "category": "입소",
-                  "detail": "도착 및 숙소배정"
+                  "detail": "센터 도착"
                 },
                 {
                   "time": {
-                    "label": "14:00~15:00",
-                    "start": "14:00",
-                    "end": "15:00"
+                    "label": "12:00~13:00",
+                    "start": "12:00",
+                    "end": "13:00"
+                  },
+                  "category": "중식",
+                  "detail": "점심식사 및 휴식"
+                },
+                {
+                  "time": {
+                    "label": "13:00~14:00",
+                    "start": "13:00",
+                    "end": "14:00"
                   },
                   "category": "출항식",
-                  "detail": "지도자, 활동 소개 및 안전교육",
-                  "durationMinutes": 60
+                  "detail": "지도자·활동 소개 및 안전교육"
                 },
                 {
                   "time": {
@@ -7387,8 +7488,7 @@
                     "end": "17:00"
                   },
                   "category": "활동1",
-                  "detail": "선박퇴선(캐스트어웨이), 해양학개론, 마린크라임씬(택 1)",
-                  "durationMinutes": 120
+                  "detail": "해양학개론 | 블루로드, 추억을 담다 | 서바이벌 오션 (선박퇴선)"
                 },
                 {
                   "time": {
@@ -7397,8 +7497,7 @@
                     "end": "17:30"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7407,8 +7506,7 @@
                     "end": "19:00"
                   },
                   "category": "석식",
-                  "detail": "저녁식사 및 휴식",
-                  "durationMinutes": 90
+                  "detail": "저녁식사 및 휴식"
                 },
                 {
                   "time": {
@@ -7417,8 +7515,7 @@
                     "end": "20:30"
                   },
                   "category": "활동2",
-                  "detail": "별海는 밤",
-                  "durationMinutes": 90
+                  "detail": "별海는 밤"
                 },
                 {
                   "time": {
@@ -7450,8 +7547,7 @@
                     "end": "11:30"
                   },
                   "category": "활동3",
-                  "detail": "해양학개론, 마린크라임씬, 선박퇴선(캐스트어웨이)(택 1)",
-                  "durationMinutes": 120
+                  "detail": "블루로드, 추억을 담다 | 서바이벌 오션 (선박퇴선) | 해양학개론"
                 },
                 {
                   "time": {
@@ -7460,8 +7556,7 @@
                     "end": "12:00"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7470,8 +7565,7 @@
                     "end": "14:00"
                   },
                   "category": "중식",
-                  "detail": "점심식사 후 휴식",
-                  "durationMinutes": 120
+                  "detail": "점심식사 후 휴식"
                 },
                 {
                   "time": {
@@ -7479,9 +7573,8 @@
                     "start": "14:00",
                     "end": "15:00"
                   },
-                  "category": "활동3",
-                  "detail": "해양특강",
-                  "durationMinutes": 60
+                  "category": "해양특강",
+                  "detail": "해양특강"
                 },
                 {
                   "time": {
@@ -7490,8 +7583,7 @@
                     "end": "17:00"
                   },
                   "category": "활동4",
-                  "detail": "마린크라임씬, 선박퇴선(캐스트어웨이), 해양학개론, (택 1)",
-                  "durationMinutes": 120
+                  "detail": "서바이벌 오션 (선박퇴선) | 해양학개론 | 블루로드, 추억을 담다"
                 },
                 {
                   "time": {
@@ -7500,8 +7592,7 @@
                     "end": "17:30"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7510,8 +7601,7 @@
                     "end": "19:00"
                   },
                   "category": "석식",
-                  "detail": "저녁식사 및 휴식",
-                  "durationMinutes": 90
+                  "detail": "저녁식사 및 휴식"
                 },
                 {
                   "time": {
@@ -7520,8 +7610,7 @@
                     "end": "20:30"
                   },
                   "category": "활동5",
-                  "detail": "레크리에이션",
-                  "durationMinutes": 90
+                  "detail": "레크리에이션"
                 },
                 {
                   "time": {
@@ -7548,18 +7637,17 @@
                 },
                 {
                   "time": {
-                    "label": "09:00~09:30",
+                    "label": "09:00~10:00",
                     "start": "09:00",
-                    "end": "09:30"
+                    "end": "10:00"
                   },
                   "category": "입항식",
-                  "detail": "지도자 인사 및 설문 작성",
-                  "durationMinutes": 30
+                  "detail": "지도자 인사 및 설문 작성"
                 },
                 {
                   "time": {
-                    "label": "09:30~",
-                    "start": "09:30",
+                    "label": "10:00~",
+                    "start": "10:00",
                     "end": null
                   },
                   "category": "퇴소",
@@ -7570,36 +7658,38 @@
           ],
           "activities": [
             {
-              "name": "선박퇴선",
-              "description": "해양사고 발생 시 체온유지 방법을 습득하고, 선박사고 시 필요한 대처능력을 키우는 프로그램"
-            },
-            {
-              "name": "캐스트어웨이",
-              "description": "재난 상황에 대비하여 재난 발생 시 요구되는 다양한 대처 방법을 조별 활동을 통해 탐색하고 해결해보는 프로그램"
-            },
-            {
               "name": "해양학개론",
-              "description": "독도의 해양환경과 지질학적 특징을 담은 3D영상을 시청한 후 해양학적 요소를 알아보는 다양한 실험을 통해 과학적사고와 탐구능력을 키우 는 프로그램"
+              "description": "독도의 해양환경과 지질학적 특징을 3D 영상과 실험으로 살펴보며 탐구 능력을 기릅니다."
             },
             {
-              "name": "마린크라임씬",
-              "description": "해양사고와 해상범죄 주제의 추리활동으로 원인과 결과의 연관성을 조사하는 문제해결 프로그램"
+              "name": "블루로드, 추억을 담다",
+              "description": "영덕 블루로드를 걸으며 바다를 가까이 느끼고 자연 속에서 휴식을 경험합니다. 3~5월·9~11월 운영하며 기상에 따라 달라질 수 있습니다."
+            },
+            {
+              "name": "서바이벌 오션",
+              "description": "모무보트와 생존수영으로 협업·의사소통 및 개인 생존 능력을 기릅니다. 5~10월 운영하며 기상에 따라 달라질 수 있습니다."
+            },
+            {
+              "name": "선박퇴선",
+              "description": "서바이벌 오션 대체 활동(3~5월·10~11월)입니다. 선박 퇴선 방법과 해양사고 대처 능력을 기릅니다."
             },
             {
               "name": "별海는 밤",
-              "description": "평소 표현하지 못했거나 나누고 싶었던 이야기를 지도자가 라디오 형 식으로 진행하여 소통의 매개체가 되어주는 프로그램"
+              "description": "라디오 형식으로 서로의 이야기를 나누는 소통 프로그램입니다."
             },
             {
               "name": "해양특강",
-              "description": "영화 속에 숨겨져 있는 재미있는 해양과학적 이야기를 알아보는 프 로그램"
+              "description": "영화 속 해양과학 이야기를 알아봅니다."
             },
             {
               "name": "레크리에이션",
-              "description": "참가 청소년이 함께 즐기며, 장기자랑을 통해 꿈과 끼를 발산해 보는 프 로그램"
+              "description": "참가 청소년이 함께 어울리고 장기자랑으로 끼를 나눕니다."
             }
           ],
           "notes": [
-            "기본 일정표이며 대상, 인원, 계절, 기상에 따라 단위 프로그램이 일부 조정될 수 있음"
+            "기본 일정표로 대상·인원·계절·기상에 따라 단위 프로그램이 조정될 수 있습니다.",
+            "동일 시간의 세 활동은 세 그룹으로 나누어 순환 운영합니다.",
+            "블루로드와 수상 활동은 운영 시기 및 기상에 따라 대체 활동으로 조정될 수 있습니다."
           ],
           "sourcePages": {
             "timetable": 28,
@@ -7609,7 +7699,7 @@
         {
           "id": "marine-elementary",
           "schoolLevel": "elementary",
-          "name": "해(海)바라기 캠프",
+          "name": "해(海)자람 활동",
           "duration": {
             "nights": 2,
             "days": 3
@@ -7619,9 +7709,9 @@
             "interpretation": "max",
             "value": 270
           },
-          "certificationNumber": "13255",
+          "certificationNumber": "13989",
           "advanceReportNumbers": [
-            "영덕군-18321호"
+            "제 48015호"
           ],
           "timetable": [
             {
@@ -7629,22 +7719,30 @@
               "events": [
                 {
                   "time": {
-                    "label": "~14:00",
+                    "label": "~11:30",
                     "start": null,
-                    "end": "14:00"
+                    "end": "11:30"
                   },
                   "category": "입소",
-                  "detail": "도착 및 숙소배정"
+                  "detail": "센터 도착"
                 },
                 {
                   "time": {
-                    "label": "14:00~15:00",
-                    "start": "14:00",
-                    "end": "15:00"
+                    "label": "12:00~13:00",
+                    "start": "12:00",
+                    "end": "13:00"
+                  },
+                  "category": "중식",
+                  "detail": "점심식사 및 휴식"
+                },
+                {
+                  "time": {
+                    "label": "13:00~14:00",
+                    "start": "13:00",
+                    "end": "14:00"
                   },
                   "category": "출항식",
-                  "detail": "지도자, 활동 소개 및 안전교육",
-                  "durationMinutes": 60
+                  "detail": "지도자·활동 소개 및 안전교육"
                 },
                 {
                   "time": {
@@ -7653,8 +7751,7 @@
                     "end": "17:00"
                   },
                   "category": "활동1",
-                  "detail": "헬프미오션(미스테리 오), 대항해시대, 해양엑스포(택1)",
-                  "durationMinutes": 120
+                  "detail": "헬프미오션 (PLASH) | 대항해시대 | 해양엑스포"
                 },
                 {
                   "time": {
@@ -7663,8 +7760,7 @@
                     "end": "17:30"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7673,8 +7769,7 @@
                     "end": "19:00"
                   },
                   "category": "석식",
-                  "detail": "저녁식사 및 휴식",
-                  "durationMinutes": 90
+                  "detail": "저녁식사 및 휴식"
                 },
                 {
                   "time": {
@@ -7683,8 +7778,7 @@
                     "end": "20:30"
                   },
                   "category": "활동2",
-                  "detail": "해양골든벨",
-                  "durationMinutes": 90
+                  "detail": "해양골든벨"
                 },
                 {
                   "time": {
@@ -7716,8 +7810,7 @@
                     "end": "11:30"
                   },
                   "category": "활동3",
-                  "detail": "대항해시대, 해양엑스포, 헬프미오션(미스테리 오)(택1)",
-                  "durationMinutes": 120
+                  "detail": "대항해시대 | 해양엑스포 | 헬프미오션 (PLASH)"
                 },
                 {
                   "time": {
@@ -7726,8 +7819,7 @@
                     "end": "12:00"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7736,8 +7828,7 @@
                     "end": "14:00"
                   },
                   "category": "중식",
-                  "detail": "점심식사 후 휴식",
-                  "durationMinutes": 120
+                  "detail": "점심식사 후 휴식"
                 },
                 {
                   "time": {
@@ -7745,9 +7836,8 @@
                     "start": "14:00",
                     "end": "15:00"
                   },
-                  "category": "활동4",
-                  "detail": "해양특강",
-                  "durationMinutes": 60
+                  "category": "해양특강",
+                  "detail": "해양특강"
                 },
                 {
                   "time": {
@@ -7756,8 +7846,7 @@
                     "end": "17:00"
                   },
                   "category": "활동5",
-                  "detail": "해양엑스포, 헬프미오션(미스테리 오), 대항해시대(택1)",
-                  "durationMinutes": 120
+                  "detail": "해양엑스포 | 헬프미오션 (PLASH) | 대항해시대"
                 },
                 {
                   "time": {
@@ -7766,8 +7855,7 @@
                     "end": "17:30"
                   },
                   "category": "이동",
-                  "detail": "휴식 및 이동",
-                  "durationMinutes": 30
+                  "detail": "휴식 및 이동"
                 },
                 {
                   "time": {
@@ -7776,8 +7864,7 @@
                     "end": "19:00"
                   },
                   "category": "석식",
-                  "detail": "저녁식사 및 휴식",
-                  "durationMinutes": 90
+                  "detail": "저녁식사 및 휴식"
                 },
                 {
                   "time": {
@@ -7786,8 +7873,7 @@
                     "end": "20:30"
                   },
                   "category": "활동6",
-                  "detail": "레크리에이션",
-                  "durationMinutes": 90
+                  "detail": "레크리에이션"
                 },
                 {
                   "time": {
@@ -7814,9 +7900,9 @@
                 },
                 {
                   "time": {
-                    "label": "09:00~09:30",
+                    "label": "09:00~10:00",
                     "start": "09:00",
-                    "end": "09:30"
+                    "end": "10:00"
                   },
                   "category": "입항식",
                   "detail": "지도자 인사 및 설문 작성",
@@ -7824,8 +7910,8 @@
                 },
                 {
                   "time": {
-                    "label": "09:30~",
-                    "start": "09:30",
+                    "label": "10:00~",
+                    "start": "10:00",
                     "end": null
                   },
                   "category": "퇴소",
@@ -7837,35 +7923,37 @@
           "activities": [
             {
               "name": "헬프미오션",
-              "description": "수영장 활동을 통해 수상구조의 4요소를 이해하고, 구명부환 및 패 들링을 활용한 구조 실습으로 익수자 인지 및 위기 대응 능력을 강화 하는 프로그램"
+              "description": "수상구조의 네 요소를 익히고 구조 실습으로 익수자를 알아보고 대응하는 능력을 기릅니다."
             },
             {
-              "name": "미스테리 오",
-              "description": "멸종위기 생물이 멸종에 처한 이유를 추리해보고, 친구들과 협동하여 원인과 결과를 조사하는 문제해결 프로그램"
+              "name": "PLASH",
+              "description": "플라스틱 오염을 알아보고 재활용 만들기와 보드게임으로 지속가능발전 개념을 배웁니다."
             },
             {
               "name": "대항해시대",
-              "description": "선박과 관련된 다양한 직업에 대해서 알아보고, 원활한 항해를 위한 기술을 다양한 조별미션을 통해 습득해보는 프로그램"
+              "description": "선박 관련 직업과 항해 기술을 조별 미션으로 탐색합니다."
             },
             {
               "name": "해양엑스포",
-              "description": "해양의 다양한 영역(해양과학, 수산과학, 해양환경 등)에 걸친 해양과 학 미션활동으로 과학적 흥미 증진 및 협동심과 공동체 의식을 함양 하는 프로그램(ROV 시뮬레이션, 현미경 관찰 등)"
+              "description": "해양과학·수산과학·해양환경 미션을 함께 수행하며 바다에 대한 호기심을 키웁니다."
             },
             {
               "name": "해양골든벨",
-              "description": "해양상식 퀴즈를 통해 해양에 대한 오개념을 바로잡고, 관심을 높이는 프 로그램"
+              "description": "퀴즈로 해양 상식과 바다에 대한 관심을 높입니다."
             },
             {
               "name": "해양특강",
-              "description": "만화 속에 숨겨져 있는 재미있는 해양학적 이야기를 알아보는 프로 그램"
+              "description": "만화 속 재미있는 해양과학 이야기를 알아봅니다."
             },
             {
               "name": "레크리에이션",
-              "description": "참가 청소년이 함께 즐기며, 장기자랑을 통해 꿈과 끼를 발산해 보는 프 로그램"
+              "description": "참가 청소년이 함께 어울리고 장기자랑으로 끼를 나눕니다."
             }
           ],
           "notes": [
-            "기본 일정표이며 대상, 인원, 계절, 기상에 따라 단위 프로그램이 일부 조정될 수 있음"
+            "기본 일정표로 대상·인원·계절·기상에 따라 단위 프로그램이 조정될 수 있습니다.",
+            "동일 시간의 세 활동은 세 그룹으로 나누어 순환 운영합니다.",
+            "초등학교 3일차 입항식은 원문 시간이 09:00~10:00, 원문 소요시간이 30분으로 서로 다릅니다. 화면은 시간 구간 기준 60분을 표시하므로 시설에 확인해 주세요."
           ],
           "sourcePages": {
             "timetable": 30,
@@ -7905,7 +7993,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M001"
         },
         {
           "id": "marine-2027-03-29-2027-03-31",
@@ -7937,7 +8026,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M002"
         },
         {
           "id": "marine-2027-04-26-2027-04-28",
@@ -7969,7 +8059,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M003"
         },
         {
           "id": "marine-2027-05-06-2027-05-07",
@@ -8010,7 +8101,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "M004"
         },
         {
           "id": "marine-2027-05-24-2027-05-26",
@@ -8043,7 +8135,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M005"
         },
         {
           "id": "marine-2027-06-02-2027-06-04",
@@ -8075,7 +8168,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M006"
         },
         {
           "id": "marine-2027-06-14-2027-06-16",
@@ -8108,7 +8202,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M007"
         },
         {
           "id": "marine-2027-06-16-2027-06-18",
@@ -8140,7 +8235,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M008"
         },
         {
           "id": "marine-2027-06-21-2027-06-23",
@@ -8173,7 +8269,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M009"
         },
         {
           "id": "marine-2027-06-23-2027-06-25",
@@ -8206,7 +8303,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M010"
         },
         {
           "id": "marine-2027-06-28-2027-06-30",
@@ -8239,7 +8337,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M011"
         },
         {
           "id": "marine-2027-07-05-2027-07-07",
@@ -8272,7 +8371,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M012"
         },
         {
           "id": "marine-2027-07-07-2027-07-09",
@@ -8305,7 +8405,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M013"
         },
         {
           "id": "marine-2027-07-12-2027-07-14",
@@ -8338,7 +8439,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M014"
         },
         {
           "id": "marine-2027-07-14-2027-07-16",
@@ -8371,7 +8473,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M015"
         },
         {
           "id": "marine-2027-08-23-2027-08-25",
@@ -8404,7 +8507,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M016"
         },
         {
           "id": "marine-2027-08-25-2027-08-27",
@@ -8436,7 +8540,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M017"
         },
         {
           "id": "marine-2027-08-30-2027-09-01",
@@ -8469,7 +8574,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M018"
         },
         {
           "id": "marine-2027-09-01-2027-09-03",
@@ -8501,7 +8607,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M019"
         },
         {
           "id": "marine-2027-09-06-2027-09-08",
@@ -8534,7 +8641,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M020"
         },
         {
           "id": "marine-2027-09-08-2027-09-10",
@@ -8566,7 +8674,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M021"
         },
         {
           "id": "marine-2027-09-20-2027-09-22",
@@ -8599,7 +8708,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M022"
         },
         {
           "id": "marine-2027-09-27-2027-09-29",
@@ -8632,7 +8742,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M023"
         },
         {
           "id": "marine-2027-09-29-2027-10-01",
@@ -8664,7 +8775,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M024"
         },
         {
           "id": "marine-2027-10-05-2027-10-06",
@@ -8707,7 +8819,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "M025"
         },
         {
           "id": "marine-2027-10-06-2027-10-08",
@@ -8740,7 +8853,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M026"
         },
         {
           "id": "marine-2027-10-12-2027-10-13",
@@ -8781,7 +8895,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "M027"
         },
         {
           "id": "marine-2027-10-18-2027-10-20",
@@ -8814,7 +8929,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M028"
         },
         {
           "id": "marine-2027-10-25-2027-10-27",
@@ -8847,7 +8963,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M029"
         },
         {
           "id": "marine-2027-11-01-2027-11-03",
@@ -8880,7 +8997,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M030"
         },
         {
           "id": "marine-2027-11-03-2027-11-05",
@@ -8912,7 +9030,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M031"
         },
         {
           "id": "marine-2027-11-08-2027-11-10",
@@ -8945,7 +9064,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M032"
         },
         {
           "id": "marine-2027-11-10-2027-11-12",
@@ -8978,7 +9098,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M033"
         },
         {
           "id": "marine-2027-11-15-2027-11-17",
@@ -9011,7 +9132,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M034"
         },
         {
           "id": "marine-2027-11-17-2027-11-19",
@@ -9044,7 +9166,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M035"
         },
         {
           "id": "marine-2027-11-22-2027-11-24",
@@ -9077,7 +9200,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M036"
         },
         {
           "id": "marine-2027-11-24-2027-11-26",
@@ -9110,7 +9234,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M037"
         },
         {
           "id": "marine-2027-11-29-2027-12-01",
@@ -9143,7 +9268,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M038"
         },
         {
           "id": "marine-2027-12-01-2027-12-03",
@@ -9176,7 +9302,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "M039"
         }
       ]
     },
@@ -9196,6 +9323,12 @@
         {
           "condition": {
             "participantCountMin": 150
+          },
+          "requirement": "신청 전 사전 협의 필요"
+        },
+        {
+          "condition": {
+            "participantCountMax": 30
           },
           "requirement": "신청 전 사전 협의 필요"
         }
@@ -10010,17 +10143,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
           "sourceOrder": 1,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F001"
         },
         {
           "id": "future-2027-03-17-2027-03-19",
@@ -10043,17 +10177,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
           "sourceOrder": 2,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F002"
         },
         {
           "id": "future-2027-03-22-2027-03-24",
@@ -10076,17 +10211,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
           "sourceOrder": 3,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F003"
         },
         {
           "id": "future-2027-03-24-2027-03-26",
@@ -10109,17 +10245,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
           "sourceOrder": 4,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F004"
         },
         {
           "id": "future-2027-04-05-2027-04-07",
@@ -10142,17 +10279,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
           "sourceOrder": 5,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F005"
         },
         {
           "id": "future-2027-04-12-2027-04-14",
@@ -10175,17 +10313,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
           "sourceOrder": 6,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F006"
         },
         {
           "id": "future-2027-04-19-2027-04-21",
@@ -10208,50 +10347,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
           "sourceOrder": 7,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
-        },
-        {
-          "id": "future-2027-04-26-2027-04-28",
-          "type": "fixed_round",
-          "startDate": "2027-04-26",
-          "endDate": "2027-04-28",
-          "startWeekday": "월",
-          "endWeekday": "수",
-          "sourceWeekdays": {
-            "start": "월",
-            "end": "수"
           },
-          "weekdayMismatch": false,
-          "allowedStayTypes": [
-            "2박3일"
-          ],
-          "schoolLevels": [
-            "elementary",
-            "middle",
-            "high"
-          ],
-          "capacity": {
-            "min": null,
-            "max": 150,
-            "includesChaperones": true,
-            "interpretation": "maximum"
-          },
-          "sourcePage": 5,
-          "sourceOrder": 8,
-          "reservationStatus": {
-            "state": "not_synced",
-            "updatedAt": null
-          }
+          "code": "F007"
         },
         {
           "id": "future-2027-05-03-2027-05-04",
@@ -10274,13 +10381,13 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 10,
+          "sourceOrder": 8,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -10294,7 +10401,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "F009"
         },
         {
           "id": "future-2027-05-06-2027-05-07",
@@ -10317,13 +10425,13 @@
             "high"
           ],
           "capacity": {
-            "min": null,
-            "max": 90,
+            "min": 30,
+            "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 11,
+          "sourceOrder": 9,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -10337,7 +10445,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "F010"
         },
         {
           "id": "future-2027-05-31-2027-06-02",
@@ -10360,17 +10469,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 12,
+          "sourceOrder": 10,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F011"
         },
         {
           "id": "future-2027-06-02-2027-06-04",
@@ -10393,17 +10503,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 13,
+          "sourceOrder": 11,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F012"
         },
         {
           "id": "future-2027-06-07-2027-06-09",
@@ -10426,17 +10537,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 14,
+          "sourceOrder": 12,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F013"
         },
         {
           "id": "future-2027-06-09-2027-06-11",
@@ -10459,17 +10571,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 15,
+          "sourceOrder": 13,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F014"
         },
         {
           "id": "future-2027-06-14-2027-06-16",
@@ -10492,50 +10605,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 16,
+          "sourceOrder": 14,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
-        },
-        {
-          "id": "future-2027-06-17-2027-06-19",
-          "type": "fixed_round",
-          "startDate": "2027-06-17",
-          "endDate": "2027-06-19",
-          "startWeekday": "목",
-          "endWeekday": "토",
-          "sourceWeekdays": {
-            "start": "수",
-            "end": "금"
           },
-          "weekdayMismatch": true,
-          "allowedStayTypes": [
-            "2박3일"
-          ],
-          "schoolLevels": [
-            "elementary",
-            "middle",
-            "high"
-          ],
-          "capacity": {
-            "min": null,
-            "max": 150,
-            "includesChaperones": true,
-            "interpretation": "maximum"
-          },
-          "sourcePage": 5,
-          "sourceOrder": 9,
-          "reservationStatus": {
-            "state": "not_synced",
-            "updatedAt": null
-          }
+          "code": "F015"
         },
         {
           "id": "future-2027-06-21-2027-06-23",
@@ -10558,17 +10639,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 17,
+          "sourceOrder": 15,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F017"
         },
         {
           "id": "future-2027-06-23-2027-06-25",
@@ -10591,17 +10673,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 18,
+          "sourceOrder": 16,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F018"
         },
         {
           "id": "future-2027-09-06-2027-09-08",
@@ -10624,17 +10707,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 19,
+          "sourceOrder": 17,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F019"
         },
         {
           "id": "future-2027-09-08-2027-09-10",
@@ -10657,17 +10741,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 20,
+          "sourceOrder": 18,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F020"
         },
         {
           "id": "future-2027-09-20-2027-09-22",
@@ -10690,17 +10775,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 21,
+          "sourceOrder": 19,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F021"
         },
         {
           "id": "future-2027-09-22-2027-09-24",
@@ -10723,17 +10809,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 22,
+          "sourceOrder": 20,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F022"
         },
         {
           "id": "future-2027-09-27-2027-09-29",
@@ -10756,17 +10843,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 23,
+          "sourceOrder": 21,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F023"
         },
         {
           "id": "future-2027-10-05-2027-10-06",
@@ -10789,13 +10877,13 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 24,
+          "sourceOrder": 22,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -10809,7 +10897,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "F024"
         },
         {
           "id": "future-2027-10-12-2027-10-13",
@@ -10832,13 +10921,13 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 25,
+          "sourceOrder": 23,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -10852,7 +10941,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "F025"
         },
         {
           "id": "future-2027-10-18-2027-10-20",
@@ -10875,17 +10965,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 26,
+          "sourceOrder": 24,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F026"
         },
         {
           "id": "future-2027-10-25-2027-10-27",
@@ -10908,17 +10999,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 27,
+          "sourceOrder": 25,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F027"
         },
         {
           "id": "future-2027-10-27-2027-10-29",
@@ -10941,17 +11033,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 28,
+          "sourceOrder": 26,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F028"
         },
         {
           "id": "future-2027-11-01-2027-11-03",
@@ -10974,17 +11067,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 29,
+          "sourceOrder": 27,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F029"
         },
         {
           "id": "future-2027-11-03-2027-11-05",
@@ -11007,17 +11101,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 30,
+          "sourceOrder": 28,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F030"
         },
         {
           "id": "future-2027-11-08-2027-11-10",
@@ -11040,17 +11135,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 31,
+          "sourceOrder": 29,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F031"
         },
         {
           "id": "future-2027-11-10-2027-11-12",
@@ -11073,17 +11169,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 32,
+          "sourceOrder": 30,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F032"
         },
         {
           "id": "future-2027-11-15-2027-11-17",
@@ -11106,17 +11203,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 33,
+          "sourceOrder": 31,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F033"
         },
         {
           "id": "future-2027-11-17-2027-11-19",
@@ -11139,17 +11237,18 @@
             "high"
           ],
           "capacity": {
-            "min": null,
+            "min": 30,
             "max": 150,
             "includesChaperones": true,
-            "interpretation": "maximum"
+            "interpretation": "range"
           },
           "sourcePage": 5,
-          "sourceOrder": 34,
+          "sourceOrder": 32,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "F034"
         }
       ]
     },
@@ -11979,7 +12078,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E001"
         },
         {
           "id": "ecology-2027-03-31-2027-04-02",
@@ -12011,7 +12111,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E002"
         },
         {
           "id": "ecology-2027-04-05-2027-04-07",
@@ -12043,7 +12144,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E003"
         },
         {
           "id": "ecology-2027-04-07-2027-04-09",
@@ -12076,7 +12178,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E004"
         },
         {
           "id": "ecology-2027-04-26-2027-04-27",
@@ -12117,7 +12220,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "E005"
         },
         {
           "id": "ecology-2027-05-03-2027-05-04",
@@ -12160,7 +12264,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "E006"
         },
         {
           "id": "ecology-2027-05-06-2027-05-07",
@@ -12201,7 +12306,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "E007"
         },
         {
           "id": "ecology-2027-05-17-2027-05-19",
@@ -12234,7 +12340,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E008"
         },
         {
           "id": "ecology-2027-05-27-2027-05-28",
@@ -12277,7 +12384,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "E009"
         },
         {
           "id": "ecology-2027-06-02-2027-06-04",
@@ -12309,7 +12417,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E010"
         },
         {
           "id": "ecology-2027-06-07-2027-06-09",
@@ -12342,7 +12451,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E011"
         },
         {
           "id": "ecology-2027-06-14-2027-06-16",
@@ -12375,7 +12485,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E012"
         },
         {
           "id": "ecology-2027-06-16-2027-06-18",
@@ -12408,7 +12519,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E013"
         },
         {
           "id": "ecology-2027-06-21-2027-06-23",
@@ -12441,7 +12553,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E014"
         },
         {
           "id": "ecology-2027-06-23-2027-06-25",
@@ -12474,7 +12587,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E015"
         },
         {
           "id": "ecology-2027-07-05-2027-07-07",
@@ -12507,7 +12621,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E016"
         },
         {
           "id": "ecology-2027-07-07-2027-07-09",
@@ -12540,7 +12655,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E017"
         },
         {
           "id": "ecology-2027-07-12-2027-07-14",
@@ -12573,7 +12689,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E018"
         },
         {
           "id": "ecology-2027-07-14-2027-07-16",
@@ -12606,7 +12723,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E019"
         },
         {
           "id": "ecology-2027-08-23-2027-08-25",
@@ -12639,7 +12757,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E020"
         },
         {
           "id": "ecology-2027-08-25-2027-08-27",
@@ -12672,7 +12791,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E021"
         },
         {
           "id": "ecology-2027-08-30-2027-09-01",
@@ -12705,7 +12825,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E022"
         },
         {
           "id": "ecology-2027-09-01-2027-09-03",
@@ -12738,7 +12859,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E023"
         },
         {
           "id": "ecology-2027-09-06-2027-09-08",
@@ -12771,40 +12893,8 @@
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
-        },
-        {
-          "id": "ecology-2027-09-08-2027-09-10",
-          "type": "fixed_round",
-          "startDate": "2027-09-08",
-          "endDate": "2027-09-10",
-          "startWeekday": "수",
-          "endWeekday": "금",
-          "sourceWeekdays": {
-            "start": "수",
-            "end": "금"
           },
-          "weekdayMismatch": false,
-          "allowedStayTypes": [
-            "2박3일"
-          ],
-          "schoolLevels": [
-            "elementary",
-            "middle",
-            "high"
-          ],
-          "capacity": {
-            "min": 30,
-            "max": 100,
-            "includesChaperones": true,
-            "interpretation": "range"
-          },
-          "sourcePage": 6,
-          "sourceOrder": 25,
-          "reservationStatus": {
-            "state": "not_synced",
-            "updatedAt": null
-          }
+          "code": "E024"
         },
         {
           "id": "ecology-2027-09-20-2027-09-22",
@@ -12833,11 +12923,12 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 26,
+          "sourceOrder": 25,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E026"
         },
         {
           "id": "ecology-2027-09-22-2027-09-24",
@@ -12866,11 +12957,12 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 27,
+          "sourceOrder": 26,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E027"
         },
         {
           "id": "ecology-2027-09-27-2027-09-29",
@@ -12899,11 +12991,12 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 28,
+          "sourceOrder": 27,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E028"
         },
         {
           "id": "ecology-2027-09-29-2027-09-30",
@@ -12931,7 +13024,7 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 29,
+          "sourceOrder": 28,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -12944,7 +13037,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "E029"
         },
         {
           "id": "ecology-2027-10-05-2027-10-06",
@@ -12973,7 +13067,7 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 30,
+          "sourceOrder": 29,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -12987,7 +13081,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "E030"
         },
         {
           "id": "ecology-2027-10-06-2027-10-08",
@@ -13016,11 +13111,12 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 31,
+          "sourceOrder": 30,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E031"
         },
         {
           "id": "ecology-2027-10-12-2027-10-13",
@@ -13049,7 +13145,7 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 32,
+          "sourceOrder": 31,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
@@ -13063,7 +13159,8 @@
             ],
             "referenceOnly": true,
             "notice": "표시된 세부 프로그램은 해당 시설의 2박3일 기준 안내입니다. 1박2일 운영 시 활동 내용과 시간표를 조정하며, 실제 구성은 시설과 협의하여 확정합니다."
-          }
+          },
+          "code": "E032"
         },
         {
           "id": "ecology-2027-10-13-2027-10-15",
@@ -13092,11 +13189,12 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 33,
+          "sourceOrder": 32,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E033"
         },
         {
           "id": "ecology-2027-10-18-2027-10-29",
@@ -13125,12 +13223,13 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 34,
+          "sourceOrder": 33,
           "dateSelection": "기간 안에서 시설과 날짜를 협의하여 운영",
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E034"
         },
         {
           "id": "ecology-2027-11-03-2027-11-05",
@@ -13159,11 +13258,12 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 35,
+          "sourceOrder": 34,
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E035"
         },
         {
           "id": "ecology-2027-11-05-2027-11-26",
@@ -13192,12 +13292,13 @@
             "interpretation": "range"
           },
           "sourcePage": 6,
-          "sourceOrder": 36,
+          "sourceOrder": 35,
           "dateSelection": "기간 안에서 시설과 날짜를 협의하여 운영",
           "reservationStatus": {
             "state": "not_synced",
             "updatedAt": null
-          }
+          },
+          "code": "E036"
         }
       ]
     }
@@ -13205,45 +13306,29 @@
   "validation": {
     "facilityCount": 7,
     "programCount": 21,
-    "availabilityCount": 206,
+    "availabilityCount": 203,
     "availabilityCountByFacility": {
-      "central": 14,
+      "central": 15,
       "pyeongchang": 5,
       "space": 42,
-      "bio": 36,
+      "bio": 35,
       "marine": 39,
-      "future": 34,
-      "ecology": 36
+      "future": 32,
+      "ecology": 35
     },
-    "weekdayMismatches": [
-      {
-        "facilityId": "future",
-        "facilityName": "국립청소년미래환경센터",
-        "availabilityId": "future-2027-06-17-2027-06-19",
-        "startDate": "2027-06-17",
-        "endDate": "2027-06-19",
-        "sourceWeekdays": {
-          "start": "수",
-          "end": "금"
-        },
-        "computedWeekdays": {
-          "start": "목",
-          "end": "토"
-        }
-      }
-    ]
+    "weekdayMismatches": []
   },
   "interpretationNotes": [
     "국립평창청소년수련원의 표에 적힌 5개 일정은 모두 회차가 아닌 협의 가능 기간으로 저장함.",
-    "국립중앙청소년수련원 2027-10-12~2027-10-17, 국립청소년생태센터 2027-10-18~2027-10-29 및 2027-11-05~2027-11-26은 협의 가능 기간으로 저장함.",
+    "국립중앙청소년수련원 2027-10-12~2027-10-14는 최종 안내문에 따라 2박3일 회차로 저장함. 국립청소년생태센터 2027-10-18~2027-10-29 및 2027-11-05~2027-11-26은 협의 가능 기간으로 저장함.",
     "국립평창청소년수련원은 100명 미만 학교가 제시된 기간 밖에서도 전화 협의로 운영 가능하다는 규칙을 시설 단위 applicationRules에 저장함.",
-    "국립청소년미래환경센터는 150명 이상 학교가 신청 전에 사전 협의해야 한다는 규칙을 시설 단위 applicationRules에 저장함.",
+    "국립청소년미래환경센터의 모든 회차는 30~150명으로 저장함. 30명 이하 및 150명 이상은 신청 전에 사전 협의가 필요하다는 원문 안내를 별도 보존함.",
     "국립청소년생태센터 프로그램의 원문 '100명 기준'은 상한으로 단정하지 않고 capacity.interpretation='reference'로 보존함.",
     "국립청소년생태센터의 프로그램 안내에는 인증번호가 기재되지 않아 certificationNumber를 null로 저장함.",
-    "예약 연락처는 잔여 일정 안내문을 기준으로 저장함. 국립청소년해양센터는 프로그램 안내문의 문의번호(054-730-8500)와 다르며 예약번호 054-730-8583을 사용함.",
+    "예약 연락처는 최종 예약가능 일정 안내문을 기준으로 저장함. 국립청소년해양센터는 프로그램 안내문의 문의번호(054-730-8500)와 다르며 예약번호 054-730-8583을 사용함.",
     "국립중앙청소년수련원 일부 잔여 일정은 초·중·고 공통으로 최대 400명으로 표기되지만, 초등학교 2박3일 프로그램 안내는 최대 350명이다. 두 수치를 별도 보존하고 초등학교 351~400명 신청 가능 여부는 시설 확인이 필요하다.",
     "1박2일 일정에도 해당 시설·교급의 2박3일 세부 프로그램을 참고자료로 연결한다. 활동 내용과 시간표는 1박2일 운영에 맞게 조정되며 실제 구성은 시설과 협의하여 확정한다.",
-    "접수 완료 여부는 두 PDF에 없으므로 reservationStatus.state를 not_synced로 초기화했다. 실제 접수 현황과 연동하기 전에는 실시간 신청 가능 여부로 표시하면 안 된다."
+    "접수 완료 여부는 두 PDF에 없으므로 reservationStatus.state를 not_synced로 초기화했다. 공개 서비스는 상태 파일을 하루 한 번 수동 갱신하므로 신청 전 시설에 전화로 확인해야 한다."
   ],
   "reservationStatus": {
     "liveSourceConnected": false,
