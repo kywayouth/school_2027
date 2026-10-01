@@ -1,6 +1,6 @@
 // Teacher-facing overnight policy. The immutable catalogue and the original
 // domain engine still describe day visits for legacy favorites and operators.
-import {STAY_DAYS,availableRuns,matches,dates} from './domain.mjs?v=d20cd7b5348fe5f8';
+import {STAY_DAYS,availableRuns,matches,dates} from './domain.mjs?v=9c570446ca26e2c3';
 
 export const SEARCH_STAYS=Object.freeze(['2박3일','1박2일']);
 export const DAY_VISIT_NOTICE='당일형은 시설별로 직접 문의해 주세요.';
