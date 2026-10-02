@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="ko"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#29292D">
+<meta name="site-version" content="44e7b639b2459bdb">
 <meta name="description" content="우리 학교에 맞는 2027년 국립청소년시설 수련활동 일정과 프로그램을 확인하세요. 신청은 시설별 전화로 진행합니다.">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'">
-<title>2027 학교단체 수련활동 · 국립청소년시설</title><link rel="icon" href="./favicon.svg"><link rel="preload" href="./assets/fonts/Youth.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="./styles.css?v=9c570446ca26e2c3"><script src="./analytics.js"></script>
+<title>2027 학교단체 수련활동 · 국립청소년시설</title><link rel="icon" href="./favicon.svg"><link rel="preload" href="./assets/fonts/Youth.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="./styles.css?v=44e7b639b2459bdb"><script src="./analytics.js"></script>
 </head><body>
 <a href="#main" class="skip">본문으로 건너뛰기</a>
 <header class="header"><div class="header-inner"><a class="brand" href="./" aria-label="한국청소년활동진흥원 · 일정 찾기 첫 화면"><img class="brand-logo" src="./assets/brand/logos/agency.webp" alt="한국청소년활동진흥원 KYWA"></a><div class="brand-service"><span><b>2027년도</b> 학교단체 예약안내 페이지</span></div></div></header>
@@ -24,10 +25,14 @@
   <div class="update-meta"><span class="update-label">정보 기준</span><strong id="asof">정보를 불러오는 중입니다</strong><span id="freshness"></span></div>
   <div class="update-actions"><p>하루 한 번 갱신</p><button id="refresh" class="text-button with-icon"><span data-icon="refresh" aria-hidden="true"></span><span>최신 정보 확인</span></button></div>
 </section>
+<aside id="site-update" class="site-update" hidden aria-labelledby="site-update-title">
+  <div role="status" aria-live="polite"><strong id="site-update-title">새로운 안내가 업데이트되었습니다.</strong><p>작성 중인 내용을 마친 뒤 새 화면을 확인해 주세요.</p></div>
+  <button type="button" id="site-update-reload">새 화면 보기</button>
+</aside>
 <div id="notice" role="status" aria-live="polite"></div>
-<nav class="tabs" aria-label="주요 메뉴"><button data-tab="search" aria-current="page"><span class="tab-name"><span data-icon="calendar" aria-hidden="true"></span><span>일정 찾기</span></span></button><button data-tab="programs"><span class="tab-name"><span data-icon="book" aria-hidden="true"></span><span>프로그램 안내</span></span></button><button data-tab="saved"><span class="tab-name"><span data-icon="heart" aria-hidden="true"></span><span>관심 일정·비교</span></span></button></nav>
+<nav class="tabs" aria-label="주요 메뉴"><button data-tab="search" aria-current="page"><span class="tab-name"><span data-icon="calendar" aria-hidden="true"></span><span>일정 찾기</span></span></button><button data-tab="programs"><span class="tab-name"><span data-icon="book" aria-hidden="true"></span><span>프로그램 안내</span></span></button><button data-tab="fees"><span class="tab-name"><span data-icon="info" aria-hidden="true"></span><span>이용요금 안내</span></span></button><button data-tab="saved"><span class="tab-name"><span data-icon="heart" aria-hidden="true"></span><span>관심 일정·비교</span></span></button></nav>
 <main id="main" tabindex="-1"><p class="loading">일정을 준비하고 있습니다.</p></main>
 <footer><strong>국립청소년시설 학교단체 수련활동</strong><p>모든 일정은 2027년이며, 인원에는 인솔자가 포함됩니다. 관심 일정과 메모는 이 브라우저에만 저장됩니다.</p><p>개인정보는 메모에 입력하지 마세요.</p></footer>
 </div><dialog id="detail" aria-labelledby="dialog-title"></dialog><div id="toast" role="status" aria-live="polite"></div>
 <noscript><p>이 페이지는 JavaScript가 필요합니다. 브라우저 설정에서 JavaScript를 허용해 주세요.</p></noscript>
-<script type="module" src="./app.mjs?v=9c570446ca26e2c3"></script></body></html>
+<script type="module" src="./app.mjs?v=44e7b639b2459bdb"></script></body></html>

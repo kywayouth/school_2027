@@ -1,17 +1,21 @@
-import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=9c570446ca26e2c3';
-import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=9c570446ca26e2c3';
-import {icon,FACILITY_ICONS} from './icons.mjs?v=9c570446ca26e2c3';
-import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=9c570446ca26e2c3';
-import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=9c570446ca26e2c3';
-import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=9c570446ca26e2c3';
-import {PROGRAM_PHOTOS} from './program-photos.mjs?v=9c570446ca26e2c3';
-import {setupPartnershipViewer} from './image-viewer.mjs?v=9c570446ca26e2c3';
-import {setupPhotoViewer} from './photo-viewer.mjs?v=9c570446ca26e2c3';
+import {setupSiteUpdate} from './site-update.mjs?v=44e7b639b2459bdb';
+import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=44e7b639b2459bdb';
+import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=44e7b639b2459bdb';
+import {icon,FACILITY_ICONS} from './icons.mjs?v=44e7b639b2459bdb';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=44e7b639b2459bdb';
+import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=44e7b639b2459bdb';
+import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=44e7b639b2459bdb';
+import {PROGRAM_PHOTOS} from './program-photos.mjs?v=44e7b639b2459bdb';
+import {setupPartnershipViewer} from './image-viewer.mjs?v=44e7b639b2459bdb';
+import {setupPhotoViewer} from './photo-viewer.mjs?v=44e7b639b2459bdb';
+import {feesMarkup,setupFeesViewer} from './fees.mjs?v=44e7b639b2459bdb';
 
 // Static shell icons use the same embedded drawings as dynamically rendered views.
 document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
 setupPartnershipViewer(document);
 setupPhotoViewer(document,PROGRAM_PHOTOS);
+setupFeesViewer(document);
+setupSiteUpdate(document);
 
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const STORAGE='national-youth-2027-favorites-v1';
@@ -56,7 +60,9 @@ async function refreshStatus(manual=false){
 function render(){
   if(!catalog)return;
   document.querySelectorAll('[data-tab]').forEach(b=>{if(b.dataset.tab===tab)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});
-  const markup=tab==='search'?searchMarkup():tab==='saved'?savedMarkup():programsMarkup();
+  // Fee content is static; keep disclosures and focus intact during status refreshes.
+  if(tab==='fees'&&$('#main .fees'))return;
+  const markup=tab==='search'?searchMarkup():tab==='saved'?savedMarkup():tab==='fees'?feesMarkup():programsMarkup();
   const finder=$('#main .finder');
   if(tab==='search'&&finder){
     // Keep draft controls mounted while results or daily status refresh.
