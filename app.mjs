@@ -1,14 +1,14 @@
-import {setupSiteUpdate} from './site-update.mjs?v=44e7b639b2459bdb';
-import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=44e7b639b2459bdb';
-import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=44e7b639b2459bdb';
-import {icon,FACILITY_ICONS} from './icons.mjs?v=44e7b639b2459bdb';
-import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=44e7b639b2459bdb';
-import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=44e7b639b2459bdb';
-import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=44e7b639b2459bdb';
-import {PROGRAM_PHOTOS} from './program-photos.mjs?v=44e7b639b2459bdb';
-import {setupPartnershipViewer} from './image-viewer.mjs?v=44e7b639b2459bdb';
-import {setupPhotoViewer} from './photo-viewer.mjs?v=44e7b639b2459bdb';
-import {feesMarkup,setupFeesViewer} from './fees.mjs?v=44e7b639b2459bdb';
+import {setupSiteUpdate} from './site-update.mjs?v=17ce08c48dbacdd4';
+import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=17ce08c48dbacdd4';
+import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=17ce08c48dbacdd4';
+import {icon,FACILITY_ICONS} from './icons.mjs?v=17ce08c48dbacdd4';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=17ce08c48dbacdd4';
+import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=17ce08c48dbacdd4';
+import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=17ce08c48dbacdd4';
+import {PROGRAM_PHOTOS} from './program-photos.mjs?v=17ce08c48dbacdd4';
+import {setupPartnershipViewer} from './image-viewer.mjs?v=17ce08c48dbacdd4';
+import {setupPhotoViewer} from './photo-viewer.mjs?v=17ce08c48dbacdd4';
+import {feesMarkup,setupFeesViewer} from './fees.mjs?v=17ce08c48dbacdd4';
 
 // Static shell icons use the same embedded drawings as dynamically rendered views.
 document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});

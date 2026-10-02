@@ -1,4 +1,4 @@
-import {catalogFrom,parseStatus} from './domain.mjs?v=44e7b639b2459bdb';
+import {catalogFrom,parseStatus} from './domain.mjs?v=17ce08c48dbacdd4';
 const input=document.querySelector('#status-input'),result=document.querySelector('#check-result');let catalog;
 function message(text){result.textContent=text;}
 function check(){if(!catalog)return;const state=parseStatus(input.value,catalog);result.replaceChildren();const title=document.createElement('h2');title.textContent=state.errors.length?'수정이 필요합니다':'형식 검사 정상';result.append(title);for(const error of state.errors){const p=document.createElement('p');p.className='warning';p.textContent=`${error.line?`${error.line}행`:'기준 시각'}: ${error.message}`;result.append(p);}if(!state.errors.length){const p=document.createElement('p');p.textContent=`기준 시각: ${state.asOf.replace('T',' ').replace(':00+09:00','')} (한국시간). 파일을 GitHub에 저장한 뒤 배포 완료와 선생님 화면을 확인하세요.`;result.append(p);}}
