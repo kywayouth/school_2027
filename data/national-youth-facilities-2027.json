@@ -12312,9 +12312,9 @@
         {
           "id": "ecology-2027-05-17-2027-05-19",
           "type": "fixed_round",
-          "startDate": "2027-05-17",
+          "startDate": "2027-05-18",
           "endDate": "2027-05-19",
-          "startWeekday": "월",
+          "startWeekday": "화",
           "endWeekday": "수",
           "sourceWeekdays": {
             "start": "월",
@@ -12322,7 +12322,7 @@
           },
           "weekdayMismatch": false,
           "allowedStayTypes": [
-            "2박3일"
+            "1박2일"
           ],
           "schoolLevels": [
             "elementary",
