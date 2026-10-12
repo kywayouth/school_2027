@@ -12050,17 +12050,17 @@
         {
           "id": "ecology-2027-03-29-2027-03-31",
           "type": "fixed_round",
-          "startDate": "2027-03-29",
+          "startDate": "2027-03-30",
           "endDate": "2027-03-31",
           "startWeekday": "월",
           "endWeekday": "수",
           "sourceWeekdays": {
-            "start": "월",
+            "start": "화",
             "end": "수"
           },
           "weekdayMismatch": false,
           "allowedStayTypes": [
-            "2박3일"
+            "1박2일"
           ],
           "schoolLevels": [
             "elementary",
@@ -12084,17 +12084,17 @@
         {
           "id": "ecology-2027-03-31-2027-04-02",
           "type": "fixed_round",
-          "startDate": "2027-03-31",
+          "startDate": "2027-04-01",
           "endDate": "2027-04-02",
-          "startWeekday": "수",
+          "startWeekday": "목",
           "endWeekday": "금",
           "sourceWeekdays": {
-            "start": "수",
+            "start": "목",
             "end": "금"
           },
           "weekdayMismatch": false,
           "allowedStayTypes": [
-            "2박3일"
+            "1박2일"
           ],
           "schoolLevels": [
             "elementary",
