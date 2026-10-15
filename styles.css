@@ -619,3 +619,36 @@ body.photo-viewer-open{overflow:hidden}
 .refresh-shortcut kbd{font-family:inherit;font-size:inherit;font-weight:700}
 .site-update .site-update-help{margin-top:6px}
 @media(max-width:540px){.refresh-help{font-size:11px}}
+
+/* Language controls stay in view; English text can wrap naturally. */
+.language-switch{display:flex;align-items:center;gap:3px;flex-shrink:0;padding:3px;border:1px solid var(--line);border-radius:11px;background:#fff}
+.language-switch button{min-height:38px;padding:6px 10px;border-color:transparent;border-radius:8px;font-family:system-ui,"Malgun Gothic",sans-serif;font-size:13px}
+.language-switch button[aria-pressed="true"]{background:#FFF0F4;color:var(--brand-ink);border-color:#F0CAD4}
+.english-note{display:none}
+html[lang="en"]{font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+html[lang="en"] .english-note{display:block;margin:0 0 20px;padding:10px 14px;border-left:3px solid var(--brand);background:#fff;color:var(--muted);font-size:13px;line-height:1.6}
+html[lang="en"] :is(h1,h2,h3,h4,p,button,label,summary,.brand-service,.facility-tag){word-break:normal;overflow-wrap:break-word;letter-spacing:normal}
+html[lang="en"] .header-inner{gap:16px;flex-wrap:wrap}
+html[lang="en"] .brand-service{flex:1;min-width:140px}
+html[lang="en"] .recruitment-period p{white-space:normal}
+html[lang="en"] .tabs button{font-size:15px;padding:12px 9px}
+html[lang="en"] .picker-name{font-size:13px}
+html[lang="en"] .dialog-actions{flex-wrap:wrap}
+html[lang="en"] .dialog-actions>*{min-width:0}
+html[lang="en"] :is(.time-column,.duration-column){white-space:normal}
+html[lang="en"] .detail-summary dt small{white-space:normal}
+@media(max-width:640px){
+  .header-inner{flex-wrap:wrap;gap:10px}
+  .language-switch{margin-left:auto}
+  .language-switch button{min-height:40px}
+  html[lang="en"] .brand-service{font-size:12px}
+  html[lang="en"] .tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  html[lang="en"] .tabs button{font-size:13px}
+  html[lang="en"] .intro-heading{grid-template-columns:minmax(0,1fr) 90px;gap:5px}
+  html[lang="en"] .intro h1{font-size:25px;line-height:1.3}
+  html[lang="en"] .campaign-hero img{width:90px;height:110px}
+  html[lang="en"] .fee-totals strong{font-size:16px}
+  html[lang="en"] .day-list{grid-template-columns:minmax(0,1fr)}
+  html[lang="en"] .slot-card{min-width:0}
+}
+@media(max-width:420px){html[lang="en"] .card-actions .phone-label{display:none}}

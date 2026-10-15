@@ -1,14 +1,15 @@
-import {setupSiteUpdate} from './site-update.mjs?v=17ce08c48dbacdd4';
-import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=17ce08c48dbacdd4';
-import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=17ce08c48dbacdd4';
-import {icon,FACILITY_ICONS} from './icons.mjs?v=17ce08c48dbacdd4';
-import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=17ce08c48dbacdd4';
-import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=17ce08c48dbacdd4';
-import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=17ce08c48dbacdd4';
-import {PROGRAM_PHOTOS} from './program-photos.mjs?v=17ce08c48dbacdd4';
-import {setupPartnershipViewer} from './image-viewer.mjs?v=17ce08c48dbacdd4';
-import {setupPhotoViewer} from './photo-viewer.mjs?v=17ce08c48dbacdd4';
-import {feesMarkup,setupFeesViewer} from './fees.mjs?v=17ce08c48dbacdd4';
+import {setupI18n} from './i18n.mjs?v=e831081aa16a5a74';
+import {setupSiteUpdate} from './site-update.mjs?v=e831081aa16a5a74';
+import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=e831081aa16a5a74';
+import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=e831081aa16a5a74';
+import {icon,FACILITY_ICONS} from './icons.mjs?v=e831081aa16a5a74';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=e831081aa16a5a74';
+import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=e831081aa16a5a74';
+import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=e831081aa16a5a74';
+import {PROGRAM_PHOTOS} from './program-photos.mjs?v=e831081aa16a5a74';
+import {setupPartnershipViewer} from './image-viewer.mjs?v=e831081aa16a5a74';
+import {setupPhotoViewer} from './photo-viewer.mjs?v=e831081aa16a5a74';
+import {feesMarkup,setupFeesViewer} from './fees.mjs?v=e831081aa16a5a74';
 
 // Static shell icons use the same embedded drawings as dynamically rendered views.
 document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
@@ -16,6 +17,7 @@ setupPartnershipViewer(document);
 setupPhotoViewer(document,PROGRAM_PHOTOS);
 setupFeesViewer(document);
 setupSiteUpdate(document);
+setupI18n(document);
 
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const STORAGE='national-youth-2027-favorites-v1';
