@@ -1,5 +1,5 @@
-import {UI_EN} from './i18n-ui.mjs?v=e831081aa16a5a74';
-import {PROGRAM_EN} from './i18n-programs.mjs?v=e831081aa16a5a74';
+import {UI_EN} from './i18n-ui.mjs?v=78e9f70cf0822503';
+import {PROGRAM_EN} from './i18n-programs.mjs?v=78e9f70cf0822503';
 
 // Presentation only: catalogue identifiers, status commands, form values and
 // saved choices remain in their original format in either language.
@@ -45,7 +45,7 @@ function dynamicEnglish(text){
 function generatedEnglish(text){
   let match;
   if((match=text.match(/^(\d{1,2})월 (\d{1,2})일 (\d{1,2})시(?: (\d{1,2})분)? 기준$/)))return `As of ${monthName(match[1])} ${match[2]}, ${match[3].padStart(2,'0')}:${(match[4]||'0').padStart(2,'0')} KST`;
-  if((match=text.match(/^(\d+)월에는 조건에 맞는 일정이 없어 가장 가까운 (\d+)월로 이동했어요\.$/)))return `No matching dates in ${monthName(match[1])}. Showing the nearest available month, ${monthName(match[2])}.`;
+  if((match=text.match(/^(\d+)월에는 조건에 맞는 일정이 없어 가장 가까운 (\d+)월로 이동했어요\.$/)))return `No matching dates in ${monthName(match[1])}. Showing the nearest month with listed dates, ${monthName(match[2])}.`;
   if((match=text.match(/^(\d+)월에는 조건에 맞는 일정이 없습니다\.$/)))return `No dates match your filters in ${monthName(match[1])}.`;
   if((match=text.match(/^가까운 (\d+)월 보기 →$/)))return `View ${monthName(match[1])} →`;
   if((match=text.match(/^(.+) 시설 검색 조건으로 선택$/)))return `Select ${translateText(match[1])} as a filter`;
@@ -55,6 +55,9 @@ function generatedEnglish(text){
   if((match=text.match(/^([\d·]+)식$/)))return `${match[1].replaceAll('·',' or ')} meals`;
   if((match=text.match(/^(.+) 시간·소요시간·활동$/)))return `${translateText(match[1])}: time, duration and activities`;
   if((match=text.match(/^(.+) 이미지$/)))return `${translateText(match[1])} image`;
+  if((match=text.match(/^(\d+)월 · (게시 일정 있음|게시 일정 없음)$/)))return `${monthName(match[1])} · ${translateText(match[2])}`;
+  if((match=text.match(/^(.+) 게시 일정 있음$/)))return `${translateText(match[1])}: dates listed`;
+  if((match=text.match(/^(.+) 게시 일정 없음$/)))return `${translateText(match[1])}: no dates listed`;
   if((match=text.match(/^(.+) 운영 가능$/)))return `${translateText(match[1])} available`;
   if((match=text.match(/^(.+) 표시된 일정 없음$/)))return `${translateText(match[1])}: no dates listed`;
   if((match=text.match(/^(· )?((?:\d박\d일)(?:, \d박\d일)*) 가능$/)))return `${match[1]||''}${translateText(match[2])} available`;

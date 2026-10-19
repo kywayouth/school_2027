@@ -1,27 +1,25 @@
-import {setupI18n} from './i18n.mjs?v=e831081aa16a5a74';
-import {setupSiteUpdate} from './site-update.mjs?v=e831081aa16a5a74';
-import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=e831081aa16a5a74';
-import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=e831081aa16a5a74';
-import {icon,FACILITY_ICONS} from './icons.mjs?v=e831081aa16a5a74';
-import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=e831081aa16a5a74';
-import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=e831081aa16a5a74';
-import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=e831081aa16a5a74';
-import {PROGRAM_PHOTOS} from './program-photos.mjs?v=e831081aa16a5a74';
-import {setupPartnershipViewer} from './image-viewer.mjs?v=e831081aa16a5a74';
-import {setupPhotoViewer} from './photo-viewer.mjs?v=e831081aa16a5a74';
-import {feesMarkup,setupFeesViewer} from './fees.mjs?v=e831081aa16a5a74';
+import {setupI18n} from './i18n.mjs?v=78e9f70cf0822503';
+import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=78e9f70cf0822503';
+import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=78e9f70cf0822503';
+import {icon,FACILITY_ICONS} from './icons.mjs?v=78e9f70cf0822503';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=78e9f70cf0822503';
+import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=78e9f70cf0822503';
+import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=78e9f70cf0822503';
+import {PROGRAM_PHOTOS} from './program-photos.mjs?v=78e9f70cf0822503';
+import {setupPartnershipViewer} from './image-viewer.mjs?v=78e9f70cf0822503';
+import {setupPhotoViewer} from './photo-viewer.mjs?v=78e9f70cf0822503';
+import {feesMarkup,setupFeesViewer} from './fees.mjs?v=78e9f70cf0822503';
 
 // Static shell icons use the same embedded drawings as dynamically rendered views.
 document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
 setupPartnershipViewer(document);
 setupPhotoViewer(document,PROGRAM_PHOTOS);
 setupFeesViewer(document);
-setupSiteUpdate(document);
 setupI18n(document);
 
 const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const STORAGE='national-youth-2027-favorites-v1';
-let catalog,status=emptyStatus(),statusOK=false,statusError='',inFlight=null,lastRefresh=0,tab='search',month=3,selected='2027-03-03',programFacility='central',dialogSlot=null;
+let catalog,status=emptyStatus(),statusOK=false,statusError='',inFlight=null,tab='search',month=3,selected='2027-03-03',programFacility='central',dialogSlot=null;
 let filters={mode:'all',grade:'elementary',people:null,facility:'',stay:''},saved=[];
 let draftFilters={...filters},filterMessage='',filterError='';
 let monthMessage='';
@@ -37,26 +35,24 @@ function facilityNameMarkup(f){return esc(f.name).replace('청소년','청소년
 function gradeText(slot){return slot.schoolLevels.map(g=>GRADES[g]).join(' · ');}
 function stayLabel(slot){const stays=displayedStayTypes(slot);return stays.length?`${stays.join(', ')}${slot.facilityId==='pyeongchang'?' 가능':''}`:'시설 문의 필요';}
 function favoriteMarker(active,label=active?'관심 일정에 담은 일정':'아직 관심 일정에 담지 않은 일정',text=active?'담은 일정':''){return `<span class="favorite-marker ${active?'is-saved':''}" role="img" aria-label="${esc(label)}">${icon('heart')}${text?`<span class="favorite-label" aria-hidden="true">${esc(text)}</span>`:''}</span>`;}
-function periodMarkup(slot){return `<p class="period-label">운영 가능 기간</p><h3>${rangeLabel(slot.startDate,slot.endDate)}<span class="stay-label"> · ${stayLabel(slot)}</span></h3>`;}
+function periodMarkup(slot){return `<p class="period-label">안내된 운영 기간</p><h3>${rangeLabel(slot.startDate,slot.endDate)}<span class="stay-label"> · ${stayLabel(slot)}</span></h3>`;}
 function consultNotice(){return `<p class="consult-notice">${CONSULT_NOTICE}</p>`;}
 function phone(f){return `<a class="phone" href="tel:${esc(f.reservationPhone)}">${icon('phone')} ${esc(f.reservationPhone)}<span class="phone-label">전화 문의</span></a>`;}
 function programDownload(f){return `<a class="with-icon program-download" href="./assets/programs/${esc(f.id)}-2027.pdf" download="2027_${esc(f.short)}_프로그램안내.pdf">${icon('download')}<span>프로그램 안내 PDF 다운로드</span></a>`;}
-function noticeFor(slot){return slot.facilityId==='pyeongchang'?'<p class="small-note">초등학교는 150명 미만으로 운영합니다. 100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 시설에 전화로 문의해 주세요.</p>':slot.facilityId==='future'?'<p class="small-note">운영 가능 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 시설과 협의해 주세요.</p>':'';}
+function noticeFor(slot){return slot.facilityId==='pyeongchang'?'<p class="small-note">초등학교는 150명 미만으로 운영합니다. 100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 시설에 전화로 문의해 주세요.</p>':slot.facilityId==='future'?'<p class="small-note">안내된 운영 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 시설과 협의해 주세요.</p>':'';}
 function refreshHeader(){
   if(status.asOf){const d=new Date(status.asOf),parts=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit',hourCycle:'h23'}).formatToParts(d),get=t=>Number(parts.find(p=>p.type===t)?.value);$('#asof').textContent=`${get('month')}월 ${get('day')}일 ${get('hour')}시${get('minute')?` ${get('minute')}분`:''} 기준`;
-    $('#freshness').textContent=Date.now()-d.getTime()>36*3600000?'업데이트 확인 필요':'';
-  }else{$('#asof').textContent='기준 시각 확인 필요';$('#freshness').textContent='';}
-  $('#notice').innerHTML=statusError?`<p class="warning">${esc(statusError)} 현재 신청 가능 여부는 전화로 확인해 주세요.</p>`:status.errors.length?'<p class="warning">일부 상태 정보를 확인하지 못했습니다. 표시된 일정도 신청 전 반드시 전화로 확인해 주세요.</p>':'';
+  }else{$('#asof').textContent='기준 시각 확인 필요';}
+  $('#notice').innerHTML=statusError?`<p class="warning">${esc(statusError)} 현재 신청 가능 여부는 전화로 확인해 주세요.</p>`:status.errors.length?'<p class="warning">일부 게시 정보를 확인하지 못했습니다. 표시된 일정도 신청 전 반드시 전화로 확인해 주세요.</p>':'';
 }
-async function refreshStatus(manual=false){
+async function refreshStatus(){
   if(!catalog)return;if(inFlight)return inFlight;
-  $('#refresh').disabled=true;
   inFlight=(async()=>{
     try{const url=new URL('./status.txt',location.href);url.searchParams.set('_',`${Date.now()}-${Math.random().toString(36).slice(2)}`);const response=await fetch(url,{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!response.ok)throw Error(`HTTP ${response.status}`);
       const text=await response.text();if(/^\s*</.test(text))throw Error('상태 파일 대신 HTML이 반환되었습니다.');
-      status=parseStatus(text,catalog);statusOK=true;statusError='';lastRefresh=Date.now();alignCalendar(false);if(manual)toast('현재 게시된 상태 파일을 다시 확인했습니다.');
-    }catch(error){console.warn('상태 파일을 읽지 못했습니다.',error);statusOK=false;statusError='상태 파일을 불러오지 못해 달력의 운영 가능 표시를 잠시 중단했습니다.';}
-    finally{inFlight=null;$('#refresh').disabled=false;refreshHeader();render();if(dialogSlot)openSlot(dialogSlot.code,true);}
+      status=parseStatus(text,catalog);statusOK=true;statusError='';alignCalendar(false);
+    }catch(error){console.warn('상태 파일을 읽지 못했습니다.',error);statusOK=false;statusError='게시된 일정 정보를 불러오지 못해 달력 표시를 잠시 중단했습니다.';}
+    finally{inFlight=null;refreshHeader();render();if(dialogSlot)openSlot(dialogSlot.code,true);}
   })();return inFlight;
 }
 function render(){
@@ -67,7 +63,7 @@ function render(){
   const markup=tab==='search'?searchMarkup():tab==='saved'?savedMarkup():tab==='fees'?feesMarkup():programsMarkup();
   const finder=$('#main .finder');
   if(tab==='search'&&finder){
-    // Keep draft controls mounted while results or daily status refresh.
+    // Keep draft controls mounted while results change.
     // Changing a field never replaces the applied result until form submission.
     const template=document.createElement('template');template.innerHTML=markup;
     const next=template.content.querySelector('.finder');
@@ -131,10 +127,10 @@ function chooseFacility(value){
 }
 function monthOptionLabel(value,months=availableMonths()){
   if(!statusOK||!searchReady())return `${value}월`;
-  return `${value}월 · ${months.includes(value)?'예약 가능':'예약 마감'}`;
+  return `${value}월 · ${months.includes(value)?'게시 일정 있음':'게시 일정 없음'}`;
 }
 function monthFeedback(months){
-  if(!statusOK)return '<p class="month-message">현재 일정 정보를 확인할 수 없습니다. 최신 정보 확인을 눌러 주세요.</p>';
+  if(!statusOK)return '<p class="month-message">현재 일정 정보를 불러올 수 없습니다. 페이지를 새로고침하거나 시설에 전화해 주세요.</p>';
   if(!searchReady())return '<p class="month-message">참가 인원을 입력하고 ‘조건 적용’을 눌러 일정을 확인해 주세요.</p>';
   if(!months.length)return '<p class="month-message">조건에 맞는 운영 기간이 없습니다. 조건을 바꾸거나 전체 일정 보기를 선택한 뒤 ‘조건 적용’을 눌러 주세요.</p>';
   if(!months.includes(month)){const nearest=nearestMonth(months,month);return `<p class="month-message">${month}월에는 조건에 맞는 일정이 없습니다. <button class="text-button" data-jump-month="${nearest}">가까운 ${nearest}월 보기 →</button></p>`;}
@@ -151,21 +147,21 @@ function searchMarkup(){
   <div class="filter-actions"><p id="day-visit-search-note" class="day-visit-note">${DAY_VISIT_NOTICE}</p><button id="apply-filters" type="submit" class="with-icon">${icon('search')}<span>조건 적용</span></button></div>
   <p id="draft-status" class="draft-status ${hasDraftChanges()?'is-pending':''} ${filterError?'is-error':''}" role="status" aria-live="polite">${esc(draftStatusText())}</p></form>
   <div class="feedback-area" aria-live="polite" aria-atomic="true"><p id="filter-summary" class="filter-summary"><span class="applied-label">적용된 조건</span><strong>${filterSummary()}</strong></p>${filters.mode==='match'&&filters.people<100&&filters.people>0?'<p class="small-note">평창은 100명 미만 학교의 경우 제시된 날짜 외에도 협의할 수 있습니다. <a href="tel:033-330-0965">033-330-0965</a></p>':''}</div></section>
-  <div class="schedule-layout"><section class="calendar-panel" aria-label="운영 가능 날짜 달력"><div class="calendar-title"><div><span class="eyebrow">2027년 운영 일정</span><h2 class="heading-with-icon">${icon('calendar')}<span class="month-title-text">${month}월</span></h2></div><div class="month-controls"><button data-month="-1" aria-label="이전 달" ${month===1?'disabled':''}>${icon('arrow-left')}</button><select id="month" aria-label="달 선택" class="${statusOK&&ready?(months.includes(month)?'month-open':'month-closed'):''}">${Array.from({length:12},(_,i)=>`<option value="${i+1}" class="${statusOK&&ready?(months.includes(i+1)?'month-open':'month-closed'):''}" ${i+1===month?'selected':''}>${esc(monthOptionLabel(i+1,months))}</option>`).join('')}</select><button data-month="1" aria-label="다음 달" ${month===12?'disabled':''}>${icon('arrow-right')}</button></div></div>
+  <div class="schedule-layout"><section class="calendar-panel" aria-label="게시 일정 달력"><div class="calendar-title"><div><span class="eyebrow">2027년 운영 일정</span><h2 class="heading-with-icon">${icon('calendar')}<span class="month-title-text">${month}월</span></h2></div><div class="month-controls"><button data-month="-1" aria-label="이전 달" ${month===1?'disabled':''}>${icon('arrow-left')}</button><select id="month" aria-label="달 선택" class="${statusOK&&ready?(months.includes(month)?'month-open':'month-closed'):''}">${Array.from({length:12},(_,i)=>`<option value="${i+1}" class="${statusOK&&ready?(months.includes(i+1)?'month-open':'month-closed'):''}" ${i+1===month?'selected':''}>${esc(monthOptionLabel(i+1,months))}</option>`).join('')}</select><button data-month="1" aria-label="다음 달" ${month===12?'disabled':''}>${icon('arrow-right')}</button></div></div>
   <div class="month-feedback" role="status" aria-live="polite">${monthFeedback(months)}</div>
   <div class="legend" aria-label="시설 범례">${catalog.facilities.filter(f=>!filters.facility||f.id===filters.facility).map(f=>`<button data-legend="${f.id}" aria-label="${f.short} 시설 검색 조건으로 선택"><i style="--facility:${f.color}" aria-hidden="true"></i>${f.short}</button>`).join('')}${filters.facility?'<button data-legend="all">전체 시설 선택</button>':''}</div>
   <div class="weekdays" aria-hidden="true">${['일','월','화','수','목','금','토'].map(d=>`<span>${d}</span>`).join('')}</div><div class="calendar">${calendarCells(list,runs)}</div>
-  <p class="calendar-help">색이 있는 날짜를 누르면 상세 일정을 볼 수 있습니다. 입소일부터 퇴소일까지 모두 표시합니다.${!filters.facility?' 띠는 범례 순서대로 위에서 아래에 놓입니다. 시설명을 누르면 검색 조건으로 선택되며, 조건 적용 후 해당 시설을 볼 수 있습니다.':''}${!filters.stay?' 가능한 숙박 형태 중 하나라도 운영할 수 있는 날짜를 표시합니다.':''}</p></section>
-  <section class="day-panel" aria-label="선택한 날짜 상세"><div class="day-heading"><span class="eyebrow">선택한 날짜</span><h2 class="heading-with-icon">${icon('pin')}<span>${dateLabel(selected)}</span></h2></div><div class="day-list">${list.filter(s=>covered(selected,runs.get(s.code))).map(s=>slotCard(s)).join('')||`<div class="empty"><span aria-hidden="true">${icon('calendar')}</span><h3>${!statusOK?'정보를 확인해 주세요':!ready?'학교 조건을 입력해 주세요':'다른 날짜도 살펴보세요'}</h3><p>${!statusOK?'최신 정보 확인 버튼을 누르거나 시설에 전화해 주세요.':!ready?'참가 인원을 입력하거나 전체 일정 보기를 선택해 주세요.':'이 날짜에는 표시할 일정이 없습니다. 달력에서 다른 날짜를 선택하거나 조건을 바꿔보세요.'}</p></div>`}</div></section></div>`;
+  <p class="calendar-help">색이 있는 날짜를 누르면 상세 일정을 볼 수 있습니다. 입소일부터 퇴소일까지 모두 표시합니다.${!filters.facility?' 띠는 범례 순서대로 위에서 아래에 놓입니다. 시설명을 누르면 검색 조건으로 선택되며, 조건 적용 후 해당 시설을 볼 수 있습니다.':''}${!filters.stay?' 게시된 숙박 형태와 기간을 기준으로 표시합니다.':''}</p></section>
+  <section class="day-panel" aria-label="선택한 날짜 상세"><div class="day-heading"><span class="eyebrow">선택한 날짜</span><h2 class="heading-with-icon">${icon('pin')}<span>${dateLabel(selected)}</span></h2></div><div class="day-list">${list.filter(s=>covered(selected,runs.get(s.code))).map(s=>slotCard(s)).join('')||`<div class="empty"><span aria-hidden="true">${icon('calendar')}</span><h3>${!statusOK?'정보를 확인해 주세요':!ready?'학교 조건을 입력해 주세요':'다른 날짜도 살펴보세요'}</h3><p>${!statusOK?'페이지를 새로고침하거나 시설에 전화해 주세요.':!ready?'참가 인원을 입력하거나 전체 일정 보기를 선택해 주세요.':'이 날짜에는 표시할 일정이 없습니다. 달력에서 다른 날짜를 선택하거나 조건을 바꿔보세요.'}</p></div>`}</div></section></div>`;
 }
 function calendarCells(list,runs){
   const first=`2027-${String(month).padStart(2,'0')}-01`,offset=new Date(epoch(first)).getUTCDay(),length=new Date(Date.UTC(2027,month,0)).getUTCDate();let html='<div class="blank" aria-hidden="true"></div>'.repeat(offset);
   for(let day=1;day<=length;day++){
     const date=`2027-${String(month).padStart(2,'0')}-${String(day).padStart(2,'0')}`,active=list.filter(s=>covered(date,runs.get(s.code))),facilities=catalog.facilities.filter(f=>!filters.facility||f.id===filters.facility),names=[...new Set(active.map(s=>s.facility.short))].join(', ');
-    html+=`<button class="day ${selected===date?'selected':''} ${filters.facility?'single':''}" data-date="${date}" aria-pressed="${selected===date}" aria-label="${dateLabel(date)} ${names?`${names} 운영 가능`:'표시된 일정 없음'}"><span class="day-number">${day}</span><span class="tracks" aria-hidden="true">${facilities.map(f=>{const items=active.filter(s=>s.facilityId===f.id);return `<i class="track ${items.length?'active':''}" data-facility="${f.id}" style="--facility:${f.color}"></i>`;}).join('')}</span></button>`;
+    html+=`<button class="day ${selected===date?'selected':''} ${filters.facility?'single':''}" data-date="${date}" aria-pressed="${selected===date}" aria-label="${dateLabel(date)} ${names?`${names} 게시 일정 있음`:'표시된 일정 없음'}"><span class="day-number">${day}</span><span class="tracks" aria-hidden="true">${facilities.map(f=>{const items=active.filter(s=>s.facilityId===f.id);return `<i class="track ${items.length?'active':''}" data-facility="${f.id}" style="--facility:${f.color}"></i>`;}).join('')}</span></button>`;
   }return html;
 }
-function slotCard(slot){const f=slot.facility,active=hasSavedSlot(saved,slot),label=slot.type==='negotiable_period'?'담은 날짜 있음':'담은 일정';return `<article class="slot-card facility-theme" style="${themeStyle(f)}"><div class="card-top"><div class="card-identity">${favoriteMarker(active,active?label:'아직 관심 일정에 담지 않은 일정',active?label:'')}<span class="facility-tag">${f.short} <span>${f.location}</span></span></div></div>${periodMarkup(slot)}<p class="muted">${gradeText(slot)}</p><p class="capacity">운영 가능 규모 <strong>${capacityLabel(slot,status,filters.mode==='match'?filters.grade:'')}</strong></p>${noticeFor(slot)}${consultNotice()}<div class="card-actions">${phone(f)}<button class="with-icon" data-detail="${slot.code}">${icon('info')}<span>프로그램 상세보기</span></button></div></article>`;}
+function slotCard(slot){const f=slot.facility,active=hasSavedSlot(saved,slot),label=slot.type==='negotiable_period'?'담은 날짜 있음':'담은 일정';return `<article class="slot-card facility-theme" style="${themeStyle(f)}"><div class="card-top"><div class="card-identity">${favoriteMarker(active,active?label:'아직 관심 일정에 담지 않은 일정',active?label:'')}<span class="facility-tag">${f.short} <span>${f.location}</span></span></div></div>${periodMarkup(slot)}<p class="muted">${gradeText(slot)}</p><p class="capacity">안내된 운영 규모 <strong>${capacityLabel(slot,status,filters.mode==='match'?filters.grade:'')}</strong></p>${noticeFor(slot)}${consultNotice()}<div class="card-actions">${phone(f)}<button class="with-icon" data-detail="${slot.code}">${icon('info')}<span>프로그램 상세보기</span></button></div></article>`;}
 function mealMarkup(f){return `<section class="meal-info" aria-label="식사 기준"><h4>식사 기준</h4><p class="meal-count"><strong>${f.mealPolicy.allowedMealCounts.join('·')}식</strong><span>2박3일 기준</span></p><p class="small-note">${esc(f.mealPolicy.sevenMealCondition)}.</p><p class="meal-footnote">1박2일 식사는 시설과 별도 협의해 주세요.</p><p class="day-visit-note">${DAY_VISIT_NOTICE}</p></section>`;}
 function courseOverviewMarkup(p){
   const overview=PROGRAM_OVERVIEWS[p.id];if(!overview)return '';
@@ -173,7 +169,7 @@ function courseOverviewMarkup(p){
 }
 function programMarkup(p){
   const cap=p.capacity.maxExclusive?`${p.capacity.maxExclusive}명 미만`:`${p.capacity.interpretation==='reference'?'참고 규모':'최대'} ${p.capacity.value}명`;
-  return `<article class="program-detail"><span class="eyebrow">${GRADES[p.schoolLevel]} · 2박3일 기준</span><h3>${esc(p.name)}</h3>${courseOverviewMarkup(p)}<p class="course-duration-note">2박3일 기준 구성입니다. 1박2일은 활동 내용과 시간표를 시설과 조정합니다.</p><div class="program-meta"><span>과정 안내 인원 <strong>${cap}</strong></span><span>인증번호 <strong>${esc(p.certificationNumber||'원문 별도 표기 없음')}</strong></span></div>${p.advanceReportNumbers?.length?`<p class="small-note">사전신고 번호: ${p.advanceReportNumbers.map(esc).join(', ')}</p>`:''}<p class="small-note">과정 안내 인원은 참고 정보이며, 일정 검색은 각 일정의 운영 가능 규모를 기준으로 합니다.</p>
+  return `<article class="program-detail"><span class="eyebrow">${GRADES[p.schoolLevel]} · 2박3일 기준</span><h3>${esc(p.name)}</h3>${courseOverviewMarkup(p)}<p class="course-duration-note">2박3일 기준 구성입니다. 1박2일은 활동 내용과 시간표를 시설과 조정합니다.</p><div class="program-meta"><span>과정 안내 인원 <strong>${cap}</strong></span><span>인증번호 <strong>${esc(p.certificationNumber||'원문 별도 표기 없음')}</strong></span></div>${p.advanceReportNumbers?.length?`<p class="small-note">사전신고 번호: ${p.advanceReportNumbers.map(esc).join(', ')}</p>`:''}<p class="small-note">과정 안내 인원은 참고 정보이며, 일정 검색은 각 일정의 안내된 운영 규모를 기준으로 합니다.</p>
   <details class="timetable" data-disclosure="timetable"><summary>2박3일 세부 일정표 펼치기</summary><p class="timetable-duration-note">소요시간은 표시된 시간 구간 기준입니다. 구간이 불명확하면 안내문에 명시된 시간을 표시하며, 확인할 수 없는 항목은 ‘—’로 표시합니다.</p><div class="timetable-days">${p.timetable.map(d=>`<section><h4>${d.day}일차</h4><table><caption class="sr-only">${esc(p.name)} ${d.day}일차 시간·소요시간·활동</caption><thead><tr><th scope="col" class="time-column">시간</th><th scope="col" class="duration-column">소요시간</th><th scope="col">활동</th></tr></thead><tbody>${d.events.map(e=>`<tr><td class="time-column">${esc(e.time.label)}</td><td class="duration-column">${esc(timetableDurationLabel(e))}</td><td>${timetableCellMarkup(e,p.activities,p.id)}</td></tr>`).join('')}</tbody></table></section>`).join('')}</div></details>
   <details class="activity-details" data-disclosure="activities"><summary>단위 프로그램 살펴보기</summary><div class="activities">${p.activities.map(a=>`<div><strong>${esc(a.name)}</strong><p>${esc(a.description)}</p></div>`).join('')}</div></details>${p.notes.map(n=>`<p class="small-note">${esc(n)}</p>`).join('')}</article>`;
 }
@@ -191,7 +187,7 @@ function programsMarkup(){
     <div class="facility-hero">
       <div class="facility-hero-copy"><div class="facility-overline"><span class="location-pill">${f.location}</span><span>2027 학교단체 수련활동</span></div><h3 class="facility-logo-panel"><img class="facility-logo" src="${brand.logo}" alt="${esc(f.name)}" decoding="async"></h3><p class="facility-hero-description">${esc(brand.description)}</p></div>
       <div class="facility-hero-art" aria-hidden="true"><picture><source srcset="${brand.illustration.replace(/\.png$/,'.webp')}" type="image/webp"><img src="${brand.illustration}" alt="" width="240" height="240" loading="lazy" decoding="async"></picture></div>
-      <div class="facility-contact"><div><span class="contact-label">프로그램·일정 문의</span><p>학교에 맞는 활동을 시설과 함께 정해보세요.<br>신청은 전화 선착순으로 진행됩니다.</p>${f.id==='pyeongchang'?'<p class="facility-specific-note">100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 전화로 문의해 주세요.</p>':''}${f.id==='future'?'<p class="facility-specific-note">운영 가능 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 협의해 주세요.</p>':''}</div><div class="facility-contact-actions">${phone(f)}${programDownload(f)}<button class="with-icon" data-find-facility="${f.id}">${icon('calendar')}<span>이 시설 일정 찾기</span></button></div></div>
+      <div class="facility-contact"><div><span class="contact-label">프로그램·일정 문의</span><p>학교에 맞는 활동을 시설과 함께 정해보세요.<br>신청은 전화 선착순으로 진행됩니다.</p>${f.id==='pyeongchang'?'<p class="facility-specific-note">100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 전화로 문의해 주세요.</p>':''}${f.id==='future'?'<p class="facility-specific-note">안내된 운영 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 협의해 주세요.</p>':''}</div><div class="facility-contact-actions">${phone(f)}${programDownload(f)}<button class="with-icon" data-find-facility="${f.id}">${icon('calendar')}<span>이 시설 일정 찾기</span></button></div></div>
     </div>
     <div class="program-layout">
       <div class="program-content"><div class="program-list-heading"><h3>교급별 프로그램</h3><p>과정을 펼쳐 목적과 흐름, 주요 활동과 시간표를 확인하세요.</p></div>${f.programs.map(courseAccordion).join('')}${programPhotos(f)}</div>
@@ -205,7 +201,7 @@ function changeProgramFacility(id){
 }
 function savedMarkup(){return `<section class="saved"><div class="section-heading"><div><p class="eyebrow">전화하기 전, 한눈에 비교</p><h2 class="heading-with-icon">${icon('heart')}<span>관심 일정</span></h2></div><button class="with-icon" data-back>${icon('search')}<span>일정 더 찾아보기</span></button></div><p class="muted">학년별 후보를 담고 메모해 두세요. 이 기기·브라우저에만 저장되며, 브라우저 데이터를 지우면 삭제됩니다.</p><div class="compare-grid">${saved.map(v=>{
   const s=catalog.byCode.get(v.code);if(!s)return `<article class="saved-card"><h3>원본 일정을 찾을 수 없습니다</h3><button data-remove="${esc(v.key)}">관심 일정 삭제</button></article>`;
-  const changed=s.type==='fixed_round'&&(v.start!==s.startDate||v.end!==s.endDate),closed=statusOK&&isSavedClosed(s,status,v),f=s.facility;return `<article class="saved-card facility-theme ${closed?'closed':''}" style="${themeStyle(f)}"><div class="card-top"><div class="card-identity">${favoriteMarker(true)}<span class="facility-tag">${f.short}</span></div><button class="remove" data-remove="${esc(v.key)}" aria-label="${esc(f.short)} ${esc(rangeLabel(v.start,v.end))} 관심 일정 삭제">${icon('x')}</button></div><h3>${f.name}</h3>${periodMarkup(s)}<p class="saved-state ${closed?'closed-text':''}">${!statusOK?'신청 가능 여부 확인 필요':changed?'일정 변경 · 날짜를 다시 확인해 주세요':closed?'접수 완료':'전화로 신청 확인'}</p><dl><dt>담은 일정</dt><dd>${rangeLabel(v.start,v.end)} · ${esc(v.stay)}</dd><dt>대상</dt><dd>${gradeText(s)}</dd><dt>운영 가능 규모</dt><dd>${closed?'접수 완료':capacityLabel(s,status)}</dd><dt>과정</dt><dd>${f.programs.filter(p=>s.schoolLevels.includes(p.schoolLevel)).map(p=>`${GRADES[p.schoolLevel]} · ${esc(p.name)}`).join('<br>')}</dd></dl>${v.stay==='당일형'?`<p class="day-visit-note">이전에 담은 당일형 일정과 메모입니다. ${DAY_VISIT_NOTICE}</p>`:''}${noticeFor(s)}${consultNotice()}${phone(f)}<label class="memo-label">학교 메모 <span class="muted">(개인정보 제외)</span><textarea data-note="${esc(v.key)}" rows="3" maxlength="1000" placeholder="예: 5학년 후보 / 인솔자 포함 120명">${esc(v.note)}</textarea></label><button class="with-icon" data-detail="${s.code}" data-saved-choice="${esc(v.key)}">${icon('info')}<span>프로그램·일정 상세</span></button></article>`;
+  const changed=s.type==='fixed_round'&&(v.start!==s.startDate||v.end!==s.endDate),closed=statusOK&&isSavedClosed(s,status,v),f=s.facility;return `<article class="saved-card facility-theme ${closed?'closed':''}" style="${themeStyle(f)}"><div class="card-top"><div class="card-identity">${favoriteMarker(true)}<span class="facility-tag">${f.short}</span></div><button class="remove" data-remove="${esc(v.key)}" aria-label="${esc(f.short)} ${esc(rangeLabel(v.start,v.end))} 관심 일정 삭제">${icon('x')}</button></div><h3>${f.name}</h3>${periodMarkup(s)}<p class="saved-state ${closed?'closed-text':''}">${!statusOK?'신청 가능 여부 확인 필요':changed?'일정 변경 · 날짜를 다시 확인해 주세요':closed?'게시 당시 접수 완료':'예약 가능 여부는 전화 확인'}</p><dl><dt>담은 일정</dt><dd>${rangeLabel(v.start,v.end)} · ${esc(v.stay)}</dd><dt>대상</dt><dd>${gradeText(s)}</dd><dt>안내된 운영 규모</dt><dd>${closed?'게시 당시 접수 완료':capacityLabel(s,status)}</dd><dt>과정</dt><dd>${f.programs.filter(p=>s.schoolLevels.includes(p.schoolLevel)).map(p=>`${GRADES[p.schoolLevel]} · ${esc(p.name)}`).join('<br>')}</dd></dl>${v.stay==='당일형'?`<p class="day-visit-note">이전에 담은 당일형 일정과 메모입니다. ${DAY_VISIT_NOTICE}</p>`:''}${noticeFor(s)}${consultNotice()}${phone(f)}<label class="memo-label">학교 메모 <span class="muted">(개인정보 제외)</span><textarea data-note="${esc(v.key)}" rows="3" maxlength="1000" placeholder="예: 5학년 후보 / 인솔자 포함 120명">${esc(v.note)}</textarea></label><button class="with-icon" data-detail="${s.code}" data-saved-choice="${esc(v.key)}">${icon('info')}<span>프로그램·일정 상세</span></button></article>`;
   }).join('')||`<div class="empty wide"><div class="empty-art" aria-hidden="true"><img src="${BRAND_ASSETS.hero}" alt="" width="150" height="100" loading="lazy" decoding="async"></div><h3>마음에 드는 일정을 담아보세요</h3><p>일정 상세에서 관심 일정에 담으면 이곳에서 비교할 수 있습니다.</p><button class="with-icon" data-back>${icon('search')}<span>일정 찾기</span></button></div>`}</div></section>`;}
 function dialogPrograms(slot){
   const order=['elementary','middle','high'];
@@ -233,12 +229,12 @@ function openSlot(code,preserve=false,initialChoice=null){
   const saveFeedback='<p id="save-feedback" class="save-feedback" role="status" aria-live="polite"></p>';
   dialog.classList.add('facility-theme');dialog.setAttribute('style',themeStyle(f));dialog.dataset.facility=f.id;
   dialog.innerHTML=`<div class="dialog-header"><div class="dialog-heading"><div class="dialog-topline"><span class="dialog-favorite"></span><span class="eyebrow">${f.location} · ${s.code}</span></div><h2 id="dialog-title" class="heading-with-icon facility-title">${icon(FACILITY_ICONS[f.id])}<span>${facilityNameMarkup(f)}</span></h2></div><button data-close aria-label="상세 닫기">${icon('x')}</button></div>
-  <div id="detail-scroll" class="detail-scroll"><section class="detail-summary" aria-label="일정 요약"><dl><div class="detail-period"><dt>운영 가능 기간</dt><dd>${rangeLabel(s.startDate,s.endDate)}<span>${stayLabel(s)}</span></dd></div><div><dt>대상</dt><dd>${gradeText(s)}</dd></div><div><dt>운영 가능 규모 <small>(인솔자 포함)</small></dt><dd>${closed?'접수 완료':capacityLabel(s,status)}</dd></div></dl><div class="detail-summary-actions"><p class="detail-consult">${CONSULT_NOTICE}</p>${programDownload(f)}</div></section>
-  ${!statusOK?'<p class="warning">현재 신청 가능 여부를 확인할 수 없습니다. 전화로 확인해 주세요.</p>':closed?'<p class="warning">접수 완료된 일정입니다.</p>':noOvernight?'<p class="warning">현재 숙박형으로 연속 운영 가능한 날짜가 없습니다. 다른 기간을 선택하거나 시설에 문의해 주세요.</p>':''}
+  <div id="detail-scroll" class="detail-scroll"><section class="detail-summary" aria-label="일정 요약"><dl><div class="detail-period"><dt>안내된 운영 기간</dt><dd>${rangeLabel(s.startDate,s.endDate)}<span>${stayLabel(s)}</span></dd></div><div><dt>대상</dt><dd>${gradeText(s)}</dd></div><div><dt>안내된 운영 규모 <small>(인솔자 포함)</small></dt><dd>${closed?'게시 당시 접수 완료':capacityLabel(s,status)}</dd></div></dl><div class="detail-summary-actions"><p class="detail-consult">${CONSULT_NOTICE}</p>${programDownload(f)}</div></section>
+  ${!statusOK?'<p class="warning">현재 신청 가능 여부를 확인할 수 없습니다. 전화로 확인해 주세요.</p>':closed?'<p class="warning">게시 당시 접수 완료로 안내된 일정입니다. 현재 예약 가능 여부는 시설에 전화로 확인해 주세요.</p>':noOvernight?'<p class="warning">게시된 안내에는 숙박형으로 연속 운영 가능한 날짜가 없습니다. 다른 기간을 선택하거나 시설에 문의해 주세요.</p>':''}
   <div class="detail-layout"><section class="detail-courses" aria-label="교급별 과정 안내"><h3 class="program-section-title heading-with-icon">${icon('book')}<span>교급별 과정 안내</span></h3><div class="course-tabs" role="group" aria-label="살펴볼 학교급">${programs.map(p=>`<button id="course-${p.id}" data-course="${p.id}" aria-pressed="${p.id===dialogCourseId}" aria-controls="dialog-course">${GRADES[p.schoolLevel]}</button>`).join('')}</div><div id="dialog-course">${current?programMarkup(current):'<p>과정은 시설에 문의해 주세요.</p>'}</div></section>
   <aside class="detail-aside" aria-label="일정 이용 안내"><details id="booking-panel" class="practical-guide" data-disclosure="booking" ${innerWidth>=900?'open':''}><summary>${icon(fixed?'info':'calendar')}<span>${fixed?'식사·이용 안내':'희망 날짜 선택·이용 안내'}</span></summary><div class="practical-body">
   ${!fixed?`<section class="date-picker"><h4>관심 일정에 담을 날짜</h4><p class="small-note">기간 안에서 희망 입소일을 고르세요. 실제 운영일은 전화로 확정해 주세요.</p><div class="filters"><label>운영 형태<select id="pick-stay">${stays.map(t=>option(t,t,defaultStay)).join('')}</select></label><label>희망 입소일<input id="pick-date" type="date" min="${s.startDate}" max="${s.endDate}" value="${esc(previous?.date||initialChoice?.start||s.startDate)}"></label></div><div id="pick-result"></div>${saveButton}${saveFeedback}</section>`:''}
-  <p class="booking-notice">예약신청은 국립시설별 전화 선착순입니다. 마감된 일정이 있을 수 있으니 신청 전 시설에 전화로 확인해 주세요.</p>${noticeFor(s)}${mealMarkup(f)}<div class="adaptation-note"><span class="guide-label">숙박 형태에 따른 운영 안내</span><p>${esc(catalog.notice)}</p></div></div></details></aside></div></div>
+  <p class="booking-notice">예약신청은 국립시설별 전화 선착순입니다. 현재 예약 가능 여부와 잔여 인원은 시설에 전화로 확인해 주세요.</p>${noticeFor(s)}${mealMarkup(f)}<div class="adaptation-note"><span class="guide-label">숙박 형태에 따른 운영 안내</span><p>${esc(catalog.notice)}</p></div></div></details></aside></div></div>
   <div class="dialog-footer"><div class="dialog-actions">${phone(f)}${fixed?saveButton:`<button class="with-icon" data-pick-dates>${icon('heart')}<span>날짜 선택·<wbr>관심 관리</span></button>`}</div>${fixed?saveFeedback:''}<div class="footer-note"><span>관심 일정 담기는 예약이 아닙니다.</span><button class="saved-shortcut" data-open-saved>관심 일정·비교로 이동 →</button></div><p class="save-guidance sr-only" id="save-guidance">${SAVE_GUIDANCE}</p></div>`;
   if(!fixed){if(initialChoice&&!previous)$('#pick-date').value=initialChoice.start;if(!previous&&!initialChoice){const stay=$('#pick-stay').value,run=searchRuns(s,status,stay).find(r=>covered(selected,[r]))||searchRuns(s,status,stay)[0];if(run){const last=epoch(run.end)-(STAY_DAYS[stay]-1)*DAY;$('#pick-date').value=iso(Math.max(epoch(run.start),Math.min(epoch(selected),last)));}}updatePick();}else syncSaveState();
   if(!dialog.open)dialog.showModal();
@@ -279,7 +275,6 @@ document.addEventListener('click',e=>{
   if(b.hasAttribute('data-close'))$('#detail').close();
   if(b.id==='save-slot')toggleCurrentFavorite();
   if(b.dataset.remove){saved=saved.filter(v=>v.key!==b.dataset.remove);persist();render();toast('관심 일정에서 삭제했습니다.');}
-  if(b.id==='refresh')refreshStatus(true);
 });
 document.addEventListener('change',e=>{
   const el=e.target;
@@ -291,9 +286,6 @@ document.addEventListener('submit',e=>{if(e.target.id==='search-form'){e.prevent
 document.addEventListener('input',e=>{if(e.target.id==='people')updateDraft('people',e.target.value);if(e.target.dataset.note){const v=saved.find(v=>v.key===e.target.dataset.note);if(v){v.note=e.target.value;persist();}}});
 $('#detail').addEventListener('close',()=>{dialogSlot=null;});
 window.addEventListener('storage',e=>{if(e.key===STORAGE){try{const next=JSON.parse(e.newValue||'[]');if(Array.isArray(next)){saved=next.filter(v=>v&&catalog?.byCode.has(v.code)&&typeof v.key==='string'&&validDate(v.start,2027)&&validDate(v.end,2027)).map(v=>({...v,note:String(v.note??'').slice(0,1000)}));render();if(dialogSlot)syncSaveState();}}catch{}}});
-// No service worker. Re-fetch the tiny status file on return and every five visible minutes.
-function onReturn(){if(document.visibilityState==='visible'&&Date.now()-lastRefresh>60000)refreshStatus();}
-document.addEventListener('visibilitychange',onReturn);window.addEventListener('pageshow',onReturn);
-setInterval(()=>{if(document.visibilityState==='visible')refreshStatus();},300000);
+// The guide is archived. Read the published snapshot once; do not poll for updates.
 try{const response=await fetch('./data/national-youth-facilities-2027.json',{cache:'no-cache'});if(!response.ok)throw Error(`HTTP ${response.status}`);catalog=catalogFrom(await response.json());await refreshStatus();}
 catch(error){console.error(error);$('#main').innerHTML='<div class="empty"><h2>기본 일정 파일을 불러오지 못했습니다.</h2><p>잠시 후 페이지를 새로고침해 주세요. 운영자는 data 폴더가 함께 업로드되었는지 확인해 주세요.</p></div>';$('#asof').textContent='일정 정보 확인 불가';}

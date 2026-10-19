@@ -10,6 +10,10 @@
     {
       "title": "2027년 국립청소년시설 학교단체 프로그램 안내(수정본)",
       "role": "교급별 과정·2박3일 시간표·활동·인증·식사"
+    },
+    {
+      "title": "2026-10-20 생태센터 추가 일정 사용자 확인",
+      "role": "2027-04-12~04-14 및 2027-04-19~04-21, 초·중·고, 2박3일, 각 30~100명"
     }
   ],
   "businessRules": {
@@ -12182,6 +12186,76 @@
           "code": "E004"
         },
         {
+          "id": "ecology-2027-04-12-2027-04-14",
+          "type": "fixed_round",
+          "startDate": "2027-04-12",
+          "endDate": "2027-04-14",
+          "startWeekday": "월",
+          "endWeekday": "수",
+          "sourceWeekdays": {
+            "start": "월",
+            "end": "수"
+          },
+          "weekdayMismatch": false,
+          "allowedStayTypes": [
+            "2박3일"
+          ],
+          "schoolLevels": [
+            "elementary",
+            "middle",
+            "high"
+          ],
+          "capacity": {
+            "min": 30,
+            "max": 100,
+            "includesChaperones": true,
+            "interpretation": "range"
+          },
+          "sourcePage": null,
+          "sourceOrder": null,
+          "sourceNote": "2026-10-20 사용자 추가 요청: 생태센터 4월 일정, 각 30~100명. 대상 초·중·고 전체 확인.",
+          "reservationStatus": {
+            "state": "not_synced",
+            "updatedAt": null
+          },
+          "code": "E037"
+        },
+        {
+          "id": "ecology-2027-04-19-2027-04-21",
+          "type": "fixed_round",
+          "startDate": "2027-04-19",
+          "endDate": "2027-04-21",
+          "startWeekday": "월",
+          "endWeekday": "수",
+          "sourceWeekdays": {
+            "start": "월",
+            "end": "수"
+          },
+          "weekdayMismatch": false,
+          "allowedStayTypes": [
+            "2박3일"
+          ],
+          "schoolLevels": [
+            "elementary",
+            "middle",
+            "high"
+          ],
+          "capacity": {
+            "min": 30,
+            "max": 100,
+            "includesChaperones": true,
+            "interpretation": "range"
+          },
+          "sourcePage": null,
+          "sourceOrder": null,
+          "sourceNote": "2026-10-20 사용자 추가 요청: 생태센터 4월 일정, 각 30~100명. 대상 초·중·고 전체 확인.",
+          "reservationStatus": {
+            "state": "not_synced",
+            "updatedAt": null
+          },
+          "code": "E038"
+        },
+        {
           "id": "ecology-2027-04-26-2027-04-27",
           "type": "fixed_round",
           "startDate": "2027-04-26",
@@ -13306,7 +13380,7 @@
   "validation": {
     "facilityCount": 7,
     "programCount": 21,
-    "availabilityCount": 203,
+    "availabilityCount": 205,
     "availabilityCountByFacility": {
       "central": 15,
       "pyeongchang": 5,
@@ -13314,7 +13388,7 @@
       "bio": 35,
       "marine": 39,
       "future": 32,
-      "ecology": 35
+      "ecology": 37
     },
     "weekdayMismatches": []
   },
