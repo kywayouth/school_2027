@@ -1,14 +1,14 @@
-import {setupI18n} from './i18n.mjs?v=78e9f70cf0822503';
-import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=78e9f70cf0822503';
-import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=78e9f70cf0822503';
-import {icon,FACILITY_ICONS} from './icons.mjs?v=78e9f70cf0822503';
-import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=78e9f70cf0822503';
-import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=78e9f70cf0822503';
-import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=78e9f70cf0822503';
-import {PROGRAM_PHOTOS} from './program-photos.mjs?v=78e9f70cf0822503';
-import {setupPartnershipViewer} from './image-viewer.mjs?v=78e9f70cf0822503';
-import {setupPhotoViewer} from './photo-viewer.mjs?v=78e9f70cf0822503';
-import {feesMarkup,setupFeesViewer} from './fees.mjs?v=78e9f70cf0822503';
+import {setupI18n} from './i18n.mjs?v=ffeaf8eb51900e8d';
+import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=ffeaf8eb51900e8d';
+import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=ffeaf8eb51900e8d';
+import {icon,FACILITY_ICONS} from './icons.mjs?v=ffeaf8eb51900e8d';
+import {timetableCellMarkup,timetableDurationLabel} from './timetable.mjs?v=ffeaf8eb51900e8d';
+import {BRAND_ASSETS,FACILITY_BRAND} from './brand.mjs?v=ffeaf8eb51900e8d';
+import {PROGRAM_OVERVIEWS,OVERVIEW_SOURCE_NOTE} from './program-overviews.mjs?v=ffeaf8eb51900e8d';
+import {PROGRAM_PHOTOS} from './program-photos.mjs?v=ffeaf8eb51900e8d';
+import {setupPartnershipViewer} from './image-viewer.mjs?v=ffeaf8eb51900e8d';
+import {setupPhotoViewer} from './photo-viewer.mjs?v=ffeaf8eb51900e8d';
+import {feesMarkup,setupFeesViewer} from './fees.mjs?v=ffeaf8eb51900e8d';
 
 // Static shell icons use the same embedded drawings as dynamically rendered views.
 document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=icon(el.dataset.icon);});
@@ -41,7 +41,7 @@ function phone(f){return `<a class="phone" href="tel:${esc(f.reservationPhone)}"
 function programDownload(f){return `<a class="with-icon program-download" href="./assets/programs/${esc(f.id)}-2027.pdf" download="2027_${esc(f.short)}_프로그램안내.pdf">${icon('download')}<span>프로그램 안내 PDF 다운로드</span></a>`;}
 function noticeFor(slot){return slot.facilityId==='pyeongchang'?'<p class="small-note">초등학교는 150명 미만으로 운영합니다. 100명 미만(교사 포함) 학교는 제시된 날짜 외에도 운영할 수 있습니다. 가능한 날짜는 시설에 전화로 문의해 주세요.</p>':slot.facilityId==='future'?'<p class="small-note">안내된 운영 규모 30~150명(인솔자 포함). 30명 이하 또는 150명 이상은 신청 전에 시설과 협의해 주세요.</p>':'';}
 function refreshHeader(){
-  if(status.asOf){const d=new Date(status.asOf),parts=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',month:'numeric',day:'numeric',hour:'numeric',minute:'2-digit',hourCycle:'h23'}).formatToParts(d),get=t=>Number(parts.find(p=>p.type===t)?.value);$('#asof').textContent=`${get('month')}월 ${get('day')}일 ${get('hour')}시${get('minute')?` ${get('minute')}분`:''} 기준`;
+  if(status.asOf){const d=new Date(status.asOf),parts=new Intl.DateTimeFormat('ko-KR',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(d),get=t=>parts.find(p=>p.type===t)?.value;$('#asof').textContent=`${get('year')}.${get('month')}.${get('day')}. ${get('hour')}:${get('minute')}`;
   }else{$('#asof').textContent='기준 시각 확인 필요';}
   $('#notice').innerHTML=statusError?`<p class="warning">${esc(statusError)} 현재 신청 가능 여부는 전화로 확인해 주세요.</p>`:status.errors.length?'<p class="warning">일부 게시 정보를 확인하지 못했습니다. 표시된 일정도 신청 전 반드시 전화로 확인해 주세요.</p>':'';
 }

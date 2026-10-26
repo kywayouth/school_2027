@@ -1,5 +1,5 @@
-import {UI_EN} from './i18n-ui.mjs?v=78e9f70cf0822503';
-import {PROGRAM_EN} from './i18n-programs.mjs?v=78e9f70cf0822503';
+import {UI_EN} from './i18n-ui.mjs?v=ffeaf8eb51900e8d';
+import {PROGRAM_EN} from './i18n-programs.mjs?v=ffeaf8eb51900e8d';
 
 // Presentation only: catalogue identifiers, status commands, form values and
 // saved choices remain in their original format in either language.
@@ -44,6 +44,7 @@ function dynamicEnglish(text){
 
 function generatedEnglish(text){
   let match;
+  if((match=text.match(/^(\d{4})\.(\d{2})\.(\d{2})\. (\d{2}):(\d{2})$/)))return `${monthName(match[2])} ${Number(match[3])}, ${match[1]}, ${match[4]}:${match[5]} KST`;
   if((match=text.match(/^(\d{1,2})월 (\d{1,2})일 (\d{1,2})시(?: (\d{1,2})분)? 기준$/)))return `As of ${monthName(match[1])} ${match[2]}, ${match[3].padStart(2,'0')}:${(match[4]||'0').padStart(2,'0')} KST`;
   if((match=text.match(/^(\d+)월에는 조건에 맞는 일정이 없어 가장 가까운 (\d+)월로 이동했어요\.$/)))return `No matching dates in ${monthName(match[1])}. Showing the nearest month with listed dates, ${monthName(match[2])}.`;
   if((match=text.match(/^(\d+)월에는 조건에 맞는 일정이 없습니다\.$/)))return `No dates match your filters in ${monthName(match[1])}.`;
