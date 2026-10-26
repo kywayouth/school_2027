@@ -1,4 +1,4 @@
-import {UI_EN} from './i18n-ui.mjs?v=ffeaf8eb51900e8d';
+import {UI_EN} from './i18n-ui.mjs?v=84e7314da7d27376';
 import {PROGRAM_EN} from './i18n-programs.mjs?v=ffeaf8eb51900e8d';
 
 // Presentation only: catalogue identifiers, status commands, form values and

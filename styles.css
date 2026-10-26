@@ -34,6 +34,7 @@ img{max-width:100%}
 .brand{display:flex;align-items:center;flex:none;color:var(--ink);text-decoration:none;padding:8px 0}
 .brand-logo{display:block;width:300px;height:auto;object-fit:contain}
 .brand-service{min-width:0;max-width:390px;text-align:right;font-size:17px;line-height:1.6;font-weight:700;word-break:keep-all}
+@media(min-width:760px){.brand-service{margin-left:auto}}
 .brand-service b{color:#B70B39}
 .brand-service small{display:block;margin-top:4px;color:var(--muted);font-size:12px;font-weight:400}
 .intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,460px);align-items:center;gap:38px;padding:4px 2px 22px}

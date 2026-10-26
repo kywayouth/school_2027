@@ -1,4 +1,4 @@
-import {setupI18n} from './i18n.mjs?v=ffeaf8eb51900e8d';
+import {setupI18n} from './i18n.mjs?v=84e7314da7d27376';
 import {catalogFrom,parseStatus,emptyStatus,GRADES,STAY_DAYS,DAY,epoch,iso,dateLabel,rangeLabel,capacityLabel,availableRuns,covered,isSavedClosed,validDate,nearestMonth} from './domain.mjs?v=ffeaf8eb51900e8d';
 import {SEARCH_STAYS,DAY_VISIT_NOTICE,displayedStayTypes,searchRuns,searchMatches,searchMonths,favoriteKey,hasSavedChoice,hasSavedSlot} from './teacher-view.mjs?v=ffeaf8eb51900e8d';
 import {icon,FACILITY_ICONS} from './icons.mjs?v=ffeaf8eb51900e8d';
